@@ -51,6 +51,7 @@
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserver.cs" />
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserverBehaviour.cs" />
      <Compile Include="Assets\Generated\ComponentIds.cs" />
+     <Compile Include="Assets\Generated\InputComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Pools.cs" />
      <Compile Include="Assets\Generated\PositionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\DontGenerateAttribute.cs" />
@@ -92,8 +93,11 @@
      <Compile Include="Assets\Libraries\Entitas\ReactiveSystem.cs" />
      <Compile Include="Assets\Libraries\Entitas\Systems.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\PositionComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputDestructionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Res.cs" />
      <Compile Include="Assets\Platformer2D\Code\Scripts\gameController.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Scripts\inputController.cs" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black1x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_black2x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\license.txt" />
