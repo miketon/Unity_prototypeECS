@@ -10,6 +10,15 @@ public class AddViewSystem : IReactiveSystem {
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
 		Debug.LogFormat("Add View : {0} ", entities);
+		foreach (var e in entities) {
+			var res = Resources.Load<GameObject>(e.resource.name);
+			GameObject viewObject = null;
+			try {
+				viewObject = UnityEngine.Object.Instantiate(res);// as GameObject;
+			} catch (System.Exception) {
+				Debug.LogFormat("Can not instantiate : {0} ", res);
+			}
+		}
 	}
 
 	public TriggerOnEvent trigger {
