@@ -22,13 +22,6 @@ public class gameController : MonoBehaviour {
 	}
 
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.Space)){
-			_e.ReplacePosition(0.0f, 0.0f, 0.0f);
-		}
-		else if(Input.GetKeyUp(KeyCode.Space)){
-			_e.ReplacePosition(1.0f, 1.0f, 1.0f);
-		}
-
 		_systems.Execute();
 	}
 
@@ -44,6 +37,7 @@ public class gameController : MonoBehaviour {
 
 		// Update
 		.Add(pool.CreateSystem<LevelSystem>())
+		.Add(pool.CreateSystem<UpdatePosHSystem>())
 
 		// Render
 		.Add(pool.CreateSystem<AddViewSystem>());

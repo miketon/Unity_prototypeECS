@@ -19,7 +19,7 @@ public class InputPressSystem : IReactiveSystem, ISetPool {
 		}
 		else{
 			_pressed = true;
-			Debug.LogFormat(this + " : Input Pressed : {0} ", entities.SingleEntity())	;
+//			Debug.LogFormat(this + " : Input Pressed : {0} ", entities.SingleEntity())	;
 		}
 		_pool.DestroyEntity(inputEntity)          ; // destroy  input object
 	}

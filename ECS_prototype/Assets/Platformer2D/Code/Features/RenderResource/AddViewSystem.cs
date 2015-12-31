@@ -18,6 +18,16 @@ public class AddViewSystem : IReactiveSystem {
 			} catch (System.Exception) {
 				Debug.LogFormat("Can not instantiate : {0} ", res);
 			}
+			// parent to view container
+			if(viewObject != null){
+				viewObject.transform.SetParent(_viewContainer, false);
+				e.AddView(viewObject);
+
+				if(e.hasPosition){
+					var pos = e.position;
+					viewObject.transform.position = new Vector3(pos.x, pos.y, pos.z);
+				}
+			}
 		}
 	}
 
