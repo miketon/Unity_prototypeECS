@@ -26,7 +26,6 @@ public class gameController : MonoBehaviour {
 			_e.ReplacePosition(0.0f, 0.0f, 0.0f);
 		}
 		else if(Input.GetKeyUp(KeyCode.Space)){
-			Debug.LogFormat("Key Released : {0} ", KeyCode.Space)	;
 			_e.ReplacePosition(1.0f, 1.0f, 1.0f);
 		}
 

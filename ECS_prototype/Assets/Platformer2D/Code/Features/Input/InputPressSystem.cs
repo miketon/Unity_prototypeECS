@@ -6,18 +6,27 @@ using Entitas;
 public class InputPressSystem : IReactiveSystem, ISetPool {
 	
 	private Pool _pool;
+	private bool _pressed = false;
 
 	#region IReactiveExecuteSystem implementation
 
 	public void Execute (List<Entity> entities){
-		Debug.LogFormat("Key Pressed : {0} ", KeyCode.Space)	;
+		
 		var inputEntity = entities.SingleEntity() ;
+		if(inputEntity.inputPress.bRelease){
+			_pressed = false;
+			Debug.LogFormat(this + " : Input Released : {0} ", entities.SingleEntity())	;
+		}
+		else{
+			_pressed = true;
+			Debug.LogFormat(this + " : Input Pressed : {0} ", entities.SingleEntity())	;
+		}
 		_pool.DestroyEntity(inputEntity)          ; // destroy  input object
 	}
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.Input.OnEntityAdded();
+			return Matcher.InputPress.OnEntityAdded();
 		}
 	}
 
