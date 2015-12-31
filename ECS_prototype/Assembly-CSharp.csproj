@@ -52,6 +52,7 @@
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserverBehaviour.cs" />
      <Compile Include="Assets\Generated\AddViewSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ComponentIds.cs" />
+     <Compile Include="Assets\Generated\GravityGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\InputPressComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\InputPressSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\InputReleaseComponentGeneratedExtension.cs" />
@@ -112,6 +113,9 @@
      <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\AddViewSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\ResourceComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\ViewComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\Physics\Acceleration.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\Physics\Gravity.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\Physics\Velocity.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\Position\UpdatePosHSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Res.cs" />
      <Compile Include="Assets\Platformer2D\Code\Scripts\gameController.cs" />
