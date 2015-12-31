@@ -40,7 +40,13 @@ public class gameController : MonoBehaviour {
 		#endif	
 
 		// Input
-		.Add(pool.CreateSystem<InputPressSystem>());
+		.Add(pool.CreateSystem<InputPressSystem>())
+
+		// Update
+		.Add(pool.CreateSystem<LevelSystem>())
+
+		// Render
+		.Add(pool.CreateSystem<AddViewSystem>());
 		
 	}
 	
