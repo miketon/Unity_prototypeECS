@@ -38,6 +38,7 @@ public class gameController : MonoBehaviour {
 		// Update
 		.Add(pool.CreateSystem<LevelSystem>())
 		.Add(pool.CreateSystem<UpdatePosHSystem>())
+		.Add(pool.CreateSystem<MoveSystem>())
 
 		// Render
 		.Add(pool.CreateSystem<AddViewSystem>());

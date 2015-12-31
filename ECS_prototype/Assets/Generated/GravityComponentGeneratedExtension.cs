@@ -1,6 +1,6 @@
 namespace Entitas {
     public partial class Entity {
-        static readonly Gravity gravityComponent = new Gravity();
+        static readonly GravityComponent gravityComponent = new GravityComponent();
 
         public bool isGravity {
             get { return HasComponent(ComponentIds.Gravity); }
