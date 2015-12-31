@@ -94,7 +94,7 @@
      <Compile Include="Assets\Libraries\Entitas\Systems.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Input\InputComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputDestructionSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputPressSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Res.cs" />
      <Compile Include="Assets\Platformer2D\Code\Scripts\gameController.cs" />
      <Compile Include="Assets\Platformer2D\Code\Scripts\inputController.cs" />
