@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{BE4CB828-B5FF-F149-7F02-0F5468C6D272}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_1;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Entitas.Unity.VisualDebugging\DebugSystems\DebugSystems.cs" />
+     <Compile Include="Assets\Entitas.Unity.VisualDebugging\DebugSystems\DebugSystemsBehaviour.cs" />
+     <Compile Include="Assets\Entitas.Unity.VisualDebugging\Entity\EntityBehaviour.cs" />
+     <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserver.cs" />
+     <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserverBehaviour.cs" />
+     <Compile Include="Assets\Generated\AddViewSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\ComponentIds.cs" />
+     <Compile Include="Assets\Generated\InputPressComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\InputPressSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\InputReleaseComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\InputReleaseSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\LevelSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\PlayerComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\Pools.cs" />
+     <Compile Include="Assets\Generated\PositionComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\ResourceComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\UpdatePosHSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\ViewComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\DontGenerateAttribute.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\PoolAttribute.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\SingleEntityAttribute.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\CodeGenFile.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\CodeGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Generators\ComponentExtensionsGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Generators\IndicesLookupGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Generators\PoolAttributeGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Generators\PoolsGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Generators\SystemExtensionsGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Generators\TypeGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\ICodeGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\IComponentCodeGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\IPoolCodeGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.CodeGenerator\ISystemCodeGenerator.cs" />
+     <Compile Include="Assets\Libraries\Entitas.Unity\Properties.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Entity.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Extensions\CollectionExtension.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Extensions\GroupExtension.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Extensions\IMatcherExtension.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Extensions\PoolExtension.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Group.cs" />
+     <Compile Include="Assets\Libraries\Entitas\GroupObserver.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Interfaces\IComponent.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Interfaces\IExecuteSystem.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Interfaces\IInitializeSystem.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Interfaces\IMatcher.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Interfaces\IReactiveSystem.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Interfaces\ISystem.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Matcher\Matcher.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Matcher\MatcherEquals.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Matcher\MatcherInterfaces.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Matcher\MatcherStatic.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Matcher\MatcherToString.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Matcher\TriggerOnEvent.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Pool.cs" />
+     <Compile Include="Assets\Libraries\Entitas\ReactiveSystem.cs" />
+     <Compile Include="Assets\Libraries\Entitas\Systems.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Extensions\PoolExtensions.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Components\PositionComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputPressComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputPressSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputReleaseComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputReleaseSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Level\LevelSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Player\PlayerComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\AddViewSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\ResourceComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\ViewComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\Position\UpdatePosHSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Res.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Scripts\gameController.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Scripts\inputController.cs" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black1x.xml" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_black2x.xml" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\license.txt" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_white2x.xml" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_white1x.xml" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\license.txt" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black2x.xml" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_white2x.xml" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_white1x.xml" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_colored1x.xml" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_black1x.xml" />
+     <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_colored2x.xml" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
