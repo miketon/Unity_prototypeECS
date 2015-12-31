@@ -12,9 +12,6 @@ public class UpdatePosHSystem : IReactiveSystem, ISetPool {
 	public void Execute (List<Entity> entities){
 		var inputEntity = entities.SingleEntity() ;
 	    Debug.LogFormat(" UpdatePosHSystem : {0} {1}", inputEntity, this);
-//		foreach (var e in entities) {
-//			Debug.LogFormat(" UpdatePosHSystem : {0} {1}", e, this);
-//		}
 	}
 
 	public TriggerOnEvent trigger {

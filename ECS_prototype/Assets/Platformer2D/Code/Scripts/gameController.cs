@@ -16,7 +16,7 @@ public class gameController : MonoBehaviour {
 		_e = pool.CreateEntity();
 		_e.AddPosition(0.0f, 3.0f, 1.9f);
 
-		_systems = createSystems(Pools.pool);
+		_systems = createSystems(pool);
 		_systems.Initialize();
 
 	}

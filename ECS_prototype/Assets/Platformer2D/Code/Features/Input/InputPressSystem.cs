@@ -9,7 +9,6 @@ public class InputPressSystem : IReactiveSystem, ISetPool {
 	private bool _pressed = false;
 
 	#region IReactiveExecuteSystem implementation
-
 	public void Execute (List<Entity> entities){
 		
 		var inputEntity = entities.SingleEntity() ;
@@ -21,7 +20,9 @@ public class InputPressSystem : IReactiveSystem, ISetPool {
 			_pressed = true;
 //			Debug.LogFormat(this + " : Input Pressed : {0} ", entities.SingleEntity())	;
 		}
-		_pool.DestroyEntity(inputEntity)          ; // destroy  input object
+		if(inputEntity!=null){
+		  _pool.DestroyEntity(inputEntity)          ; // destroy  input object
+		}
 	}
 
 	public TriggerOnEvent trigger {
@@ -29,15 +30,12 @@ public class InputPressSystem : IReactiveSystem, ISetPool {
 			return Matcher.InputPress.OnEntityAdded();
 		}
 	}
-
 	#endregion
 
 	
 	#region ISetPool implementation
-
 	public void SetPool (Pool pool){
 		_pool = pool;
 	}
-
 	#endregion
 }
