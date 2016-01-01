@@ -3,8 +3,8 @@ using Entitas;
 
 public class LevelSystem : IInitializeSystem, ISetPool, IReactiveSystem {
 
+	public static Entity player;
 	private Pool _pool;
-	private Group _playerElements;
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (System.Collections.Generic.List<Entity> entities){
@@ -23,14 +23,13 @@ public class LevelSystem : IInitializeSystem, ISetPool, IReactiveSystem {
 	#region IInitializeSystem implementation
 	public void Initialize (){
 		Debug.LogFormat("Initializing Level : {0} ", this);
-		_pool.spawnPlayer(Vector3.zero);
+		player = _pool.spawnPlayer(Vector3.zero);
 	}
 	#endregion
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
 		_pool = pool;
-		_playerElements = _pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.GameObject));
 	}
 	#endregion
 

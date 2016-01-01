@@ -5,17 +5,23 @@ using Entitas;
 
 public class IO_ForceSystem : IReactiveSystem, ISetPool {
 
-	private Pool _pool;
+	private Pool  _pool;
 	private Group _group;
+	private float _speed;
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
 		var hPos = entities.SingleEntity().iOGamePad.hAxis;
-		Debug.LogFormat(" UpdatePosHSystem : {0} ", hPos);
 		foreach (var e in _group.GetEntities()) {
 			var pos   = e.position;
-//			e.ReplaceForce(hPos);
-			e.ReplacePosition(pos.x + hPos, pos.y, pos.z);
+			_speed   += e.force.speed * hPos * Time.deltaTime;
+			e.ReplacePosition(pos.x + _speed, pos.y, pos.z);
+//			Debug.LogFormat(" UpdatePosHSystem : {0} ", _speed);
+		}
+		var ioRelease = entities.SingleEntity().iOGamePad.bNeutral;
+		if(ioRelease){
+			_speed = 0.0f;
+			Debug.LogFormat("IO_ForceSystem : Neutral : {0}", ioRelease);
 		}
 	}
 
