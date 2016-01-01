@@ -9,12 +9,24 @@ public class IO_OnReleaseSystem : IReactiveSystem, ISetPool {
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
-		throw new System.NotImplementedException ();
+		var ioRelease = entities.SingleEntity().iORelease;
+		foreach (var e in _group.GetEntities()) {
+			if(ioRelease.bDIRPAD || ioRelease.bALLPAD){
+				Debug.LogFormat("IO_ForceSystem : Neutral : bDIRPAD {0}", ioRelease);
+//				e.force.speed = 0.0f;
+//				e.ReplaceForce(0.1f, 0.0f, 1.0f, 1.0f);
+			}
+			else if(ioRelease.bBUTTON){
+				e.force.speed = 0.0f;
+				Debug.LogFormat("IO_ForceSystem : Neutral : bBUTTON {0} speed : {1}", ioRelease.bBUTTON, e.force.speed);
+			}
+		}
+
 	}
 
 	public TriggerOnEvent trigger {
 		get {
-			throw new System.NotImplementedException ();
+			return Matcher.IORelease.OnEntityAdded();
 		}
 	}
 	#endregion
