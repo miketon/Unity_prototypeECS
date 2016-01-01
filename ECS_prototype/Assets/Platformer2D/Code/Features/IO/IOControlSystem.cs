@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class InputPressSystem : IReactiveSystem, ISetPool {
+public class IOControlSystem : IReactiveSystem, ISetPool {
 	
 	private Pool _pool;
 	private bool _pressed = false;
@@ -12,7 +12,7 @@ public class InputPressSystem : IReactiveSystem, ISetPool {
 	public void Execute (List<Entity> entities){
 		
 		var inputEntity = entities.SingleEntity() ;
-		if(inputEntity.inputButton.bNeutral){
+		if(inputEntity.iOGamePad.bNeutral){
 			_pressed = true;
 //			Debug.LogFormat(this + " : Input Pressed : {0} ", entities.SingleEntity())	;
 		}
@@ -25,7 +25,7 @@ public class InputPressSystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.InputButton.OnEntityAdded();
+			return Matcher.IOGamePad.OnEntityAdded();
 //			return _pool.GetGroup(Matcher.AnyOf(Matcher.InputPress)).OnEntityAdded();
 		}
 	}

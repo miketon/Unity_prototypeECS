@@ -11,6 +11,7 @@ public static class PoolExtensions {
 		return pool.CreateEntity()
 			.IsGameObject(true)
 			.IsPlayer(true)
+			.IsIOControl(true)
 			.AddResource(_players[0])
 			.AddPosition(pos.x, pos.y, pos.z)
 			.AddVelocity(0.0f, 1.0f);

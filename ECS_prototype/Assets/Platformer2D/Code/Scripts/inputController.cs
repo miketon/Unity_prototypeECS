@@ -20,11 +20,11 @@ public class inputController : MonoBehaviour {
 		var _bJump = Input.GetKey(bJump);
 		if((Mathf.Abs(_axisM) > Mathf.Epsilon) || _bFire || _bJump){
 			bPressed = true; // Pressing buttons
-	        Pools.pool.CreateEntity().AddInputButton(_hAxis, _vAxis, _bFire, _bJump, bPressed);
+			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump, bPressed);
 		}
 		else if(bPressed){
 			bPressed = false; // Releasing buttons
-	        Pools.pool.CreateEntity().AddInputButton(_hAxis, _vAxis, _bFire, _bJump, bPressed);
+			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump, bPressed);
 		}
 	}
 }
