@@ -56,9 +56,9 @@
      <Compile Include="Assets\Generated\GameObjectComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\GravityComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOControlComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\IOControlSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\IODestrolSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOGamePadComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\IONeutralComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\IOReleaseComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_ForceSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\LevelSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PlayerComponentGeneratedExtension.cs" />
@@ -111,9 +111,9 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GravityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOControlComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\IO\IOControlSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\IODestrolSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOGamePadComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\IO\IONeutralComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\IOReleaseComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IO_ForceSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Level\LevelSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Player\PlayerComponent.cs" />

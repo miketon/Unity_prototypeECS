@@ -4,7 +4,7 @@ public static class ComponentIds {
     public const int Gravity = 2;
     public const int IOControl = 3;
     public const int IOGamePad = 4;
-    public const int IONeutral = 5;
+    public const int IORelease = 5;
     public const int Player = 6;
     public const int Position = 7;
     public const int Resource = 8;
@@ -19,7 +19,7 @@ public static class ComponentIds {
         "Gravity",
         "IOControl",
         "IOGamePad",
-        "IONeutral",
+        "IORelease",
         "Player",
         "Position",
         "Resource",
@@ -33,7 +33,7 @@ public static class ComponentIds {
         typeof(GravityComponent),
         typeof(IOControlComponent),
         typeof(IOGamePadComponent),
-        typeof(IONeutralComponent),
+        typeof(IOReleaseComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(ResourceComponent),
