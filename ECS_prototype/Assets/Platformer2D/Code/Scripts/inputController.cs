@@ -3,22 +3,28 @@ using System.Collections;
 
 public class inputController : MonoBehaviour {
 
-	public KeyCode fire = KeyCode.LeftControl;
-	public KeyCode jump = KeyCode.Space;
+	public string hAxis = "Horizontal";
+	public string vAxis = "Vertical";
 
-	private bool bPress = false;
+	public KeyCode bFire = KeyCode.LeftControl;
+	public KeyCode bJump = KeyCode.Space;
+
+	private bool bPressed = false;
 
 	// Update is called once per frame
 	void Update () {
-		var bFire = Input.GetKey(fire);
-		var bJump = Input.GetKey(jump);
-		if(bFire || bJump){
-			Pools.pool.CreateEntity().AddInputPress(bFire, bJump, false);
-			bPress = true; // Pressing buttons
+		var _hAxis = Input.GetAxisRaw(hAxis);
+		var _vAxis = Input.GetAxisRaw(vAxis);
+		var _axisM = new Vector2(_hAxis, _vAxis).magnitude;
+		var _bFire = Input.GetKey(bFire);
+		var _bJump = Input.GetKey(bJump);
+		if((Mathf.Abs(_axisM) > Mathf.Epsilon) || _bFire || _bJump){
+			bPressed = true; // Pressing buttons
+			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump, bPressed);
 		}
-		else if(bPress){
-			Pools.pool.CreateEntity().AddInputPress(bFire, bJump, true);
-			bPress = false; // Releasing buttons
+		else if(bPressed){
+			bPressed = false; // Releasing buttons
+			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump, bPressed);
 		}
 	}
 }

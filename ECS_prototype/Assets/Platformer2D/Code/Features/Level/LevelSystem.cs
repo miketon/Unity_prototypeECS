@@ -15,7 +15,7 @@ public class LevelSystem : IInitializeSystem, ISetPool, IReactiveSystem {
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.Position.OnEntityAdded();
+			return Matcher.GameObject.OnEntityAdded();
 		}
 	}
 	#endregion
@@ -30,7 +30,7 @@ public class LevelSystem : IInitializeSystem, ISetPool, IReactiveSystem {
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
 		_pool = pool;
-		_playerElements = _pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.Position));
+		_playerElements = _pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.GameObject));
 	}
 	#endregion
 

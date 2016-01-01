@@ -16,7 +16,7 @@ public class gameController : MonoBehaviour {
 		_e = pool.CreateEntity();
 		_e.AddPosition(0.0f, 3.0f, 1.9f);
 
-		_systems = createSystems(Pools.pool);
+		_systems = createSystems(pool);
 		_systems.Initialize();
 
 	}
@@ -32,15 +32,17 @@ public class gameController : MonoBehaviour {
 		return new Systems()
 		#endif	
 
+		.Add(pool.CreateSystem<LevelSystem>())
 		// Input
-		.Add(pool.CreateSystem<InputPressSystem>())
+		.Add(pool.CreateSystem<IO_ForceSystem>())
+		.Add(pool.CreateSystem<IOControlSystem>())  //this destroys IO, and should be last
 
 		// Update
-		.Add(pool.CreateSystem<LevelSystem>())
-		.Add(pool.CreateSystem<UpdatePosHSystem>())
+//		.Add(pool.CreateSystem<MoveSystem>())
 
 		// Render
-		.Add(pool.CreateSystem<AddViewSystem>());
+		.Add(pool.CreateSystem<AddViewSystem>())
+		.Add(pool.CreateSystem<RenderPositionSystem>());
 		
 	}
 	

@@ -9,9 +9,13 @@ public static class PoolExtensions {
 
 	public static Entity spawnPlayer(this Pool pool, Vector3 pos){
 		return pool.CreateEntity()
+			.IsGameObject(true)
+			.IsPlayer(true)
+			.IsIOControl(true)
 			.AddResource(_players[0])
 			.AddPosition(pos.x, pos.y, pos.z)
-			.IsPlayer(true);
+			.AddVelocity(0.0f, 0.0f, 0.0f)
+			.AddForce(0.0f, 1.0f);
 	}
 
 }
