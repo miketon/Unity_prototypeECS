@@ -24,7 +24,7 @@ public class inputController : MonoBehaviour {
 		var _bPrss = _bFire || _bJump;
 		if( _bDirn || _bPrss){
 			bPAD = true; // Pressing buttons
-			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump, bPAD);
+			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
 			if(_bDirn==false){ // Dir Neutral
 				if(bPAD==false){
 					Pools.pool.CreateEntity().AddIORelease(false, true, false);
@@ -42,7 +42,7 @@ public class inputController : MonoBehaviour {
 			bPAD = false; // Releasing buttons
 			bDIR = false;
 			bBTN = false;
-			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump, bPAD); //Set GamePad to Neutral
+			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump); //Set GamePad to Neutral
 			Pools.pool.CreateEntity().AddIORelease(bPAD, bDIR, bBTN); // Set all Release Events
 		}
 	}

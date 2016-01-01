@@ -31,10 +31,12 @@ public class gameController : MonoBehaviour {
 		#else
 		return new Systems()
 		#endif	
-
+        // Init
 		.Add(pool.CreateSystem<LevelSystem>())
+
 		// Input
-		.Add(pool.CreateSystem<IO_ForceSystem>())
+		.Add(pool.CreateSystem<IO_OnPressSystem>())
+		.Add(pool.CreateSystem<IO_OnReleaseSystem>())
 
 		// Update
 //		.Add(pool.CreateSystem<MoveSystem>())
@@ -44,7 +46,7 @@ public class gameController : MonoBehaviour {
 		.Add(pool.CreateSystem<RenderPositionSystem>())
 
 		// Destroy
-		.Add(pool.CreateSystem<IODestrolSystem>()); //this destroys IO Entities
+		.Add(pool.CreateSystem<IO_OnDestroySystem>()); //this destroys IO Entities
 		
 	}
 	

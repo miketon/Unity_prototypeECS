@@ -5,5 +5,4 @@ public class IOGamePadComponent : IComponent {
 	public float vAxis;
 	public bool bFire;
 	public bool bJump;
-	public bool bNeutral;
 }

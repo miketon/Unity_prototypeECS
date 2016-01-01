@@ -12,24 +12,22 @@ namespace Entitas {
             _iOGamePadComponentPool.Clear();
         }
 
-        public Entity AddIOGamePad(float newHAxis, float newVAxis, bool newBFire, bool newBJump, bool newBNeutral) {
+        public Entity AddIOGamePad(float newHAxis, float newVAxis, bool newBFire, bool newBJump) {
             var component = _iOGamePadComponentPool.Count > 0 ? _iOGamePadComponentPool.Pop() : new IOGamePadComponent();
             component.hAxis = newHAxis;
             component.vAxis = newVAxis;
             component.bFire = newBFire;
             component.bJump = newBJump;
-            component.bNeutral = newBNeutral;
             return AddComponent(ComponentIds.IOGamePad, component);
         }
 
-        public Entity ReplaceIOGamePad(float newHAxis, float newVAxis, bool newBFire, bool newBJump, bool newBNeutral) {
+        public Entity ReplaceIOGamePad(float newHAxis, float newVAxis, bool newBFire, bool newBJump) {
             var previousComponent = hasIOGamePad ? iOGamePad : null;
             var component = _iOGamePadComponentPool.Count > 0 ? _iOGamePadComponentPool.Pop() : new IOGamePadComponent();
             component.hAxis = newHAxis;
             component.vAxis = newVAxis;
             component.bFire = newBFire;
             component.bJump = newBJump;
-            component.bNeutral = newBNeutral;
             ReplaceComponent(ComponentIds.IOGamePad, component);
             if (previousComponent != null) {
                 _iOGamePadComponentPool.Push(previousComponent);

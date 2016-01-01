@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class IODestrolSystem : IReactiveSystem, ISetPool {
+public class IO_OnDestroySystem : IReactiveSystem, ISetPool {
 
 	private Pool _pool;
 

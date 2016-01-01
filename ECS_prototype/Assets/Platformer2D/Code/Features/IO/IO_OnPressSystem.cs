@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class IO_ForceSystem : IReactiveSystem, ISetPool {
+public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 
 	private Pool  _pool;
 	private Group _group;
@@ -18,7 +18,7 @@ public class IO_ForceSystem : IReactiveSystem, ISetPool {
 			e.ReplacePosition(pos.x + _speed, pos.y, pos.z);
 //			Debug.LogFormat(" UpdatePosHSystem : {0} ", _speed);
 		}
-		var ioRelease = entities.SingleEntity().iOGamePad.bNeutral;
+		var ioRelease = true;// entities.SingleEntity().iOGamePad.bNeutral;
 		if(ioRelease){
 			_speed = 0.0f;
 			Debug.LogFormat("IO_ForceSystem : Neutral : {0}", ioRelease);
