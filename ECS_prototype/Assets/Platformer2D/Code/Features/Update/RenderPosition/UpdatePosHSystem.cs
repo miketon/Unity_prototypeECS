@@ -10,11 +10,8 @@ public class UpdatePosHSystem : IReactiveSystem, ISetPool {
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
-		var inputEntity = entities.SingleEntity() ;
-	    Debug.LogFormat(" UpdatePosHSystem : {0} {1}", inputEntity, this);
-//		foreach (var player in _playerElements.GetEntities()) {
-//			player.
-//		}
+		var hPos = entities.SingleEntity().iOGamePad.hAxis;
+		Debug.LogFormat(" UpdatePosHSystem : {0} ", hPos);
 	}
 
 	public TriggerOnEvent trigger {
@@ -24,14 +21,11 @@ public class UpdatePosHSystem : IReactiveSystem, ISetPool {
 	}
 	#endregion
 
-
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
 		_pool = pool;
-		_playerElements = _pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.Position));
+		_playerElements = _pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.Move));
 	}
 	#endregion
-
-
 
 }

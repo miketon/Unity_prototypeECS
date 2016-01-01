@@ -14,7 +14,8 @@ public static class PoolExtensions {
 			.IsIOControl(true)
 			.AddResource(_players[0])
 			.AddPosition(pos.x, pos.y, pos.z)
-			.AddVelocity(0.0f, 1.0f);
+			.AddVelocity(0.0f, 0.0f, 0.0f)
+			.AddMove(0.0f, 1.0f);
 	}
 
 }

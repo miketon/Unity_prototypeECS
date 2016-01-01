@@ -12,18 +12,20 @@ namespace Entitas {
             _velocityComponentPool.Clear();
         }
 
-        public Entity AddVelocity(float newSpeed, float newSpeedMax) {
+        public Entity AddVelocity(float newVx, float newVy, float newVz) {
             var component = _velocityComponentPool.Count > 0 ? _velocityComponentPool.Pop() : new VelocityComponent();
-            component.speed = newSpeed;
-            component.speedMax = newSpeedMax;
+            component.vx = newVx;
+            component.vy = newVy;
+            component.vz = newVz;
             return AddComponent(ComponentIds.Velocity, component);
         }
 
-        public Entity ReplaceVelocity(float newSpeed, float newSpeedMax) {
+        public Entity ReplaceVelocity(float newVx, float newVy, float newVz) {
             var previousComponent = hasVelocity ? velocity : null;
             var component = _velocityComponentPool.Count > 0 ? _velocityComponentPool.Pop() : new VelocityComponent();
-            component.speed = newSpeed;
-            component.speedMax = newSpeedMax;
+            component.vx = newVx;
+            component.vy = newVy;
+            component.vz = newVz;
             ReplaceComponent(ComponentIds.Velocity, component);
             if (previousComponent != null) {
                 _velocityComponentPool.Push(previousComponent);

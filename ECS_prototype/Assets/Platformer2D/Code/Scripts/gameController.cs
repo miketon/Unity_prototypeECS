@@ -32,12 +32,12 @@ public class gameController : MonoBehaviour {
 		return new Systems()
 		#endif	
 
+		.Add(pool.CreateSystem<LevelSystem>())
 		// Input
-		.Add(pool.CreateSystem<IOControlSystem>())
+		.Add(pool.CreateSystem<UpdatePosHSystem>())
+		.Add(pool.CreateSystem<IOControlSystem>())  //this destroys IO, and should be last
 
 		// Update
-		.Add(pool.CreateSystem<LevelSystem>())
-		.Add(pool.CreateSystem<UpdatePosHSystem>())
 		.Add(pool.CreateSystem<MoveSystem>())
 
 		// Render

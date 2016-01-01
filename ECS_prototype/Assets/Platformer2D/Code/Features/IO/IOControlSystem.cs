@@ -26,7 +26,6 @@ public class IOControlSystem : IReactiveSystem, ISetPool {
 	public TriggerOnEvent trigger {
 		get {
 			return Matcher.IOGamePad.OnEntityAdded();
-//			return _pool.GetGroup(Matcher.AnyOf(Matcher.InputPress)).OnEntityAdded();
 		}
 	}
 	#endregion

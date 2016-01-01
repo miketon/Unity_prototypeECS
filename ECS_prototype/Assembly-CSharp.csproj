@@ -58,6 +58,7 @@
      <Compile Include="Assets\Generated\IOControlSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOGamePadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\LevelSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\MoveComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\MoveSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PlayerComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Pools.cs" />
@@ -107,14 +108,14 @@
      <Compile Include="Assets\Libraries\Entitas\Systems.cs" />
      <Compile Include="Assets\Platformer2D\Code\Extensions\PoolExtensions.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GameObjectComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Components\GravityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOControlComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOControlSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOGamePadComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Level\LevelSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Player\PlayerComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\AccelerationComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\GravityComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\MoveComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\MoveSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\UpdatePosHSystem.cs" />

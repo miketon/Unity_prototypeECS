@@ -1,6 +1,7 @@
 ﻿using Entitas;
 
 public class VelocityComponent : IComponent {
-	public float speed    ;
-	public float speedMax ;
+	public float vx;
+	public float vy;
+	public float vz;
 }
