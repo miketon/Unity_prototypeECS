@@ -12,7 +12,7 @@ public class InputPressSystem : IReactiveSystem, ISetPool {
 	public void Execute (List<Entity> entities){
 		
 		var inputEntity = entities.SingleEntity() ;
-		if(inputEntity.inputButton.bPress){
+		if(inputEntity.inputButton.bNeutral){
 			_pressed = true;
 //			Debug.LogFormat(this + " : Input Pressed : {0} ", entities.SingleEntity())	;
 		}

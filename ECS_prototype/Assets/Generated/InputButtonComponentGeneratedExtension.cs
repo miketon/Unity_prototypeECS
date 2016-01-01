@@ -18,7 +18,7 @@ namespace Entitas {
             component.vAxis = newVAxis;
             component.bFire = newBFire;
             component.bJump = newBJump;
-            component.bPress = newBPress;
+            component.bNeutral = newBPress;
             return AddComponent(ComponentIds.InputButton, component);
         }
 
@@ -29,7 +29,7 @@ namespace Entitas {
             component.vAxis = newVAxis;
             component.bFire = newBFire;
             component.bJump = newBJump;
-            component.bPress = newBPress;
+            component.bNeutral = newBPress;
             ReplaceComponent(ComponentIds.InputButton, component);
             if (previousComponent != null) {
                 _inputButtonComponentPool.Push(previousComponent);

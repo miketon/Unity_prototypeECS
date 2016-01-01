@@ -110,6 +110,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Input\InputPressSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Level\LevelSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Player\PlayerComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\RenderPosition\RenderPositionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\AddViewSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\ResourceComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\ViewComponent.cs" />

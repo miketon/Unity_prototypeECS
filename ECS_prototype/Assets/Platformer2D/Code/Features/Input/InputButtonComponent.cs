@@ -5,5 +5,5 @@ public class InputButtonComponent : IComponent {
 	public float vAxis;
 	public bool bFire;
 	public bool bJump;
-	public bool bPress;
+	public bool bNeutral;
 }
