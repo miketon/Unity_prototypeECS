@@ -19,7 +19,7 @@ public class UpdatePosHSystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.InputPress.OnEntityAdded();
+			return Matcher.InputButton.OnEntityAdded();
 		}
 	}
 	#endregion

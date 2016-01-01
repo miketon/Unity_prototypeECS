@@ -12,22 +12,21 @@ public class InputPressSystem : IReactiveSystem, ISetPool {
 	public void Execute (List<Entity> entities){
 		
 		var inputEntity = entities.SingleEntity() ;
-		if(inputEntity.inputPress.bRelease){
-			_pressed = false;
-			Debug.LogFormat(this + " : Input Released : {0} ", entities.SingleEntity())	;
-		}
-		else{
+		if(inputEntity.inputButton.bPress){
 			_pressed = true;
 //			Debug.LogFormat(this + " : Input Pressed : {0} ", entities.SingleEntity())	;
 		}
-		if(inputEntity!=null){
-		  _pool.DestroyEntity(inputEntity)          ; // destroy  input object
+		else{
+			_pressed = false;
+			Debug.LogFormat(this + " : Input Released : {0} ", entities.SingleEntity())	;
 		}
+		_pool.DestroyEntity(inputEntity)          ; // destroy  input object
 	}
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.InputPress.OnEntityAdded();
+			return Matcher.InputButton.OnEntityAdded();
+//			return _pool.GetGroup(Matcher.AnyOf(Matcher.InputPress)).OnEntityAdded();
 		}
 	}
 	#endregion

@@ -54,10 +54,8 @@
      <Compile Include="Assets\Generated\ComponentIds.cs" />
      <Compile Include="Assets\Generated\GameObjectComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\GravityComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\InputPressComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\InputButtonComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\InputPressSystemGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\InputReleaseComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\InputReleaseSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\LevelSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\MoveSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PlayerComponentGeneratedExtension.cs" />
@@ -108,10 +106,8 @@
      <Compile Include="Assets\Platformer2D\Code\Extensions\PoolExtensions.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GameObjectComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\PositionComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputPressComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputButtonComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Input\InputPressSystem.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputReleaseComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Input\InputReleaseSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Level\LevelSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Player\PlayerComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\RenderResource\AddViewSystem.cs" />
