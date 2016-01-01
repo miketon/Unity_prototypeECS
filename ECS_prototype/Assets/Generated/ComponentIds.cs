@@ -1,9 +1,9 @@
 public static class ComponentIds {
-    public const int GameObject = 0;
-    public const int Gravity = 1;
-    public const int IOControl = 2;
-    public const int IOGamePad = 3;
-    public const int Move = 4;
+    public const int Force = 0;
+    public const int GameObject = 1;
+    public const int Gravity = 2;
+    public const int IOControl = 3;
+    public const int IOGamePad = 4;
     public const int Player = 5;
     public const int Position = 6;
     public const int Resource = 7;
@@ -13,11 +13,11 @@ public static class ComponentIds {
     public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
+        "Force",
         "GameObject",
         "Gravity",
         "IOControl",
         "IOGamePad",
-        "Move",
         "Player",
         "Position",
         "Resource",
@@ -26,11 +26,11 @@ public static class ComponentIds {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(ForceComponent),
         typeof(GameObjectComponent),
         typeof(GravityComponent),
         typeof(IOControlComponent),
         typeof(IOGamePadComponent),
-        typeof(MoveComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(ResourceComponent),

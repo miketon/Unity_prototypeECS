@@ -34,11 +34,11 @@ public class gameController : MonoBehaviour {
 
 		.Add(pool.CreateSystem<LevelSystem>())
 		// Input
-		.Add(pool.CreateSystem<UpdatePosHSystem>())
+		.Add(pool.CreateSystem<IO_ForceSystem>())
 		.Add(pool.CreateSystem<IOControlSystem>())  //this destroys IO, and should be last
 
 		// Update
-		.Add(pool.CreateSystem<MoveSystem>())
+//		.Add(pool.CreateSystem<MoveSystem>())
 
 		// Render
 		.Add(pool.CreateSystem<AddViewSystem>())

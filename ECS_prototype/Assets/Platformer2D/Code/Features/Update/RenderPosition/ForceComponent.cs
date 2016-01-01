@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-public class MoveComponent : IComponent {
+public class ForceComponent : IComponent {
 	public float speed    ;
 	public float speedMax ;
 }
