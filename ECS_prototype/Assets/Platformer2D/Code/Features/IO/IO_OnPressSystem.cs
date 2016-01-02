@@ -15,7 +15,7 @@ public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 			var pos   = e.position;
 			e.force.speed += e.force.accel * hPos * Time.deltaTime;
 			e.ReplacePosition(pos.x + e.force.speed, pos.y, pos.z);
-//			Debug.LogFormat(" UpdatePosHSystem : {0} ", _speed);
+//			Debug.LogFormat(" IO_OnPressSystem : {0} ", e.force.speed);
 		}
 	}
 

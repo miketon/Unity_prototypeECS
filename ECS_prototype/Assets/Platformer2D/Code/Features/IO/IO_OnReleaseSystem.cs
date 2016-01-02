@@ -12,7 +12,7 @@ public class IO_OnReleaseSystem : IReactiveSystem, ISetPool {
 		var ioRelease = entities.SingleEntity().iORelease;
 		foreach (var e in _group.GetEntities()) {
 			if(ioRelease.bDIRPAD || ioRelease.bNEUTRAL){
-				Debug.LogFormat("IO_ForceSystem : Neutral : bDIRPAD {0}", ioRelease);
+				Debug.LogFormat("IO_ForceSystem : Neutral : bDIRPAD {0}", ioRelease.bDIRPAD);
 				e.force.speed = 0.0f;
 			}
 			else if(ioRelease.bBUTTON){
