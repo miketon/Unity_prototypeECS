@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class inputController : MonoBehaviour {
 
@@ -9,24 +10,22 @@ public class inputController : MonoBehaviour {
 	public KeyCode bFire = KeyCode.LeftControl;
 	public KeyCode bJump = KeyCode.Space;
 
+	public  OnPressState rState     ;
+	public  OnPressState rStatePrev ;
+
+	// Powers of two
+	[Flags] public enum OnPressState {
+		// Decimal     // Binary
+		None    = 0,    // 000000
+		Dir     = 1,    // 000001
+		Button  = 2,    // 000010
+
+		Full    = Dir | Button // 000011
+	}
+
 	private bool bRLpad = false;
 	private bool bRLdir = false;
 	private bool bRLbtn = false;
-	private bool[] brelease;
-	private bool[] bRelease = new bool[3]{false, false, false};
-
-	private bool bpad = false;
-	public bool bPAD{
-		get{ return this.bpad;  }
-		set{
-			if(value!=this.bpad){
-				this.bpad = value;
-//				Debug.LogFormat("Release : ALL : {0}", !value);
-				this.bRLpad = !value;
-				this.bRelease[0] = !value;
-			}
-		}
-	}
 
 	private bool bdir = false;
 	public bool bDIR{
@@ -34,9 +33,8 @@ public class inputController : MonoBehaviour {
 		set{
 			if(value!=this.bdir){
 				this.bdir = value;
-//				Debug.LogFormat("Release : DIR : {0}", !value);
 				this.bRLdir = !value;
-				this.bRelease[1] = !value;
+				rState = OnPressState.Dir ;
 			}
 		}
 	}
@@ -47,15 +45,10 @@ public class inputController : MonoBehaviour {
 		set{
 			if(value!=this.bbtn){
 				this.bbtn = value;
-//				Debug.LogFormat("Release : BTN : {0}", !value);
 				this.bRLbtn = !value;
-				this.bRelease[2] = !value;
+				rState = OnPressState.Button;
 			}
 		}
-	}
-
-	void Start(){
-		this.brelease = this.bRelease;
 	}
 
 	// Update is called once per frame
@@ -68,7 +61,6 @@ public class inputController : MonoBehaviour {
 		var _bJump = Input.GetKey(bJump);
 		var _bPrss = (_bFire || _bJump);
 		if( _bDirn || _bPrss){
-			bPAD = true; // Pressing buttons
 			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
 			if(_bDirn) { bDIR = true  ; }
 			else       { bDIR = false ; }
@@ -76,15 +68,14 @@ public class inputController : MonoBehaviour {
 			else       { bBTN = false ; }
 		}
 		else {
-			bPAD = false; // Releasing buttons
 			bDIR = false;
 			bBTN = false;
+			rState = OnPressState.None;
 			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump); //Set GamePad to Neutral
 		}
-		if(this.brelease != this.bRelease){
-			Debug.LogFormat("RELEASE : {0} {1}", this.brelease, this.bRelease );
+		if(this.rState != this.rStatePrev ){
 			Pools.pool.CreateEntity().AddIORelease(this.bRLpad, this.bRLdir, this.bRLbtn); // Set all Release Events
-			this.brelease = this.bRelease;
+			this.rStatePrev = this.rState ;
 		}
 	}
 }
