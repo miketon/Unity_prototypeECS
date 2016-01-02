@@ -10,11 +10,16 @@ public class inputController : MonoBehaviour {
 	public KeyCode bFire = KeyCode.LeftControl;
 	public KeyCode bJump = KeyCode.Space;
 
-	public  OnPressState rState     ;
-	public  OnPressState rStatePrev ;
+	// pressStates
+	public  IOState onPress ;
+	public  IOState onpressPREV ;
+
+	// releaseStates
+	public  IOState onRelease ;
+	public  IOState onreleasePREV ;
 
 	// Powers of two
-	[Flags] public enum OnPressState {
+	[Flags] public enum IOState {
 		// Decimal     // Binary
 		None    = 0,    // 000000
 		Dir     = 1,    // 000001
@@ -24,8 +29,6 @@ public class inputController : MonoBehaviour {
 	}
 
 	private bool bRLpad = false;
-	private bool bRLdir = false;
-	private bool bRLbtn = false;
 
 	private bool bdir = false;
 	public bool bDIR{
@@ -33,8 +36,12 @@ public class inputController : MonoBehaviour {
 		set{
 			if(value!=this.bdir){
 				this.bdir = value;
-				this.bRLdir = !value;
-				rState = OnPressState.Dir ;
+				if(value==true){
+					onPress |= IOState.Dir ; //Or ==Set bit
+				}
+				else{
+					onPress &= ~IOState.Dir; //Not==Unset bit
+				}
 			}
 		}
 	}
@@ -45,8 +52,12 @@ public class inputController : MonoBehaviour {
 		set{
 			if(value!=this.bbtn){
 				this.bbtn = value;
-				this.bRLbtn = !value;
-				rState = OnPressState.Button;
+				if(value==true){
+					onPress |= IOState.Button  ; //Or ==Set bit
+				}
+				else{
+					onPress &= ~IOState.Button ; //Not==Unset bit
+				}
 			}
 		}
 	}
@@ -69,13 +80,9 @@ public class inputController : MonoBehaviour {
 			else       { bDIR = false ; }
 			if(_bPrss) { bBTN = true  ; }
 			else       { bBTN = false ; }
-			if(this.rState != this.rStatePrev ){
-				if(this.rStatePrev==OnPressState.Dir){ // Released DirPad
-					bDIR = false;
-					Pools.pool.CreateEntity().AddIORelease(this.bRLpad, this.bRLdir, this.bRLbtn); // Set all Release Events
-				}
-				this.rStatePrev = this.rState ;
-				Debug.LogFormat("FIRST PRESSED : {0} ", rState);
+			if(this.onPress != this.onpressPREV ){
+				this.onpressPREV = this.onPress ;
+				Debug.LogFormat("FIRST PRESSED : {0} ", onPress);
 			}
 			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
 		}
@@ -83,15 +90,14 @@ public class inputController : MonoBehaviour {
 		else {
 			bDIR = false;
 			bBTN = false;
-			rState = OnPressState.None;
-			if(this.rState != this.rStatePrev ){
-				this.rStatePrev = this.rState ;
-				Debug.LogFormat("RELEASED : {0} ", rState);
+			onPress = IOState.None;
+			if(this.onPress != this.onpressPREV ){
+				this.onpressPREV = this.onPress ;
+				Debug.LogFormat("RELEASED : {0} ", onPress);
 				Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
-				Pools.pool.CreateEntity().AddIORelease(this.bRLpad, this.bRLdir, this.bRLbtn); // Set all Release Events
+				Pools.pool.CreateEntity().AddIORelease(this.bRLpad, !this.bDIR, !this.bBTN); // Set all Release Events
 			}
 		}
-
 
 	}
 }
