@@ -12,18 +12,18 @@ namespace Entitas {
             _iOReleaseComponentPool.Clear();
         }
 
-        public Entity AddIORelease(bool newBALLPAD, bool newBDIRPAD, bool newBBUTTON) {
+        public Entity AddIORelease(bool newBNEUTRAL, bool newBDIRPAD, bool newBBUTTON) {
             var component = _iOReleaseComponentPool.Count > 0 ? _iOReleaseComponentPool.Pop() : new IOReleaseComponent();
-            component.bALLPAD = newBALLPAD;
+            component.bNEUTRAL = newBNEUTRAL;
             component.bDIRPAD = newBDIRPAD;
             component.bBUTTON = newBBUTTON;
             return AddComponent(ComponentIds.IORelease, component);
         }
 
-        public Entity ReplaceIORelease(bool newBALLPAD, bool newBDIRPAD, bool newBBUTTON) {
+        public Entity ReplaceIORelease(bool newBNEUTRAL, bool newBDIRPAD, bool newBBUTTON) {
             var previousComponent = hasIORelease ? iORelease : null;
             var component = _iOReleaseComponentPool.Count > 0 ? _iOReleaseComponentPool.Pop() : new IOReleaseComponent();
-            component.bALLPAD = newBALLPAD;
+            component.bNEUTRAL = newBNEUTRAL;
             component.bDIRPAD = newBDIRPAD;
             component.bBUTTON = newBBUTTON;
             ReplaceComponent(ComponentIds.IORelease, component);

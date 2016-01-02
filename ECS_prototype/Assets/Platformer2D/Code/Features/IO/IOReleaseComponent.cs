@@ -1,7 +1,7 @@
 ﻿using Entitas;
 
 public class IOReleaseComponent : IComponent {
-	public bool bALLPAD ;
-	public bool bDIRPAD ;
-	public bool bBUTTON ;
+	public bool bNEUTRAL ;
+	public bool bDIRPAD  ;
+	public bool bBUTTON  ;
 }

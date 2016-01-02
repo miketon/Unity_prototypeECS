@@ -9,9 +9,45 @@ public class inputController : MonoBehaviour {
 	public KeyCode bFire = KeyCode.LeftControl;
 	public KeyCode bJump = KeyCode.Space;
 
-	private bool bPAD = false;
-	private bool bDIR = false;
-	private bool bBTN = false;
+	private bool bRLpad = false;
+	private bool bRLdir = false;
+	private bool bRLbtn = false;
+
+	private bool bpad = false;
+	public bool bPAD{
+		get{ return this.bpad;  }
+		set{
+			if(value!=this.bpad){
+				this.bpad = value;
+//				Debug.LogFormat("Release : ALL : {0}", !value);
+				this.bRLpad = !value;
+			}
+		}
+	}
+
+	private bool bdir = false;
+	public bool bDIR{
+		get{ return this.bdir;  }
+		set{
+			if(value!=this.bdir){
+				this.bdir = value;
+//				Debug.LogFormat("Release : DIR : {0}", !value);
+				this.bRLdir = !value;
+			}
+		}
+	}
+
+	private bool bbtn = false;
+	public bool bBTN{
+		get{ return this.bbtn;  }
+		set{
+			if(value!=this.bbtn){
+				this.bbtn = value;
+//				Debug.LogFormat("Release : BTN : {0}", !value);
+				this.bRLbtn = !value;
+			}
+		}
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -25,25 +61,17 @@ public class inputController : MonoBehaviour {
 		if( _bDirn || _bPrss){
 			bPAD = true; // Pressing buttons
 			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
-			if(_bDirn==false){ // Dir Neutral
-				if(bDIR==false){
-					Pools.pool.CreateEntity().AddIORelease(false, true, false);
-					bDIR = true;
-				}
-			}
-			else if(_bPrss==false){ // Button Neutral
-				if(bBTN==false){
-					Pools.pool.CreateEntity().AddIORelease(false, false, true);
-					bBTN = true;
-				}	
-			}
+			if(_bDirn) { bDIR = true  ; }
+			else       { bDIR = false ; }
+			if(_bPrss) { bBTN = true  ; }
+			else       { bBTN = false ; }
 		}
-		else if(bPAD){
+		else {
 			bPAD = false; // Releasing buttons
 			bDIR = false;
 			bBTN = false;
 			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump); //Set GamePad to Neutral
-			Pools.pool.CreateEntity().AddIORelease(bPAD, bDIR, bBTN); // Set all Release Events
 		}
+		Pools.pool.CreateEntity().AddIORelease(this.bRLpad, this.bRLdir, this.bRLbtn); // Set all Release Events
 	}
 }
