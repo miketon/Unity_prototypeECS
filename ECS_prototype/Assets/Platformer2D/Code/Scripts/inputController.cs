@@ -12,6 +12,8 @@ public class inputController : MonoBehaviour {
 	private bool bRLpad = false;
 	private bool bRLdir = false;
 	private bool bRLbtn = false;
+	private bool[] brelease;
+	private bool[] bRelease = new bool[3]{false, false, false};
 
 	private bool bpad = false;
 	public bool bPAD{
@@ -21,6 +23,7 @@ public class inputController : MonoBehaviour {
 				this.bpad = value;
 //				Debug.LogFormat("Release : ALL : {0}", !value);
 				this.bRLpad = !value;
+				this.bRelease[0] = !value;
 			}
 		}
 	}
@@ -33,6 +36,7 @@ public class inputController : MonoBehaviour {
 				this.bdir = value;
 //				Debug.LogFormat("Release : DIR : {0}", !value);
 				this.bRLdir = !value;
+				this.bRelease[1] = !value;
 			}
 		}
 	}
@@ -45,8 +49,13 @@ public class inputController : MonoBehaviour {
 				this.bbtn = value;
 //				Debug.LogFormat("Release : BTN : {0}", !value);
 				this.bRLbtn = !value;
+				this.bRelease[2] = !value;
 			}
 		}
+	}
+
+	void Start(){
+		this.brelease = this.bRelease;
 	}
 
 	// Update is called once per frame
@@ -72,6 +81,10 @@ public class inputController : MonoBehaviour {
 			bBTN = false;
 			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump); //Set GamePad to Neutral
 		}
-		Pools.pool.CreateEntity().AddIORelease(this.bRLpad, this.bRLdir, this.bRLbtn); // Set all Release Events
+		if(this.brelease != this.bRelease){
+			Debug.LogFormat("RELEASE : {0} {1}", this.brelease, this.bRelease );
+			Pools.pool.CreateEntity().AddIORelease(this.bRLpad, this.bRLdir, this.bRLbtn); // Set all Release Events
+			this.brelease = this.bRelease;
+		}
 	}
 }
