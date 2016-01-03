@@ -10,13 +10,17 @@ public class IO_OnDestroySystem : IReactiveSystem, ISetPool {
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
 		foreach (var e in entities) {
-		  _pool.DestroyEntity(e); // destroy input entity
+			if(e.hasIO_OnFirstPress){
+//				Debug.LogFormat("IO_OnDestroy :  {0} ", e);
+				PowerUpAttributesComponent.fSpeed = 1.0f; // reset PowerUp
+			}
+			_pool.DestroyEntity(e); // destroy input entity
 		}
 	}
 
 	public TriggerOnEvent trigger { // triggered by on add of any input entity
 		get {
-			return Matcher.AnyOf(Matcher.IOGamePad, Matcher.IORelease).OnEntityAdded(); //AnyOf == either matches will trigger
+			return Matcher.AnyOf(Matcher.IOGamePad, Matcher.IORelease, Matcher.IO_OnFirstPress).OnEntityAdded(); //AnyOf == either matches will trigger
 		}
 	}
 	#endregion

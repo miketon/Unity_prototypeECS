@@ -3,24 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class IO_OnPressSystem : IReactiveSystem, ISetPool {
+public class IO_OnFirstPressSystem : IReactiveSystem, ISetPool {
 
 	private Group _group;
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
-		var hPos = entities.SingleEntity().iOGamePad.hAxis;
+		var fBonus = entities.SingleEntity().iO_OnFirstPress.fBonus;
 		foreach (var e in _group.GetEntities()) {
-			var pos   = e.position;
-			e.force.speed += e.force.accel * hPos * Time.deltaTime * PowerUpAttributesComponent.fSpeed;
-			e.ReplacePosition(pos.x + e.force.speed, pos.y, pos.z);
-//			Debug.LogFormat(" IO_OnPressSystem : {0} ", e.force.speed);
+//			Debug.LogFormat("First Press Bonus : {0} on {1} ", fBonus, e);
+			PowerUpAttributesComponent.fSpeed = fBonus;
 		}
 	}
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.IOGamePad.OnEntityAdded();
+			return Matcher.AnyOf(Matcher.IO_OnFirstPress).OnEntityAdded();
 		}
 	}
 	#endregion
