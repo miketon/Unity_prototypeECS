@@ -12,18 +12,22 @@ namespace Entitas {
             _forceComponentPool.Clear();
         }
 
-        public Entity AddForce(float newSpeed, float newSpeedMax) {
+        public Entity AddForce(float newAccel, float newSpeed, float newSpeedMax, float newMass) {
             var component = _forceComponentPool.Count > 0 ? _forceComponentPool.Pop() : new ForceComponent();
+            component.accel = newAccel;
             component.speed = newSpeed;
             component.speedMax = newSpeedMax;
+            component.mass = newMass;
             return AddComponent(ComponentIds.Force, component);
         }
 
-        public Entity ReplaceForce(float newSpeed, float newSpeedMax) {
+        public Entity ReplaceForce(float newAccel, float newSpeed, float newSpeedMax, float newMass) {
             var previousComponent = hasForce ? force : null;
             var component = _forceComponentPool.Count > 0 ? _forceComponentPool.Pop() : new ForceComponent();
+            component.accel = newAccel;
             component.speed = newSpeed;
             component.speedMax = newSpeedMax;
+            component.mass = newMass;
             ReplaceComponent(ComponentIds.Force, component);
             if (previousComponent != null) {
                 _forceComponentPool.Push(previousComponent);

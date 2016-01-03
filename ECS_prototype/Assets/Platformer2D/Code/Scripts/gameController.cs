@@ -31,18 +31,23 @@ public class gameController : MonoBehaviour {
 		#else
 		return new Systems()
 		#endif	
-
+        // Init
 		.Add(pool.CreateSystem<LevelSystem>())
+
 		// Input
-		.Add(pool.CreateSystem<IO_ForceSystem>())
-		.Add(pool.CreateSystem<IOControlSystem>())  //this destroys IO, and should be last
+		.Add(pool.CreateSystem<IO_OnReleaseSystem>())
+		.Add(pool.CreateSystem<IO_OnPressSystem>())
+//		.Add(pool.CreateSystem<IO_OnReleaseSystem>())
 
 		// Update
 //		.Add(pool.CreateSystem<MoveSystem>())
 
 		// Render
 		.Add(pool.CreateSystem<AddViewSystem>())
-		.Add(pool.CreateSystem<RenderPositionSystem>());
+		.Add(pool.CreateSystem<RenderPositionSystem>())
+
+		// Destroy
+		.Add(pool.CreateSystem<IO_OnDestroySystem>()); //this destroys IO Entities
 		
 	}
 	
