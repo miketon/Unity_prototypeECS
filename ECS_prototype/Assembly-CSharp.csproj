@@ -59,6 +59,8 @@
      <Compile Include="Assets\Generated\IOGamePadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOReleaseComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_OnDestroySystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\IO_OnFirstPressComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\IO_OnFirstPressSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_OnPressSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_OnReleaseSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\LevelSystemGeneratedExtension.cs" />
@@ -114,6 +116,8 @@
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOGamePadComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOReleaseComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IO_OnDestroySystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\IO_OnFirstPressComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\IO_OnFirstPressSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IO_OnPressSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IO_OnReleaseSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Level\LevelSystem.cs" />

@@ -81,7 +81,7 @@ public class inputController : MonoBehaviour {
 			else       { bBTN = false ; }
 			if(this.onPress != this.onpressPREV ){                                   // onFirst Press
 				this.onpressPREV = this.onPress ;
-//				Debug.LogFormat("FIRST PRESSED : {0} ", onPress);
+				Debug.LogFormat("FIRST PRESSED : {0} ", onPress);
 			}
 			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
 		}
@@ -99,17 +99,17 @@ public class inputController : MonoBehaviour {
 		// OnRelease Logic
 		if(this.onPress!= this.onreleasePREV){
 			if( _bAxis || _bPrss){                                                       // active : read input
-			if(this.onPress==IOState.Button){
-				Debug.LogFormat("RELEASE DIR");
-				Pools.pool.CreateEntity().AddIORelease(false, false, true); // Set all Release Events
-			}
-			else if(this.onPress==IOState.Dir){
-				Debug.LogFormat("RELEASE BUTTON");
-				Pools.pool.CreateEntity().AddIORelease(false, true, false); // Set all Release Events
-			}
+				if(this.onPress==IOState.Button){
+//					Debug.LogFormat("RELEASE DIR");
+					Pools.pool.CreateEntity().AddIORelease(false, false, true); // Set all Release Events
+				}
+				else if(this.onPress==IOState.Dir){
+//					Debug.LogFormat("RELEASE BUTTON");
+					Pools.pool.CreateEntity().AddIORelease(false, true, false); // Set all Release Events
+				}
 			}
 			else{
-				Debug.LogFormat("RELEASE ALL");
+//				Debug.LogFormat("RELEASE ALL");
 				Pools.pool.CreateEntity().AddIORelease(true, false, false); // Set all Release Events
 			}
 			this.onreleasePREV = this.onPress ;
