@@ -11,7 +11,8 @@ public class IO_OnFirstPressSystem : IReactiveSystem, ISetPool {
 	public void Execute (List<Entity> entities){
 		var fBonus = entities.SingleEntity().iO_OnFirstPress.fBonus;
 		foreach (var e in _group.GetEntities()) {
-			Debug.LogFormat("First Press Bonus : {0} on {1} ", fBonus, e);
+//			Debug.LogFormat("First Press Bonus : {0} on {1} ", fBonus, e);
+			PowerUpAttributesComponent.fSpeed = fBonus;
 		}
 	}
 

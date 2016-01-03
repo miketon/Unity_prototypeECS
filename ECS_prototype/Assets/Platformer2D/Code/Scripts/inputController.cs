@@ -81,8 +81,8 @@ public class inputController : MonoBehaviour {
 			else       { bBTN = false ; }
 			if(this.onPress != this.onpressPREV ){                                   // onFirst Press
 				this.onpressPREV = this.onPress ;
-				Debug.LogFormat("FIRST PRESSED : {0} ", onPress);
-				Pools.pool.CreateEntity().AddIO_OnFirstPress(1.5f);
+//				Debug.LogFormat("FIRST PRESSED : {0} ", onPress);
+				Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f);
 			}
 			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
 		}
