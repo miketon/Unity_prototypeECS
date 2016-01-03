@@ -98,19 +98,21 @@ public class inputController : MonoBehaviour {
 
 		// OnRelease Logic
 		if(this.onPress!= this.onreleasePREV){
-			this.onreleasePREV = this.onPress ;
-			if(this.onPress==IOState.None){
-				Debug.LogFormat("RELEASE ALL");
-				Pools.pool.CreateEntity().AddIORelease(true, !this.bDIR, !this.bBTN); // Set all Release Events
-			}
-			else if(this.onPress==IOState.Button){
+			if( _bAxis || _bPrss){                                                       // active : read input
+			if(this.onPress==IOState.Button){
 				Debug.LogFormat("RELEASE DIR");
-				Pools.pool.CreateEntity().AddIORelease(false, !this.bDIR, this.bBTN); // Set all Release Events
+				Pools.pool.CreateEntity().AddIORelease(false, false, true); // Set all Release Events
 			}
 			else if(this.onPress==IOState.Dir){
 				Debug.LogFormat("RELEASE BUTTON");
-				Pools.pool.CreateEntity().AddIORelease(false, this.bDIR, !this.bBTN); // Set all Release Events
+				Pools.pool.CreateEntity().AddIORelease(false, true, false); // Set all Release Events
 			}
+			}
+			else{
+				Debug.LogFormat("RELEASE ALL");
+				Pools.pool.CreateEntity().AddIORelease(true, false, false); // Set all Release Events
+			}
+			this.onreleasePREV = this.onPress ;
 		}
 
 

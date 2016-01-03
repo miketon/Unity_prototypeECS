@@ -11,12 +11,14 @@ public class IO_OnReleaseSystem : IReactiveSystem, ISetPool {
 	public void Execute (List<Entity> entities){
 		var ioRelease = entities.SingleEntity().iORelease;
 		foreach (var e in _group.GetEntities()) {
-			if(ioRelease.bDIRPAD || ioRelease.bNEUTRAL){
-//				Debug.LogFormat("IO_ForceSystem : Neutral : bDIRPAD {0}", ioRelease.bDIRPAD);
+			if(ioRelease.bDIRPAD || ioRelease.bNEUTRAL){; 
+				Debug.LogFormat("IO_ForceSystem : Neutral : bDIRPAD {0}", ioRelease.bDIRPAD);
 				e.force.speed = 0.0f;
 			}
-			else if(ioRelease.bBUTTON){
-//				Debug.LogFormat("IO_ForceSystem : Neutral : bBUTTON {0} speed : {1}", ioRelease.bBUTTON, e.force.speed);
+			if(ioRelease.bBUTTON){
+				var pos = e.position;
+				e.ReplacePosition(pos.x, pos.y+0.5f, pos.z);
+				Debug.LogFormat("IO_ForceSystem : Neutral : bBUTTON {0} speed : {1}", ioRelease.bBUTTON, e.force.speed);
 			}
 		}
 	}

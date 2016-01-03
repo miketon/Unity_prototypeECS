@@ -35,8 +35,9 @@ public class gameController : MonoBehaviour {
 		.Add(pool.CreateSystem<LevelSystem>())
 
 		// Input
-		.Add(pool.CreateSystem<IO_OnPressSystem>())
 		.Add(pool.CreateSystem<IO_OnReleaseSystem>())
+		.Add(pool.CreateSystem<IO_OnPressSystem>())
+//		.Add(pool.CreateSystem<IO_OnReleaseSystem>())
 
 		// Update
 //		.Add(pool.CreateSystem<MoveSystem>())
