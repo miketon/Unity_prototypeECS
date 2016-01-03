@@ -5,11 +5,14 @@ using Entitas;
 
 public class IO_OnFirstPressSystem : IReactiveSystem, ISetPool {
 
-	private Pool _pool;
+	private Group _group;
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
-		throw new System.NotImplementedException ();
+		var fBonus = entities.SingleEntity().iO_OnFirstPress.fBonus;
+		foreach (var e in _group.GetEntities()) {
+			Debug.LogFormat("First Press Bonus : {0} on {1} ", fBonus, e);
+		}
 	}
 
 	public TriggerOnEvent trigger {
@@ -21,7 +24,7 @@ public class IO_OnFirstPressSystem : IReactiveSystem, ISetPool {
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
-		_pool = pool;
+		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.Force, Matcher.Position));
 	}
 	#endregion
 

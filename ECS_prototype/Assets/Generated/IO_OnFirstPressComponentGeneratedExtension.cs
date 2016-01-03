@@ -1,22 +1,38 @@
+using System.Collections.Generic;
+
 namespace Entitas {
     public partial class Entity {
-        static readonly IO_OnFirstPressComponent iO_OnFirstPressComponent = new IO_OnFirstPressComponent();
+        public IO_OnFirstPressComponent iO_OnFirstPress { get { return (IO_OnFirstPressComponent)GetComponent(ComponentIds.IO_OnFirstPress); } }
 
-        public bool isIO_OnFirstPress {
-            get { return HasComponent(ComponentIds.IO_OnFirstPress); }
-            set {
-                if (value != isIO_OnFirstPress) {
-                    if (value) {
-                        AddComponent(ComponentIds.IO_OnFirstPress, iO_OnFirstPressComponent);
-                    } else {
-                        RemoveComponent(ComponentIds.IO_OnFirstPress);
-                    }
-                }
-            }
+        public bool hasIO_OnFirstPress { get { return HasComponent(ComponentIds.IO_OnFirstPress); } }
+
+        static readonly Stack<IO_OnFirstPressComponent> _iO_OnFirstPressComponentPool = new Stack<IO_OnFirstPressComponent>();
+
+        public static void ClearIO_OnFirstPressComponentPool() {
+            _iO_OnFirstPressComponentPool.Clear();
         }
 
-        public Entity IsIO_OnFirstPress(bool value) {
-            isIO_OnFirstPress = value;
+        public Entity AddIO_OnFirstPress(float newFBonus) {
+            var component = _iO_OnFirstPressComponentPool.Count > 0 ? _iO_OnFirstPressComponentPool.Pop() : new IO_OnFirstPressComponent();
+            component.fBonus = newFBonus;
+            return AddComponent(ComponentIds.IO_OnFirstPress, component);
+        }
+
+        public Entity ReplaceIO_OnFirstPress(float newFBonus) {
+            var previousComponent = hasIO_OnFirstPress ? iO_OnFirstPress : null;
+            var component = _iO_OnFirstPressComponentPool.Count > 0 ? _iO_OnFirstPressComponentPool.Pop() : new IO_OnFirstPressComponent();
+            component.fBonus = newFBonus;
+            ReplaceComponent(ComponentIds.IO_OnFirstPress, component);
+            if (previousComponent != null) {
+                _iO_OnFirstPressComponentPool.Push(previousComponent);
+            }
+            return this;
+        }
+
+        public Entity RemoveIO_OnFirstPress() {
+            var component = iO_OnFirstPress;
+            RemoveComponent(ComponentIds.IO_OnFirstPress);
+            _iO_OnFirstPressComponentPool.Push(component);
             return this;
         }
     }

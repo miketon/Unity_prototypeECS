@@ -16,7 +16,7 @@ public class IO_OnDestroySystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger { // triggered by on add of any input entity
 		get {
-			return Matcher.AnyOf(Matcher.IOGamePad, Matcher.IORelease).OnEntityAdded(); //AnyOf == either matches will trigger
+			return Matcher.AnyOf(Matcher.IOGamePad, Matcher.IORelease, Matcher.IO_OnFirstPress).OnEntityAdded(); //AnyOf == either matches will trigger
 		}
 	}
 	#endregion

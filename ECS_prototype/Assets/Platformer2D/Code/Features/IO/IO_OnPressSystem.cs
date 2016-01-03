@@ -5,7 +5,6 @@ using Entitas;
 
 public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 
-	private Pool  _pool;
 	private Group _group;
 
 	#region IReactiveExecuteSystem implementation
@@ -28,8 +27,7 @@ public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
-		_pool  = pool;
-		_group = _pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.Force, Matcher.Position));
+		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.Force, Matcher.Position));
 	}
 	#endregion
 
