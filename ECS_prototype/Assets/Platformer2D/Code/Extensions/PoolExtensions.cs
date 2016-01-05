@@ -18,4 +18,9 @@ public static class PoolExtensions {
 			.AddForce(0.1f, 0.0f, 1.0f, 1.0f); //accel, speed, maxspeed, mass
 	}
 
+	public static Entity CreateCollision(this Pool pool, Collision collision) { 
+		return pool.CreateEntity()
+			.AddIORelease(true, true, true);
+	}
+
 }
