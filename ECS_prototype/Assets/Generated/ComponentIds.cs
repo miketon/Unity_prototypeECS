@@ -6,7 +6,7 @@ public static class ComponentIds {
     public const int IOControl = 4;
     public const int IOGamePad = 5;
     public const int IORelease = 6;
-    public const int OnCollisionEntter = 7;
+    public const int OnCollisionEnter = 7;
     public const int Player = 8;
     public const int Position = 9;
     public const int PowerUpAttributes = 10;
@@ -24,7 +24,7 @@ public static class ComponentIds {
         "IOControl",
         "IOGamePad",
         "IORelease",
-        "OnCollisionEntter",
+        "OnCollisionEnter",
         "Player",
         "Position",
         "PowerUpAttributes",
@@ -41,7 +41,7 @@ public static class ComponentIds {
         typeof(IOControlComponent),
         typeof(IOGamePadComponent),
         typeof(IOReleaseComponent),
-        typeof(OnCollisionEntterComponent),
+        typeof(OnCollisionEnterComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(PowerUpAttributesComponent),

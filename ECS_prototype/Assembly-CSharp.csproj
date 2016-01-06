@@ -64,7 +64,7 @@
      <Compile Include="Assets\Generated\IO_OnPressSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_OnReleaseSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\LevelSystemGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\OnCollisionEntterComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\OnCollisionEnterComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PlayerComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Pools.cs" />
      <Compile Include="Assets\Generated\PositionComponentGeneratedExtension.cs" />
@@ -126,6 +126,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Player\PlayerComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Powerup\PowerUpAttributesComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\OnCollision\OnCollisionEnterComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\OnCollision\OnCollisionEnterSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\ForceComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />

@@ -20,7 +20,7 @@ public static class PoolExtensions {
 
 	public static Entity CreateCollision(this Pool pool, Collision collision) { 
 		return pool.CreateEntity()
-			.AddIORelease(true, true, true);
+			.AddOnCollisionEnter(collision);
 	}
 
 }

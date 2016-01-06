@@ -1,6 +1,6 @@
 ﻿using Entitas;
 using UnityEngine;
 
-public class OnCollisionEntterComponent : IComponent {
+public class OnCollisionEnterComponent : IComponent {
 	public Collision collision;
 }
