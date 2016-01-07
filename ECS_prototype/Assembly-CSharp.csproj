@@ -65,12 +65,14 @@
      <Compile Include="Assets\Generated\IO_OnReleaseSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\LevelSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\OnCollisionEnterComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\OnCollisionEnterSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PlayerComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Pools.cs" />
      <Compile Include="Assets\Generated\PositionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PowerUpAttributesComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\RenderPositionSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ResourceComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\RigidBodyComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\VelocityComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ViewComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\DontGenerateAttribute.cs" />
@@ -114,6 +116,8 @@
      <Compile Include="Assets\Platformer2D\Code\Extensions\PoolExtensions.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GameObjectComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GravityComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\AddRigidBodySystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\RigidBodyComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOControlComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOGamePadComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOReleaseComponent.cs" />

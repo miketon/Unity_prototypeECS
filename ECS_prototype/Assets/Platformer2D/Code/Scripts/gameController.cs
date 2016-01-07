@@ -43,6 +43,7 @@ public class gameController : MonoBehaviour {
 //		.Add(pool.CreateSystem<MoveSystem>())
 
 		// Physics
+		.Add(pool.CreateSystem<AddRigidBodySystem>())
 		.Add(pool.CreateSystem<OnCollisionEnterSystem>())
 
 		// Render

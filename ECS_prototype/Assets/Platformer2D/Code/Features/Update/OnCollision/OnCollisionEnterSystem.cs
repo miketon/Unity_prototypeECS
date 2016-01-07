@@ -10,7 +10,7 @@ public class OnCollisionEnterSystem : IReactiveSystem, ISetPool {
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
 		foreach (var e in entities) {
-			Debug.LogFormat("Colliding ! : {0} ", e);
+			Debug.LogFormat("Colliding ! : {0} ", e.onCollisionEnter.collision.gameObject);
 		}
 	}
 
