@@ -128,6 +128,8 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\State\stateFacingComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\State\stateHMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\State\stateVMotionComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\ButtonEventComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\DpadEventComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOControlComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOGamePadComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOReleaseComponent.cs" />

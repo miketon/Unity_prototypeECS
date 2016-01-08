@@ -17,7 +17,8 @@ public class inputController : MonoBehaviour {
 	public  IOState onreleasePREV ;
 
 	// Powers of two
-	[Flags] public enum IOState {
+	[Flags] 
+	public enum IOState {
 		// Decimal             // Binary
 		None    = 0,           // 000000
 		Dir     = 1,           // 000001
