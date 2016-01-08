@@ -9,9 +9,10 @@ public class IO_OnDestroySystem : IReactiveSystem, ISetPool {
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
+//		Debug.LogFormat("IO_OnDestroy :  {0} ", entities);
 		foreach (var e in entities) {
 			if(e.hasIO_OnFirstPress){
-//				Debug.LogFormat("IO_OnDestroy :  {0} ", e);
+//				Debug.LogFormat("IO_OnFirstPress :  {0} ", e);
 				PowerUpAttributesComponent.fSpeed = 1.0f; // reset PowerUp
 			}
 			_pool.DestroyEntity(e); // destroy input entity
