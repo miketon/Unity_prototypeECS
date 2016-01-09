@@ -52,7 +52,9 @@
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserverBehaviour.cs" />
      <Compile Include="Assets\Generated\AddRigidBodySystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\AddViewSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\ButtonEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ComponentIds.cs" />
+     <Compile Include="Assets\Generated\DpadEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ForceComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\GameObjectComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\GravityComponentGeneratedExtension.cs" />
@@ -77,6 +79,8 @@
      <Compile Include="Assets\Generated\VelocityComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ViewComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\stateHMotionComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\stateVMotionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\DontGenerateAttribute.cs" />
      <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\PoolAttribute.cs" />
      <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\SingleEntityAttribute.cs" />
@@ -119,6 +123,7 @@
      <Compile Include="Assets\Platformer2D\Code\Controllers\gameController.cs" />
      <Compile Include="Assets\Platformer2D\Code\Controllers\inputController.cs" />
      <Compile Include="Assets\Platformer2D\Code\Extensions\PoolExtensions.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Extensions\_enum.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GameObjectComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GravityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\AddRigidBodySystem.cs" />

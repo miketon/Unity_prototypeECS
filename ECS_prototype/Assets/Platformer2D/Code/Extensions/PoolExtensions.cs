@@ -12,6 +12,8 @@ public static class PoolExtensions {
 			.IsGameObject(true)
 			.IsPlayer(true)
 			.IsIOControl(true)
+			.AddDpadEvent(MTON._enum.Dirn.Neutral, MTON._enum.Press.Neutral)
+			.AddButtonEvent(MTON._enum.Press.Down, MTON._enum.Type.Attack)
 			.AddResource(_players[0])
 			.AddPosition(pos.x, pos.y, pos.z)
 			.AddVelocity(0.0f, 0.0f, 0.0f)

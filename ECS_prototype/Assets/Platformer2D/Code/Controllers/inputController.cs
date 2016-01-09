@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using MTON;
 
 public class inputController : MonoBehaviour {
 
@@ -61,6 +62,12 @@ public class inputController : MonoBehaviour {
 		}
 	}
 
+	public string myString = "Babies/Are/Deformed/Eggs/BreakfastJingle.mp3";
+	void Start(){
+		var printME = MTON._enum.TokenizeAndReturnPath(this.myString, "/");
+		Debug.LogFormat("PRINTING THE TRUTH : {0}", printME);
+	}
+
 	// Update is called once per frame
 	void Update () {
 		// dirPad state
@@ -84,6 +91,7 @@ public class inputController : MonoBehaviour {
 				this.onpressPREV = this.onPress ;
 //				Debug.LogFormat("FIRST PRESSED : {0} ", onPress);
 				Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f);
+				Pools.pool.CreateEntity().AddButtonEvent(_enum.Press.Down , _enum.Type.Attack);
 			}
 			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
 		}
