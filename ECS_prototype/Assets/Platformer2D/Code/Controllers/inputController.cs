@@ -5,8 +5,9 @@ using MTON;
 
 public class inputController : MonoBehaviour {
 
-	public string hAxis = "Horizontal";
-	public string vAxis = "Vertical";
+	public string     hAxis = "Horizontal"      ;
+	public string     vAxis = "Vertical"        ;
+	public _enum.Dirn eAxis = _enum.Dirn.Neutral;
 
 	public KeyCode bFire = KeyCode.LeftControl;
 	public KeyCode bJump = KeyCode.Space;
@@ -27,8 +28,6 @@ public class inputController : MonoBehaviour {
 
 		Full    = Dir | Button // 000011
 	}
-
-	private bool bRLpad = false;
 
 	private bool bdir = false;
 	public bool bDIR{
@@ -66,24 +65,41 @@ public class inputController : MonoBehaviour {
 	void Start(){
 		var printME = MTON._enum.TokenizeAndReturnPath(this.myString, "/");
 		Debug.LogFormat("PRINTING THE TRUTH : {0}", printME);
+		Debug.Log("ONE LINER: " +System.IO.Path.GetDirectoryName(this.myString));
 	}
 
 	// Update is called once per frame
 	void Update () {
 		// dirPad state
-		var _hAxis = Input.GetAxisRaw(hAxis);
-		var _vAxis = Input.GetAxisRaw(vAxis);
-		var _mAxis = new Vector2(_hAxis, _vAxis).magnitude;
-		var _bAxis = (Mathf.Abs(_mAxis) > Mathf.Epsilon);
+		var _hAxis = Input.GetAxisRaw(hAxis)               ;
+		var _vAxis = Input.GetAxisRaw(vAxis)               ;
+		var _mAxis = new Vector2(_hAxis, _vAxis).magnitude ; // magnitude
+		var _bAxis = (Mathf.Abs(_mAxis) > Mathf.Epsilon)   ; // bool=>if magnitude > 0 == true
 		// button state
-		var _bFire = Input.GetKey(bFire);
-		var _bJump = Input.GetKey(bJump);
-		var _bPrss = (_bFire || _bJump);
+		var _bFire = Input.GetKey(bFire) ;
+		var _bJump = Input.GetKey(bJump) ;
+		var _bPrss = (_bFire || _bJump)  ;
 
 		// OnPress Logic 
 		if( _bAxis || _bPrss){                                                       // active : read input
 //			Debug.LogFormat("PRESSED : {0} ", onPress);
-			if(_bAxis) { bDIR = true  ; }
+			if(_bAxis) {                      // axis is active
+				bDIR = true  ;
+				// horizontal
+				if(_hAxis > 0.0f){
+					eAxis |= _enum.Dirn.RT;
+				}
+				else if(_hAxis < 0.0f){       // must do explicit check otherwise left is default
+					eAxis |= _enum.Dirn.LT;
+				}
+				// vertical
+				if(_vAxis > 0.0f){
+					eAxis |= _enum.Dirn.UP;
+				}
+				else if(_vAxis < 0.0f){       // must do explicit check otherwise down is default
+					eAxis |= _enum.Dirn.DN;
+				}
+			}
 			else       { bDIR = false ; }
 			if(_bPrss) { bBTN = true  ; }
 			else       { bBTN = false ; }
@@ -98,6 +114,7 @@ public class inputController : MonoBehaviour {
 		else {                                                                       // neutral :else set default
 			bDIR = false;
 			bBTN = false;
+			eAxis = _enum.Dirn.Neutral;
 			onPress = IOState.None;
 			if(this.onPress != this.onpressPREV ){
 //				Debug.LogFormat("INPUT NEUTRAL: {0} ", onPress);

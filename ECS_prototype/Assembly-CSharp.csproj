@@ -119,11 +119,11 @@
      <Compile Include="Assets\Libraries\Entitas\Pool.cs" />
      <Compile Include="Assets\Libraries\Entitas\ReactiveSystem.cs" />
      <Compile Include="Assets\Libraries\Entitas\Systems.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Controllers\_enum.cs" />
      <Compile Include="Assets\Platformer2D\Code\Controllers\collisionController.cs" />
      <Compile Include="Assets\Platformer2D\Code\Controllers\gameController.cs" />
      <Compile Include="Assets\Platformer2D\Code\Controllers\inputController.cs" />
      <Compile Include="Assets\Platformer2D\Code\Extensions\PoolExtensions.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Extensions\_enum.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GameObjectComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GravityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\AddRigidBodySystem.cs" />
