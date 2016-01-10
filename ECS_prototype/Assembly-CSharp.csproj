@@ -53,6 +53,7 @@
      <Compile Include="Assets\Generated\AddRigidBodySystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\AddViewSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ButtonEventComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\CharacterControllerComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ComponentIds.cs" />
      <Compile Include="Assets\Generated\DpadEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ForceComponentGeneratedExtension.cs" />
@@ -127,6 +128,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GameObjectComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\GravityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\AddRigidBodySystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\CharacterControllerComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\RigidBodyComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\Player\PlayerComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\Powerup\PowerUpAttributesComponent.cs" />

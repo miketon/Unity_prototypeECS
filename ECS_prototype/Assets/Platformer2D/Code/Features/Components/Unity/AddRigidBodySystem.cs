@@ -8,8 +8,12 @@ public class AddRigidBodySystem : IReactiveSystem {
 	public void Execute (System.Collections.Generic.List<Entity> entities){
 		foreach (var e in entities) {
 			var rbody = e.view.gameobject.GetComponent<Rigidbody>();
-			if(rbody==null){
+			if(rbody!=null){
 				e.AddRigidBody(rbody);
+			}
+			var cbody = e.view.gameobject.GetComponent<CharacterController>();
+			if(cbody!=null){
+				e.AddCharacterController(cbody);
 			}
 		}
 	}

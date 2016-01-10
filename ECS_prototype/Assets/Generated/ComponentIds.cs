@@ -1,29 +1,31 @@
 public static class ComponentIds {
     public const int ButtonEvent = 0;
-    public const int DpadEvent = 1;
-    public const int Force = 2;
-    public const int GameObject = 3;
-    public const int Gravity = 4;
-    public const int IO_OnFirstPress = 5;
-    public const int IOControl = 6;
-    public const int IOGamePad = 7;
-    public const int IORelease = 8;
-    public const int OnCollisionEnter = 9;
-    public const int Player = 10;
-    public const int Position = 11;
-    public const int PowerUpAttributes = 12;
-    public const int Resource = 13;
-    public const int RigidBody = 14;
-    public const int stateFacing = 15;
-    public const int stateHMotion = 16;
-    public const int stateVMotion = 17;
-    public const int Velocity = 18;
-    public const int View = 19;
+    public const int CharacterController = 1;
+    public const int DpadEvent = 2;
+    public const int Force = 3;
+    public const int GameObject = 4;
+    public const int Gravity = 5;
+    public const int IO_OnFirstPress = 6;
+    public const int IOControl = 7;
+    public const int IOGamePad = 8;
+    public const int IORelease = 9;
+    public const int OnCollisionEnter = 10;
+    public const int Player = 11;
+    public const int Position = 12;
+    public const int PowerUpAttributes = 13;
+    public const int Resource = 14;
+    public const int RigidBody = 15;
+    public const int stateFacing = 16;
+    public const int stateHMotion = 17;
+    public const int stateVMotion = 18;
+    public const int Velocity = 19;
+    public const int View = 20;
 
-    public const int TotalComponents = 20;
+    public const int TotalComponents = 21;
 
     public static readonly string[] componentNames = {
         "ButtonEvent",
+        "CharacterController",
         "DpadEvent",
         "Force",
         "GameObject",
@@ -47,6 +49,7 @@ public static class ComponentIds {
 
     public static readonly System.Type[] componentTypes = {
         typeof(ButtonEventComponent),
+        typeof(CharacterControllerComponent),
         typeof(DpadEventComponent),
         typeof(ForceComponent),
         typeof(GameObjectComponent),
