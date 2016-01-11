@@ -34,6 +34,15 @@ namespace MTON{
 	}
 
 	[Flags] // Powers of two
+	public enum Rbody {
+		// Decimal              // Binary
+		Neutral   = 0,           // 000000
+		OnGround  = 1,           // 000001
+		OnCeilng  = 2,           // 000010
+		OnStunnd  = 4,           // 000100
+	}
+
+	[Flags] // Powers of two
 	public enum Type {
 		// Decimal              // Binary
 		Neutral  = 0,           // 000000

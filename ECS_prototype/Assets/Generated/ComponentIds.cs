@@ -13,15 +13,16 @@ public static class ComponentIds {
     public const int Player = 11;
     public const int Position = 12;
     public const int PowerUpAttributes = 13;
-    public const int Resource = 14;
-    public const int RigidBody = 15;
-    public const int stateFacing = 16;
-    public const int stateHMotion = 17;
-    public const int stateVMotion = 18;
-    public const int Velocity = 19;
-    public const int View = 20;
+    public const int rbodyEvent = 14;
+    public const int Resource = 15;
+    public const int RigidBody = 16;
+    public const int stateFacing = 17;
+    public const int stateHMotion = 18;
+    public const int stateVMotion = 19;
+    public const int Velocity = 20;
+    public const int View = 21;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "ButtonEvent",
@@ -38,6 +39,7 @@ public static class ComponentIds {
         "Player",
         "Position",
         "PowerUpAttributes",
+        "rbodyEvent",
         "Resource",
         "RigidBody",
         "stateFacing",
@@ -62,6 +64,7 @@ public static class ComponentIds {
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(PowerUpAttributesComponent),
+        typeof(rbodyEventComponent),
         typeof(ResourceComponent),
         typeof(RigidBodyComponent),
         typeof(stateFacingComponent),
