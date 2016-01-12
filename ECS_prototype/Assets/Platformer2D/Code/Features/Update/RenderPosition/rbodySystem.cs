@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Entitas;
 
-public class rbodySystem: IExecuteSystem, ISetPool{
+public class rbodySystem: IReactiveSystem, ISetPool{
 
 	private Group _group;
-	
-	#region IExecuteSystem implementation
-	public void Execute (){
-		foreach (var body in _group.GetEntities()) {
-			Debug.LogFormat("Updating Body : {0}", body);
-		}
-	}
-	#endregion
+
+  #region IReactiveExecuteSystem implementation
+  public void Execute(List<Entity> entities) {
+    Debug.LogFormat("RbodySystem : {0}", entities);
+  }
+  
+  public TriggerOnEvent trigger {
+    get {
+      return Matcher.AnyOf(Matcher.DpadEvent, Matcher.ButtonEvent).OnEntityAdded();
+    }
+  }
+  #endregion
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
