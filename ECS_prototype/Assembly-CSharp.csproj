@@ -80,6 +80,7 @@
      <Compile Include="Assets\Generated\VelocityComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ViewComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\rbodyEventComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\rbodySystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateHMotionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateVMotionComponentGeneratedExtension.cs" />
@@ -149,11 +150,12 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Level\LevelSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\OnCollision\OnCollisionEnterComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\OnCollision\OnCollisionEnterSystem.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\OnCollision\StateEvents\rbodyEventComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\ForceComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\VelocityComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\rbodyEventComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\rbodySystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\AddViewSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\ResourceComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\ViewComponent.cs" />

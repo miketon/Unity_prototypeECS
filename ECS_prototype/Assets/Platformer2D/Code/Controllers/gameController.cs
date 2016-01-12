@@ -44,6 +44,7 @@ public class gameController : MonoBehaviour {
 
 		// Physics
 		.Add(pool.CreateSystem<AddRigidBodySystem>())
+		.Add(pool.CreateSystem<rbodySystem>())
 		.Add(pool.CreateSystem<OnCollisionEnterSystem>())
 
 		// Render
