@@ -137,12 +137,11 @@ public class inputController : MonoBehaviour {
 			}
 			else{
 //				Debug.LogFormat("RELEASE ALL");
-        Debug.LogFormat("RELEASE ALL {0}", MTON._CONSTANTComponent._CAMERA);
-				Pools.pool.CreateEntity().AddIORelease(true, false, false); // Set all Release Events
+        Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
+        Pools.pool.CreateEntity().AddIORelease(true, false, false); // Set all Release Events
 			}
 			this.onreleasePREV = this.onPress ;
 		}
-
-
 	}
+
 }

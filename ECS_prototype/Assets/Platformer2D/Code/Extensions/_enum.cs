@@ -3,39 +3,67 @@ using System;
 using System.Collections;
 
 namespace MTON{
-	
-	public class _enum : MonoBehaviour {
-		
-	[Flags] // Powers of two
-	public enum Press {
-		// Decimal              // Binary
-		Neutral  = 0,           // 000000
-		Down     = 1,           // 000001
-		Release  = 2,           // 000010
-		Hold     = 4,           // 000100
-	}
 
-	[Flags] // Powers of two
-	public enum Dirn {
-		// Decimal              // Binary
-		Neutral  = 0,           // 000000
-		UP       = 1,           // 000001
-		DN       = 2,           // 000010
-		LT       = 4,           // 000100
-		RT       = 8,           // 001000
+  public class _enum : MonoBehaviour {
 
-		DN_RT    = DN|RT,       // 001010
-        DN_LT    = DN|LT,       // 000110
-		UP_RT    = UP|RT,       // 001001
-		UP_LT    = UP|LT,       // 000101
-		
+  [Flags] // Powers of two
+  public enum Press {
+    // Decimal              // Binary
+    Neutral  = 0,           // 000000
+    Down     = 1,           // 000001
+    Release  = 2,           // 000010
+    Hold     = 4,           // 000100
+  }
+
+  [Flags] // Powers of two
+  public enum Dirn {
+    // Decimal              // Binary
+    Neutral  = 0,           // 000000
+    UP       = 1,           // 000001
+    DN       = 2,           // 000010
+    LT       = 4,           // 000100
+    RT       = 8,           // 001000
+
+    DN_RT    = DN|RT,       // 001010
+    DN_LT    = DN|LT,       // 000110
+    UP_RT    = UP|RT,       // 001001
+    UP_LT    = UP|LT,       // 000101
+
 //		HNONE    = RT|LT,       // 001100
 //		VNONE    = DN|UP,       // 000011
 	}
 
+  [Flags] // Powers of two
+  public enum VState {       // Vertical State
+    // Decimal               // Binary
+    Neutral   = 0,           // 000000
+    OnRise    = 1,           // 000001
+    OnApex    = 2,           // 000010
+    OnFall    = 4,           // 000100
+  }
+
+  [Flags] // Powers of two
+  public enum HState {       // Horizontal State
+    // Decimal               // Binary
+    Neutral   = 0,           // 000000
+    OnWalk    = 1,           // 000001
+    OnRunn    = 2,           // 000010
+    OnDash    = 4,           // 000100
+  }
+
+  [Flags] // Powers of two
+  public enum FState {       // Facing State
+    // Decimal               // Binary
+    Neutral   = 0,           // 000000
+    Frnt      = 1,           // 000001
+    Back      = 2,           // 000010
+    Rght      = 4,           // 000100
+    Left      = 8,           // 000100
+  }
+
 	[Flags] // Powers of two
 	public enum Rbody {
-		// Decimal              // Binary
+		// Decimal               // Binary
 		Neutral   = 0,           // 000000
 		OnGround  = 1,           // 000001
 		OnCeilng  = 2,           // 000010
@@ -44,14 +72,14 @@ namespace MTON{
 
 	[Flags] // Powers of two
 	public enum Type {
-		// Decimal              // Binary
-		Neutral  = 0,           // 000000
-		Jump     = 1,           // 000001
-		Attack   = 2,           // 000010
-		Guard    = 4,           // 000100
+    // Decimal              // Binary
+    Neutral  = 0,           // 000000
+    Jump     = 1,           // 000001
+    Attack   = 2,           // 000010
+    Guard    = 4,           // 000100
 
-		AirSpin  = Jump|Attack, // 000011
-        Grab     = Guard|Attack,// 000110
+    AirSpin  = Jump|Attack, // 000011
+    Grab     = Guard|Attack,// 000110
 	}
 
 	[Flags] // Powers of two
