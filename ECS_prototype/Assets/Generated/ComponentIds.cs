@@ -9,20 +9,21 @@ public static class ComponentIds {
     public const int IOControl = 7;
     public const int IOGamePad = 8;
     public const int IORelease = 9;
-    public const int OnCollisionEnter = 10;
-    public const int Player = 11;
-    public const int Position = 12;
-    public const int PowerUpAttributes = 13;
-    public const int rbodyEvent = 14;
-    public const int Resource = 15;
-    public const int RigidBody = 16;
-    public const int stateFacing = 17;
-    public const int stateHMotion = 18;
-    public const int stateVMotion = 19;
-    public const int Velocity = 20;
-    public const int View = 21;
+    public const int _CONSTANT = 10;
+    public const int OnCollisionEnter = 11;
+    public const int Player = 12;
+    public const int Position = 13;
+    public const int PowerUpAttributes = 14;
+    public const int rbodyEvent = 15;
+    public const int Resource = 16;
+    public const int RigidBody = 17;
+    public const int stateFacing = 18;
+    public const int stateHMotion = 19;
+    public const int stateVMotion = 20;
+    public const int Velocity = 21;
+    public const int View = 22;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "ButtonEvent",
@@ -35,6 +36,7 @@ public static class ComponentIds {
         "IOControl",
         "IOGamePad",
         "IORelease",
+        "_CONSTANT",
         "OnCollisionEnter",
         "Player",
         "Position",
@@ -60,6 +62,7 @@ public static class ComponentIds {
         typeof(IOControlComponent),
         typeof(IOGamePadComponent),
         typeof(IOReleaseComponent),
+        typeof(MTON._CONSTANTComponent),
         typeof(OnCollisionEnterComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
