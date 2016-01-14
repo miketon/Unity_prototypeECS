@@ -42,6 +42,11 @@ public class gameController : MonoBehaviour {
 		// Update
 //		.Add(pool.CreateSystem<MoveSystem>())
 
+		// Physics
+		.Add(pool.CreateSystem<AddRigidBodySystem>())
+		.Add(pool.CreateSystem<rbodySystem>())
+		.Add(pool.CreateSystem<OnCollisionEnterSystem>())
+
 		// Render
 		.Add(pool.CreateSystem<AddViewSystem>())
 		.Add(pool.CreateSystem<RenderPositionSystem>())

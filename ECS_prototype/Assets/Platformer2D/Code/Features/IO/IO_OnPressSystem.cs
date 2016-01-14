@@ -9,10 +9,10 @@ public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
-		var hPos = entities.SingleEntity().iOGamePad.hAxis;
+//		var hPos = entities.SingleEntity().iOGamePad.hAxis;
 		foreach (var e in _group.GetEntities()) {
 			var pos   = e.position;
-			e.force.speed += e.force.accel * hPos * Time.deltaTime * PowerUpAttributesComponent.fSpeed;
+//			e.force.speed += e.force.accel * hPos * Time.deltaTime * PowerUpAttributesComponent.fSpeed;
 			e.ReplacePosition(pos.x + e.force.speed, pos.y, pos.z);
 //			Debug.LogFormat(" IO_OnPressSystem : {0} ", e.force.speed);
 		}
@@ -20,7 +20,7 @@ public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.IOGamePad.OnEntityAdded();
+      return Matcher.DpadEvent.OnEntityAdded();
 		}
 	}
 	#endregion
