@@ -7,7 +7,7 @@ namespace MTON{
   public class _enum : MonoBehaviour {
 
   [Flags] // Powers of two
-  public enum Press {
+  public enum Button {
     // Decimal              // Binary
     Neutral  = 0,           // 000000
     Down     = 1,           // 000001
