@@ -7,8 +7,25 @@ public class inputController : MonoBehaviour {
 
 	public string     hAxis = "Horizontal"      ;
 	public string     vAxis = "Vertical"        ;
-	public _enum.Dirn eAxis = _enum.Dirn.Neutral;
-
+  public _enum.Dirn eaxisPRE = _enum.Dirn.Neutral;
+  public _enum.Dirn eaxisCUR = _enum.Dirn.Neutral;
+  public _enum.Dirn eAxis {
+    get{
+      return eaxisCUR;
+    }
+    set{
+      eaxisCUR = value;
+      if(eaxisCUR == _enum.Dirn.Neutral){
+        if(value != eaxisPRE){
+          Pools.pool.CreateEntity().AddDpadEvent(_enum.Press.Neutral, _enum.Dirn.Neutral);
+        }
+      }
+      else{
+        Pools.pool.CreateEntity().AddDpadEvent(_enum.Press.Down, eaxisCUR);
+      }
+      eaxisPRE = value;
+    }
+  }
 	public KeyCode bFire = KeyCode.LeftControl;
 	public KeyCode bJump = KeyCode.Space;
 
@@ -109,7 +126,7 @@ public class inputController : MonoBehaviour {
 				Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f);
 				Pools.pool.CreateEntity().AddButtonEvent(_enum.Press.Down , _enum.Type.Attack);
 			}
-			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
+//			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
 		}
 		else {                                                                       // neutral :else set default
 			bDIR = false;
@@ -119,7 +136,7 @@ public class inputController : MonoBehaviour {
 			if(this.onPress != this.onpressPREV ){
 //				Debug.LogFormat("INPUT NEUTRAL: {0} ", onPress);
 				this.onpressPREV = this.onPress ;
-				Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
+//				Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
 			}
 		}
 
