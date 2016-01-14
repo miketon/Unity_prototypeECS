@@ -5,8 +5,10 @@ using MTON;
 
 public class inputController : MonoBehaviour {
 
-	public string     hAxis = "Horizontal"      ;
-	public string     vAxis = "Vertical"        ;
+	public string  hAxis = "Horizontal"      ;
+	public string  vAxis = "Vertical"        ;
+  public float _mAxis; // make private serialize
+
   public _enum.Dirn eaxisPRE = _enum.Dirn.Neutral;
   public _enum.Dirn eaxisCUR = _enum.Dirn.Neutral;
   public _enum.Dirn eAxis {
@@ -17,11 +19,11 @@ public class inputController : MonoBehaviour {
       eaxisCUR = value;
       if(eaxisCUR == _enum.Dirn.Neutral){
         if(value != eaxisPRE){
-          Pools.pool.CreateEntity().AddDpadEvent(_enum.Press.Neutral, _enum.Dirn.Neutral);
+          Pools.pool.CreateEntity().AddDpadEvent(_enum.Dirn.Neutral, 0.0f);
         }
       }
       else{
-        Pools.pool.CreateEntity().AddDpadEvent(_enum.Press.Down, eaxisCUR);
+          Pools.pool.CreateEntity().AddDpadEvent(eaxisCUR, _mAxis);
       }
       eaxisPRE = value;
     }
@@ -90,7 +92,7 @@ public class inputController : MonoBehaviour {
 		// dirPad state
 		var _hAxis = Input.GetAxisRaw(hAxis)               ;
 		var _vAxis = Input.GetAxisRaw(vAxis)               ;
-		var _mAxis = new Vector2(_hAxis, _vAxis).magnitude ; // magnitude
+    _mAxis = (new Vector2(_hAxis, _vAxis).normalized).magnitude ; // magnitude
 		var _bAxis = (Mathf.Abs(_mAxis) > Mathf.Epsilon)   ; // bool=>if magnitude > 0 == true
 		// button state
 		var _bFire = Input.GetKey(bFire) ;
