@@ -10,8 +10,8 @@ namespace MTON{
   public enum Button {
     // Decimal              // Binary
     Neutral  = 0,           // 000000
-    Down     = 1,           // 000001
-    Release  = 2,           // 000010
+    Release  = 1,           // 000001
+    Down     = 2,           // 000010
     Hold     = 4,           // 000100
   }
 
@@ -29,8 +29,13 @@ namespace MTON{
     UP_RT    = UP|RT,       // 001001
     UP_LT    = UP|LT,       // 000101
 
-//		HNONE    = RT|LT,       // 001100
-//		VNONE    = DN|UP,       // 000011
+    HNONE    = RT|LT,       // 001100
+    VNONE    = DN|UP,       // 000011
+    ANONE    = RT|LT|DN|UP, // 001111
+    LNONE    = LT|DN|UP,    // 000111
+    RNONE    = RT|DN|UP,    // 001011
+    UNONE    = RT|LT|UP,    // 001101
+    DNONE    = RT|LT|DN,    // 001110
 	}
 
   [Flags] // Powers of two
@@ -72,14 +77,14 @@ namespace MTON{
 
 	[Flags] // Powers of two
 	public enum Type {
-    // Decimal              // Binary
-    Neutral  = 0,           // 000000
-    Jump     = 1,           // 000001
-    Attack   = 2,           // 000010
-    Guard    = 4,           // 000100
+    // Decimal               // Binary
+    Neutral  = 0,            // 000000
+    Jump     = 1,            // 000001
+    Attack   = 2,            // 000010
+    Guard    = 4,            // 000100
 
-    AirSpin  = Jump|Attack, // 000011
-    Grab     = Guard|Attack,// 000110
+    AirSpin  = Jump |Attack, // 000011
+    Grab     = Guard|Attack, // 000110
 	}
 
 	[Flags] // Powers of two
