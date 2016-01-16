@@ -12,20 +12,16 @@ namespace Entitas {
             _iOReleaseComponentPool.Clear();
         }
 
-        public Entity AddIORelease(bool newBNEUTRAL, bool newBDIRPAD, bool newBBUTTON) {
+        public Entity AddIORelease(MTON._enum.GPAD newGPAD) {
             var component = _iOReleaseComponentPool.Count > 0 ? _iOReleaseComponentPool.Pop() : new IOReleaseComponent();
-            component.bNEUTRAL = newBNEUTRAL;
-            component.bDIRPAD = newBDIRPAD;
-            component.bBUTTON = newBBUTTON;
+            component.GPAD = newGPAD;
             return AddComponent(ComponentIds.IORelease, component);
         }
 
-        public Entity ReplaceIORelease(bool newBNEUTRAL, bool newBDIRPAD, bool newBBUTTON) {
+        public Entity ReplaceIORelease(MTON._enum.GPAD newGPAD) {
             var previousComponent = hasIORelease ? iORelease : null;
             var component = _iOReleaseComponentPool.Count > 0 ? _iOReleaseComponentPool.Pop() : new IOReleaseComponent();
-            component.bNEUTRAL = newBNEUTRAL;
-            component.bDIRPAD = newBDIRPAD;
-            component.bBUTTON = newBBUTTON;
+            component.GPAD = newGPAD;
             ReplaceComponent(ComponentIds.IORelease, component);
             if (previousComponent != null) {
                 _iOReleaseComponentPool.Push(previousComponent);

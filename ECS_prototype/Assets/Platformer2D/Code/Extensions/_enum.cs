@@ -7,6 +7,16 @@ namespace MTON{
   public class _enum : MonoBehaviour {
 
   [Flags] // Powers of two
+  public enum GPAD {
+    // Decimal              // Binary
+    Neutral  = 0,           // 000000
+    DPAD     = 1,           // 000001
+    BTTN     = 2,           // 000010
+    
+    FULL     = DPAD|BTTN,   // 000011
+  }
+
+  [Flags] // Powers of two
   public enum Button {
     // Decimal              // Binary
     Neutral  = 0,           // 000000

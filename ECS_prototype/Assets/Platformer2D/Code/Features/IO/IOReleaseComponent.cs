@@ -1,7 +1,6 @@
 ﻿using Entitas;
+using MTON;
 
 public class IOReleaseComponent : IComponent {
-	public bool bNEUTRAL ;
-	public bool bDIRPAD  ;
-	public bool bBUTTON  ;
+  public _enum.GPAD GPAD;
 }
