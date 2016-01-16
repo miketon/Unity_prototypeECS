@@ -88,14 +88,13 @@ namespace MTON{
 	}
 
 	[Flags] // Powers of two
-	public enum Attk {          // << shifts for progressive power up...or power down
+	public enum Powr {          // << shifts for progressive power up...or power down
 		// Decimal              // Binary
 		Neutral  = 0,           // 000000
 		Min      = 1 << 0,      // 000001
-		Med      = 1 << 1,      // 000010
-		Max      = 1 << 2,      // 000100
-		Ovr      = 1 << 3,      // 001000
-		Fin      = 1 << 4,      // 010000
+		Max      = 1 << 1,      // 000010
+		Ovr      = 1 << 2,      // 000100
+		End      = 1 << 3,      // 001000
 	}
 
 	public static string TokenizeAndReturnPath(string IN_STRING, string IN_LIMITER){

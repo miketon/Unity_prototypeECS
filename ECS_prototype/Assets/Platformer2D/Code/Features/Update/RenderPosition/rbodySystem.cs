@@ -9,7 +9,7 @@ public class rbodySystem: IReactiveSystem, ISetPool{
 
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
-    Debug.LogFormat("RbodySystem : {0}", entities);
+//    Debug.LogFormat("RbodySystem : {0}", entities);
   }
   
   public TriggerOnEvent trigger {
