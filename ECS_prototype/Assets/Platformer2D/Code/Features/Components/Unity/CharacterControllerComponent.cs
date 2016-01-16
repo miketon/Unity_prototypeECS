@@ -2,5 +2,5 @@
 using Entitas;
 
 public class CharacterControllerComponent : IComponent {
-	public CharacterController cbody;
+  public CharacterController cbody;
 }

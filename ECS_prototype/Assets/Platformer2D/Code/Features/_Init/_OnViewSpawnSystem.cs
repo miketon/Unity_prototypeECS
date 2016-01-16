@@ -2,7 +2,7 @@
 using System.Collections;
 using Entitas;
 
-public class AddRigidBodySystem : IReactiveSystem {
+public class _OnViewSpawnSystem : IReactiveSystem {
 	
 	#region IReactiveExecuteSystem implementation
 	public void Execute (System.Collections.Generic.List<Entity> entities){
@@ -13,7 +13,7 @@ public class AddRigidBodySystem : IReactiveSystem {
 			}
 			var cbody = e.view.gameobject.GetComponent<CharacterController>();
 			if(cbody!=null){
-				e.AddCharacterController(cbody);
+        e.AddCharacterController(cbody);
 			}
 		}
 	}

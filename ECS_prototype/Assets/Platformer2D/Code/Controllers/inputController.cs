@@ -5,80 +5,55 @@ using MTON;
 
 public class inputController : MonoBehaviour {
 
-	public string  hAxis = "Horizontal"      ;
-	public string  vAxis = "Vertical"        ;
-  public float _mAxis; // make private serialize
+	public string  hAxis  = "Horizontal"      ;
+	public string  vAxis  = "Vertical"        ;
+  public float   _mAxis =  0.0f             ; // make private serialize
 
-  public _enum.Dirn eaxisPRE = _enum.Dirn.Neutral;
-  public _enum.Dirn eaxisCUR = _enum.Dirn.Neutral;
+	public KeyCode bFire = KeyCode.LeftControl;
+	public KeyCode bJump = KeyCode.Space      ;
+
+  private _enum.GPAD epad = _enum.GPAD.Neutral;
+  public  _enum.GPAD ePAD = _enum.GPAD.Neutral;
+  public  _enum.GPAD eREL = _enum.GPAD.Neutral;
+
+  public _enum.Dirn eaxis = _enum.Dirn.Neutral;
   public _enum.Dirn eAxis {
     get{
-      return eaxisCUR;
+      return this.eaxis;
     }
     set{
-      eaxisCUR = value;
-      if(eaxisCUR == _enum.Dirn.Neutral){
-        if(value != eaxisPRE){
+      if(value == _enum.Dirn.Neutral){
+        if(value != this.eaxis){
           Pools.pool.CreateEntity().AddDpadEvent(_enum.Dirn.Neutral, 0.0f);
         }
       }
       else{
-          Pools.pool.CreateEntity().AddDpadEvent(eaxisCUR, _mAxis);
+          Pools.pool.CreateEntity().AddDpadEvent(this.eaxis, this._mAxis);
       }
-      eaxisPRE = value;
+      this.eaxis = value;
     }
   }
-	public KeyCode bFire = KeyCode.LeftControl;
-	public KeyCode bJump = KeyCode.Space;
 
-	// pressStates
-	public  IOState onPress ;
-	// cache
-	public  IOState onpressPREV   ;
-	public  IOState onreleasePREV ;
-
-	// Powers of two
-	[Flags] 
-	public enum IOState {
-		// Decimal             // Binary
-		None    = 0,           // 000000
-		Dir     = 1,           // 000001
-		Button  = 2,           // 000010
-
-		Full    = Dir | Button // 000011
-	}
-
-	private bool bdir = false;
-	public bool bDIR{
-		get{ return this.bdir;  }
-		set{
-			if(value!=this.bdir){
-				this.bdir = value;
-				if(value==true){
-					this.onPress |= IOState.Dir ; //Or ==Set bit
-				}
-				else{
-					this.onPress &= ~IOState.Dir; //Not==Unset bit
-				}
-			}
-		}
-	}
-
-	private bool bbtn = false;
-	public bool bBTN{
-		get{ return this.bbtn;  }
-		set{
-			if(value!=this.bbtn){
-				this.bbtn = value;
-				if(value==true){
-					this.onPress |= IOState.Button  ; //Or ==Set bit
-				}
-				else{
-					this.onPress &= ~IOState.Button ; //Not==Unset bit
-				}
-			}
-		}
-	}
+  public _enum.Type   ebntype = _enum.Type.Jump;
+  public _enum.Button ebutton = _enum.Button.Neutral;
+  public _enum.Button eButton {
+    get{
+      return this.ebutton ;
+    }
+    set{
+      if (value == _enum.Button.Neutral){
+        if(value != this.ebutton){
+          Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Neutral, _enum.Type.Neutral);
+//          Debug.LogFormat("BUTTON : NEUTRAL {0} {1}", value, ebntype);
+        }
+      }
+      else{
+        Pools.pool.CreateEntity().AddButtonEvent(value, _enum.Type.Jump);
+//        Debug.LogFormat("BUTTON : PRESSED {0} {1}", value, ebntype);
+      }
+      this.ebutton = value;
+    }
+  }
 
 	public string myString = "Babies/Are/Deformed/Eggs/BreakfastJingle.mp3";
 	void Start(){
@@ -97,13 +72,20 @@ public class inputController : MonoBehaviour {
 		// button state
 		var _bFire = Input.GetKey(bFire) ;
 		var _bJump = Input.GetKey(bJump) ;
-		var _bPrss = (_bFire || _bJump)  ;
+    
+    // reset all enums
+    this.ePAD    = _enum.GPAD.Neutral   ;
+    this.eREL    = _enum.GPAD.Neutral   ;
+    this.eAxis   = _enum.Dirn.Neutral   ;
+    this.eButton = _enum.Button.Neutral ;
+    this.ebntype = _enum.Type.Neutral   ;
 
 		// OnPress Logic 
-		if( _bAxis || _bPrss){                                                       // active : read input
+		if(_bAxis || _bFire || _bJump){                                                       // active : read input
 //			Debug.LogFormat("PRESSED : {0} ", onPress);
-			if(_bAxis) {                      // axis is active
-				bDIR = true  ;
+      // process dpad
+			if(_bAxis) {                    // axis is active
+        this.ePAD |= _enum.GPAD.DPAD;
 				// horizontal
 				if(_hAxis > 0.0f){
 					eAxis |= _enum.Dirn.RT;
@@ -118,49 +100,42 @@ public class inputController : MonoBehaviour {
 				else if(_vAxis < 0.0f){       // must do explicit check otherwise down is default
 					eAxis |= _enum.Dirn.DN;
 				}
-			}
-			else       { bDIR = false ; }
-			if(_bPrss) { bBTN = true  ; }
-			else       { bBTN = false ; }
-			if(this.onPress != this.onpressPREV ){                                   // onFirst Press
-				this.onpressPREV = this.onPress ;
-//				Debug.LogFormat("FIRST PRESSED : {0} ", onPress);
-				Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f);
-				Pools.pool.CreateEntity().AddButtonEvent(_enum.Press.Down , _enum.Type.Attack);
-			}
-//			Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
-		}
-		else {                                                                       // neutral :else set default
-			bDIR = false;
-			bBTN = false;
-			eAxis = _enum.Dirn.Neutral;
-			onPress = IOState.None;
-			if(this.onPress != this.onpressPREV ){
-//				Debug.LogFormat("INPUT NEUTRAL: {0} ", onPress);
-				this.onpressPREV = this.onPress ;
-//				Pools.pool.CreateEntity().AddIOGamePad(_hAxis, _vAxis, _bFire, _bJump);
-			}
-		}
+      }
+//      else{
+//        if(this.ePAD != this.epad ){                                   // onFirst Release
+//          Pools.pool.CreateEntity().AddIORelease(this.ePAD |=_enum.GPAD.DPAD);  // Set all Release Events
+//        }
+//      }
+      // process buttons
+			if(_bFire || _bJump) { 
+        this.ePAD   |= _enum.GPAD.BTTN;
+        this.eButton = _enum.Button.Down;
+        if(_bFire){
+          this.ebntype |= _enum.Type.Attack;
+        }
+        if(_bJump){
+          this.ebntype |= _enum.Type.Jump;
+        }
+      }
+//      else{
+//        if(this.ePAD != this.epad ){                                   // onFirst Release
+//          Pools.pool.CreateEntity().AddIORelease(this.ePAD |=_enum.GPAD.BTTN);  // Set all Release Events
+//        }
+//      }
 
-		// OnRelease Logic
-		if(this.onPress!= this.onreleasePREV){
-			if( _bAxis || _bPrss){                                                       // active : read input
-				if(this.onPress==IOState.Button){
-//					Debug.LogFormat("RELEASE DIR");
-					Pools.pool.CreateEntity().AddIORelease(false, false, true); // Set all Release Events
-				}
-				else if(this.onPress==IOState.Dir){
-//					Debug.LogFormat("RELEASE BUTTON");
-					Pools.pool.CreateEntity().AddIORelease(false, true, false); // Set all Release Events
-				}
-			}
-			else{
-//				Debug.LogFormat("RELEASE ALL");
+      if(this.ePAD != this.epad ){                                   // onFirst Press
+        Debug.LogFormat("FIRST PRESSED : {0} ", this.ePAD);
+        Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f);
+        Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Down , _enum.Type.Attack);
+      }
+    }
+    // OnRelease Logic
+    else {                                                                       
+      if(this.ePAD != this.epad ){                                   // onFirst Release
         Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
-        Pools.pool.CreateEntity().AddIORelease(true, false, false); // Set all Release Events
-			}
-			this.onreleasePREV = this.onPress ;
-		}
-	}
-
+        Pools.pool.CreateEntity().AddIORelease(_enum.GPAD.FULL);  // Set all Release Events
+      }
+    }
+    this.epad = this.ePAD;
+  }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Entitas;
+using MTON;
 
 public class IO_OnReleaseSystem : IReactiveSystem, ISetPool {
 
@@ -11,14 +12,18 @@ public class IO_OnReleaseSystem : IReactiveSystem, ISetPool {
 	public void Execute (List<Entity> entities){
 		var ioRelease = entities.SingleEntity().iORelease;
 		foreach (var e in _group.GetEntities()) {
-			if(ioRelease.bDIRPAD || ioRelease.bNEUTRAL){; 
-//				Debug.LogFormat("IO_ForceSystem : Neutral : bDIRPAD {0}", ioRelease.bDIRPAD);
-				e.force.speed = 0.0f;
+      if(ioRelease.GPAD == _enum.GPAD.FULL){
+        Debug.LogFormat("IO_OnReleaseSystem : ALL : {0}", ioRelease.GPAD);
+      }
+      else if(ioRelease.GPAD == _enum.GPAD.DPAD){; 
+				Debug.LogFormat("IO_OnReleaseSystem : Neutral : bDIRPAD {0}", ioRelease.GPAD);
+        e.force.speed = 0.0f;
 			}
-			if(ioRelease.bBUTTON){
+      else if(ioRelease.GPAD == _enum.GPAD.BTTN){
+        e.force.speed = 0.0f;
 				var pos = e.position;
 				e.ReplacePosition(pos.x, pos.y+0.5f, pos.z);
-//				Debug.LogFormat("IO_ForceSystem : Neutral : bBUTTON {0} speed : {1}", ioRelease.bBUTTON, e.force.speed);
+				Debug.LogFormat("IO_OnReleaseSystem : Neutral : bBUTTON {0} speed : {1}", ioRelease.GPAD, e.force.speed);
 			}
 		}
 	}
