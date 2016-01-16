@@ -9,11 +9,11 @@ public class _OnViewSpawnSystem : IReactiveSystem {
 		foreach (var e in entities) {
 			var rbody = e.view.gameobject.GetComponent<Rigidbody>();
 			if(rbody!=null){
-				e.AddRigidBody(rbody);
+				e.Add_RigidBody(rbody);
 			}
 			var cbody = e.view.gameobject.GetComponent<CharacterController>();
 			if(cbody!=null){
-        e.AddCharacterController(cbody);
+        e.Add_CharacterController(cbody);
 			}
 		}
 	}

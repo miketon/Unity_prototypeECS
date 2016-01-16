@@ -24,11 +24,6 @@ namespace MTON {
     public const string _SPFX   = "Ignore Raycast"; //HACK :level triggers/hint should ignore ground raycast/collision check!
 
     //handles Tags
-    //handles Paths
-    public static string _char = "_Characters/" ;
-    public static string _sdFX = "_SoundFX/"    ;
-    public static string _txtr = "_Textures/"   ;
-    public static string _matl = "_Materials/"  ;
 
   }
 

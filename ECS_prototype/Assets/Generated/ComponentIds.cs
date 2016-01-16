@@ -1,21 +1,21 @@
 public static class ComponentIds {
-    public const int _Gravity = 0;
-    public const int _OnStart = 1;
-    public const int ButtonEvent = 2;
-    public const int CharacterController = 3;
-    public const int DpadEvent = 4;
-    public const int Force = 5;
-    public const int IO_OnFirstPress = 6;
-    public const int IOControl = 7;
-    public const int IORelease = 8;
-    public const int _CONSTANT = 9;
-    public const int OnCollisionEnter = 10;
-    public const int Player = 11;
-    public const int Position = 12;
-    public const int PowerUpAttributes = 13;
-    public const int rbody = 14;
-    public const int rbodyEvent = 15;
-    public const int RigidBody = 16;
+    public const int _CharacterController = 0;
+    public const int _Gravity = 1;
+    public const int _OnStart = 2;
+    public const int _RigidBody = 3;
+    public const int ButtonEvent = 4;
+    public const int DpadEvent = 5;
+    public const int Force = 6;
+    public const int IO_OnFirstPress = 7;
+    public const int IOControl = 8;
+    public const int IORelease = 9;
+    public const int _CONSTANT = 10;
+    public const int OnCollisionEnter = 11;
+    public const int Player = 12;
+    public const int Position = 13;
+    public const int PowerUpAttributes = 14;
+    public const int rbody = 15;
+    public const int rbodyEvent = 16;
     public const int stateFacing = 17;
     public const int stateHMotion = 18;
     public const int stateVMotion = 19;
@@ -26,10 +26,11 @@ public static class ComponentIds {
     public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
+        "_CharacterController",
         "_Gravity",
         "_OnStart",
+        "_RigidBody",
         "ButtonEvent",
-        "CharacterController",
         "DpadEvent",
         "Force",
         "IO_OnFirstPress",
@@ -42,7 +43,6 @@ public static class ComponentIds {
         "PowerUpAttributes",
         "rbody",
         "rbodyEvent",
-        "RigidBody",
         "stateFacing",
         "stateHMotion",
         "stateVMotion",
@@ -52,10 +52,11 @@ public static class ComponentIds {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(_CharacterControllerComponent),
         typeof(_GravityComponent),
         typeof(_OnStartComponent),
+        typeof(_RigidBodyComponent),
         typeof(ButtonEventComponent),
-        typeof(CharacterControllerComponent),
         typeof(DpadEventComponent),
         typeof(ForceComponent),
         typeof(IO_OnFirstPressComponent),
@@ -68,7 +69,6 @@ public static class ComponentIds {
         typeof(PowerUpAttributesComponent),
         typeof(rbodyComponent),
         typeof(rbodyEventComponent),
-        typeof(RigidBodyComponent),
         typeof(stateFacingComponent),
         typeof(stateHMotionComponent),
         typeof(stateVMotionComponent),

@@ -35,6 +35,7 @@ public class gameController : MonoBehaviour {
     .Add(pool.CreateSystem<_OnLevelInitSystem>())
     .Add(pool.CreateSystem<_OnViewSpawnSystem>())
     .Add(pool.CreateSystem<_OnStartSystem>())
+    .Add(pool.CreateSystem<_OnCharacterControllerInitSystem>())
 
 		// Input
 		.Add(pool.CreateSystem<IO_OnFirstPressSystem>()) // When direction is first pressed : boost acceleration to make char feel snappier
