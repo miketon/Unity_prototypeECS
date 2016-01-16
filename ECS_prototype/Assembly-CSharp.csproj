@@ -81,7 +81,6 @@
      <Compile Include="Assets\Generated\_OnStartSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_OnViewSpawnSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_RigidBodyComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\rbodyComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\rbodyEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\rbodySystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
@@ -142,8 +141,10 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\State\stateFacingComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\State\stateHMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\State\stateVMotionComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\IO\ButtonEventComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\IO\DpadEventComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\Events\ButtonEventComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\Events\DpadEventComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\Events\rbodyEventComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\IO\Events\rbodySystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOControlComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IOReleaseComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IO_OnDestroySystem.cs" />
@@ -157,14 +158,12 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\VelocityComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\rbodyComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\rbodyEventComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\rbodySystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnLevelInitSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnStartComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnStartSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnViewSpawnSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\_MTON\_CONSTANTComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\__Interfaces\_IRbody.cs" />
      <Compile Include="Assets\Platformer2D\Code\_MTON\_enum.cs" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black1x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_black2x.xml" />

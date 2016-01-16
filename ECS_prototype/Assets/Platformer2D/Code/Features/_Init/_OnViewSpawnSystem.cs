@@ -13,7 +13,8 @@ public class _OnViewSpawnSystem : IReactiveSystem {
 			}
 			var cbody = e.view.gameobject.GetComponent<CharacterController>();
 			if(cbody!=null){
-        e.Add_CharacterController(cbody);
+        e.Add_CharacterController(cbody)   ;
+        e._CharacterController.Init(cbody) ; // TODO: manual injection => auto injection
 			}
 		}
 	}
