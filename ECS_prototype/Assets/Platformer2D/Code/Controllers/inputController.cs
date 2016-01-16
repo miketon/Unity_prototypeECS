@@ -82,13 +82,16 @@ public class inputController : MonoBehaviour {
 		var _bFire = Input.GetKey(bFire) ;
 		var _bJump = Input.GetKey(bJump) ;
 
-    this.ePAD = GPAD.Neutral;
+    this.ePAD    = GPAD.Neutral         ;
+    this.eAxis   = _enum.Dirn.Neutral   ;
+    this.eButton = _enum.Button.Neutral ;
+    this.ebntype = _enum.Type.Neutral   ;
 
 		// OnPress Logic 
 		if(_bAxis || _bFire || _bJump){                                                       // active : read input
 //			Debug.LogFormat("PRESSED : {0} ", onPress);
       // process dpad
-			if(_bAxis) {                      // axis is active
+			if(_bAxis) {                    // axis is active
         this.ePAD |= GPAD.DPAD;
 				// horizontal
 				if(_hAxis > 0.0f){
@@ -112,32 +115,23 @@ public class inputController : MonoBehaviour {
         if(_bFire){
           this.ebntype |= _enum.Type.Attack;
         }
-        else{
-          this.ebntype &= ~ _enum.Type.Attack; //not
-        }
         if(_bJump){
           this.ebntype |= _enum.Type.Jump;
         }
-        else{
-          this.ebntype &= ~ _enum.Type.Jump; //not
-        }      
       }
-      else       { 
-        this.eButton = _enum.Button.Neutral;
-        this.ebntype = _enum.Type.Neutral;
+
+      if(this.ePAD != this.epad ){                                   // onFirst Press
+        Debug.LogFormat("FIRST PRESSED : {0} ", this.ePAD);
+        Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f);
+        Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Down , _enum.Type.Attack);
       }
-			if(this.ePAD != this.epad ){                                   // onFirst Press
-				Debug.LogFormat("FIRST PRESSED : {0} ", this.ePAD);
-				Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f);
-				Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Down , _enum.Type.Attack);
-			}
-		}
-		else {                                                                       // neutral :else set default
-      this.eAxis   = _enum.Dirn.Neutral;
-      this.eButton = _enum.Button.Neutral;
-      this.ebntype = _enum.Type.Neutral;			
-//      Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
-//      Pools.pool.CreateEntity().AddIORelease(true, false, false); // Set all Release Events
+    }
+    // OnRelease Logic
+    else {                                                                       
+      if(this.ePAD != this.epad ){                                   // onFirst Release
+        Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
+        Pools.pool.CreateEntity().AddIORelease(true, false, false);  // Set all Release Events
+      }
     }
     this.epad = this.ePAD;
   }
