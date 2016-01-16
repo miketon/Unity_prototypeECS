@@ -79,6 +79,8 @@
      <Compile Include="Assets\Generated\RigidBodyComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\VelocityComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ViewComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\_OnStartComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\rbodyComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\rbodyEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\rbodySystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
@@ -154,11 +156,14 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\VelocityComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\rbodyComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\rbodyEventComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\rbodySystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\AddViewSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\ResourceComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\ViewComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnStartComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnStartSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Res.cs" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black1x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_black2x.xml" />
