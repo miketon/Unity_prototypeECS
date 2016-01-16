@@ -32,7 +32,8 @@ public class gameController : MonoBehaviour {
 		return new Systems()
 		#endif	
         // Init
-		.Add(pool.CreateSystem<LevelSystem>())
+    .Add(pool.CreateSystem<_OnLevelInitSystem>())
+    .Add(pool.CreateSystem<_OnViewSpawnSystem>())
     .Add(pool.CreateSystem<_OnStartSystem>())
 
 		// Input
@@ -44,7 +45,6 @@ public class gameController : MonoBehaviour {
 //		.Add(pool.CreateSystem<MoveSystem>())
 
 		// Physics
-		.Add(pool.CreateSystem<AddRigidBodySystem>())
 		.Add(pool.CreateSystem<rbodySystem>())
 		.Add(pool.CreateSystem<OnCollisionEnterSystem>())
 

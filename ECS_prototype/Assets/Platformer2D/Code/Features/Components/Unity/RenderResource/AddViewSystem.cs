@@ -11,7 +11,7 @@ public class AddViewSystem : IReactiveSystem {
 	public void Execute (List<Entity> entities){
 		Debug.LogFormat("Add View : {0} ", entities);
 		foreach (var e in entities) {
-			var res = Resources.Load<GameObject>(e.resource.name);
+			var res = Resources.Load<GameObject>(e.viewResource.name);
 			GameObject viewObject = null;
 			try {
 				viewObject = UnityEngine.Object.Instantiate(res);// as GameObject;
@@ -33,7 +33,7 @@ public class AddViewSystem : IReactiveSystem {
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.Resource.OnEntityAdded();
+			return Matcher.ViewResource.OnEntityAdded();
 		}
 	}
 	#endregion
