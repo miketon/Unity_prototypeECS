@@ -1,7 +1,7 @@
 namespace Entitas {
     public partial class Pool {
         public ISystem CreaterbodySystem() {
-            return this.CreateSystem<rbodySystem>();
+            return this.CreateSystem<RigidBodyUpdateSystem>();
         }
     }
 }

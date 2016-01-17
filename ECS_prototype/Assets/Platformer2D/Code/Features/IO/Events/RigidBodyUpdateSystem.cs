@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class rbodySystem: IReactiveSystem, ISetPool{
+public class RigidBodyUpdateSystem: IReactiveSystem, ISetPool{
 
 	private Group _group;
 

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class AddViewSystem : IReactiveSystem {
+public class OnAddViewSystem : IReactiveSystem {
 
 	readonly Transform _viewContainer = new GameObject("View").transform; // name of transform parent of new View Object
 	

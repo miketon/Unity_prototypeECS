@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Entitas;
 
-public class _OnLevelInitSystem : IInitializeSystem, ISetPool {
+public class _LevelInitSystem : IInitializeSystem, ISetPool {
 
   public static Entity player;
   private Pool _pool;

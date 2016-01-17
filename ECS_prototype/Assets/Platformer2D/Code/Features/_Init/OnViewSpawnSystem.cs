@@ -2,7 +2,7 @@
 using System.Collections;
 using Entitas;
 
-public class _OnViewSpawnSystem : IReactiveSystem {
+public class OnViewSpawnSystem : IReactiveSystem {
 	
 	#region IReactiveExecuteSystem implementation
 	public void Execute (System.Collections.Generic.List<Entity> entities){

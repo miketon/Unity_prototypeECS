@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using Entitas;
 
-public class _CharacterControllerSystem : IExecuteSystem, ISetPool, IInitializeSystem {
+public class CharacterUpdateSystem : IExecuteSystem, ISetPool, IInitializeSystem {
 
   private Group     _group       ;
   private LayerMask _layerGround ;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class _OnStartSystem : IReactiveSystem {
+public class _StartSystem : IReactiveSystem {
 
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
