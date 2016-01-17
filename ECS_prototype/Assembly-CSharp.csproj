@@ -54,7 +54,6 @@
      <Compile Include="Assets\Generated\ButtonEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ComponentIds.cs" />
      <Compile Include="Assets\Generated\DpadEventComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\ForceComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOControlComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOReleaseComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_OnDestroySystemGeneratedExtension.cs" />
@@ -156,7 +155,6 @@
      <Compile Include="Assets\Platformer2D\Code\Features\IO\IO_OnReleaseSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\OnCollision\OnCollisionEnterComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\OnCollision\OnCollisionEnterSystem.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\ForceComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\VelocityComponent.cs" />
@@ -165,6 +163,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnStartSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnViewSpawnSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\_MTON\_CONSTANTComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\__Interfaces\_IForce.cs" />
      <Compile Include="Assets\Platformer2D\Code\_MTON\__Interfaces\_IRbody.cs" />
      <Compile Include="Assets\Platformer2D\Code\_MTON\_enum.cs" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black1x.xml" />

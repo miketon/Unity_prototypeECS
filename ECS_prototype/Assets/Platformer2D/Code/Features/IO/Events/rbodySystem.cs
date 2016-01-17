@@ -21,7 +21,7 @@ public class rbodySystem: IReactiveSystem, ISetPool{
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
-		_group = pool.GetGroup(Matcher.AllOf(Matcher.View, Matcher.Position, Matcher.Velocity, Matcher.Force));
+		_group = pool.GetGroup(Matcher.AllOf(Matcher.View, Matcher.Position, Matcher.Velocity));
 	}
 	#endregion
 

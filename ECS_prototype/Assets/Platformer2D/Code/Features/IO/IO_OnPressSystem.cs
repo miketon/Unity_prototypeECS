@@ -13,7 +13,7 @@ public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 		foreach (var e in _group.GetEntities()) {
 			var pos   = e.position;
 //			e.force.speed += e.force.accel * hPos * Time.deltaTime * PowerUpAttributesComponent.fSpeed;
-			e.ReplacePosition(pos.x + e.force.speed, pos.y, pos.z);
+			e.ReplacePosition(pos.x, pos.y, pos.z);
 //			Debug.LogFormat(" IO_OnPressSystem : {0} ", e.force.speed);
 		}
 	}
@@ -27,7 +27,7 @@ public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
-		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.Force, Matcher.Position));
+		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl));
 	}
 	#endregion
 

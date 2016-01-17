@@ -9,7 +9,7 @@ public class _CharacterControllerSystem : IExecuteSystem, ISetPool {
   #region IExecuteSystem implementation
   public void Execute() {
    foreach (var e in _group.GetEntities()){
-     Debug.LogFormat("EXECUTING : {0}", e);
+//     Debug.LogFormat("EXECUTING : {0}", e);
    }
   }
   #endregion

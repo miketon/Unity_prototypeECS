@@ -2,7 +2,6 @@
 
 namespace MTON.Interface{
 
-  #region Mton Interface - IRbody
   public interface IRbody{
 
     Vector3   center { get; set; } // center point
@@ -10,6 +9,5 @@ namespace MTON.Interface{
     float     radius { get; set; } // radius
 
   }
-  #endregion
 
 }
