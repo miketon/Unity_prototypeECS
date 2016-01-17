@@ -16,6 +16,8 @@ public class _OnLevelInitSystem : IInitializeSystem, ISetPool {
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
 		_pool = pool;
+    _GravityComponent.dir       = Physics.gravity;
+    _GravityComponent.magnitude = 1.0f;
 	}
 	#endregion
 

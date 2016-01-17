@@ -7,26 +7,21 @@ public class _CharacterControllerComponent : IComponent, MTON.Interface.IRbody {
 
   public void Init(CharacterController body){
     if(body){
-      this.center = body.center;
-      this.height = body.height;
-      this.radius = body.radius;
+      this.center  = body.center;
+      this.height  = (body.height * body.transform.localScale.y * 0.5f) + body.skinWidth ; 
+      this.radius  = body.radius * body.transform.localScale.x ;
+      this.initRot = body.transform.rotation;
     }
   }
 
   #region IRbody implementation
-  public Vector3 center {
-    get;
-    set;
-  }
-  public float height {
-    get;
-    set;
-  }
-  public float radius {
-    get;
-    set;
-  }
+  public Vector3 center { get; set;}
+  public float   height { get; set;}
+  public float   radius { get; set;}
   #endregion
+
+  public Quaternion initRot { get; set;}
+
 }
 
 /* Contstructor doesn't initialize correctly
