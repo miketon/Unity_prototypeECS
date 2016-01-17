@@ -136,6 +136,8 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\_CharacterControllerSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\_OnCharacterControllerInitSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\_RigidBodyComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\__gEXTENSIONS.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\__gUtility.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\_GravityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\Player\PlayerComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\Powerup\PowerUpAttributesComponent.cs" />

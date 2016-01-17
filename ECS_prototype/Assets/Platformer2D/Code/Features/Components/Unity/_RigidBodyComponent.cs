@@ -2,5 +2,7 @@
 using Entitas;
 
 public class _RigidBodyComponent : IComponent {
-	public Rigidbody body;
+
+  public Rigidbody body;
+
 }
