@@ -58,8 +58,8 @@ public static class __gEXTENSIONS {
   public static void doAimTowardsY(this Transform self, Vector3 IN_POS_TGT, float IN_FACING = 1.0f, float IN_ROTSPEED = 8.0f){ //IN_FACING = 1.0f forward, -1.0f reverse
     var rDir = Vector3.Normalize((self.position - IN_POS_TGT) * IN_FACING) ;
     var newRotation = Quaternion.LookRotation(rDir, Vector3.forward)       ;
-      newRotation.x = 0.0f                                                   ;
-      newRotation.y = 0.0f                                                   ;
+    newRotation.x = 0.0f                                                   ;
+    newRotation.y = 0.0f                                                   ;
     self.rotation = Quaternion.Slerp(self.rotation, newRotation, Time.deltaTime * IN_ROTSPEED);
   }
 

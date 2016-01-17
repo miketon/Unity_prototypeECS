@@ -29,14 +29,14 @@ namespace MTON {
         float distY = Mathf.Abs(IN_xform_SRC.position.y - IN_xform_TGT.position.y) * 0.5f ; // vertical height too much delta change, weight down by 1/5th
     
         if(distY > distX){
-          distToOther = distY;
+          distToOther = distY ;
         }
         else{
-          distToOther = distX;
+          distToOther = distX ;
         }
-        yield return null                                                            ;
+        yield return null     ;
       }
-      funcToRun()                                                                    ; // NOTE : anonymous method of type `System.Func<T>' must return a value ; else error
+      funcToRun()             ; // NOTE : anonymous method of type `System.Func<T>' must return a value ; else error
     }
 
     public static void CheckAndInitLayer(GameObject IN_GO, string IN_LAYERNAME){
@@ -58,9 +58,9 @@ namespace MTON {
       Debug.Log("IN_mton");
     }
   
-  // answer by vexe : http://answers.unity3d.com/questions/530178/how-to-get-a-component-from-an-object-and-add-it-t.html
-    // Extension methods must be defined in a non-generic static class
-//    The following points need to be considered when creating an extension method:
+//      answer by vexe : http://answers.unity3d.com/questions/530178/how-to-get-a-component-from-an-object-and-add-it-t.html
+//      Extension methods must be defined in a non-generic static class
+//      The following points need to be considered when creating an extension method:
 //      
 //      The class which defines an extension method must be non-generic, static and non-nested
 //      Every extension method must be a static method
