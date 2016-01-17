@@ -12,11 +12,11 @@ namespace MTON {
     public static T AddComponent_mton<T>(GameObject IN_GO) where T:Component{ 
       T cExist = IN_GO.GetComponent<T>();
       if(cExist == null){
-//      Debug.Log(" Adding " + cExist); // (Component)T.ToString());
-      return IN_GO.AddComponent<T>();
+//        Debug.Log(" Adding " + cExist); // (Component)T.ToString());
+        return IN_GO.AddComponent<T>();
       }
       else{
-//      Debug.Log(" Found " + cExist); //(Component)T.ToString());
+//        Debug.Log(" Found " + cExist); //(Component)T.ToString());
         return cExist;
       }
     }

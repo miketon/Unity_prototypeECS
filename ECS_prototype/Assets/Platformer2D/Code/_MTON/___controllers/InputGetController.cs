@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using MTON;
 
-public class inputController : MonoBehaviour {
+public class InputGetController : MonoBehaviour {
 
 	public string  hAxis  = "Horizontal"      ;
 	public string  vAxis  = "Vertical"        ;

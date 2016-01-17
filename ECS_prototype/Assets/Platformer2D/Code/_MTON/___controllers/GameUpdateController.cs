@@ -3,7 +3,7 @@ using System.Collections;
 using Entitas;
 using Entitas.Unity.VisualDebugging;
 
-public class gameController : MonoBehaviour {
+public class GameUpdateController : MonoBehaviour {
 
 	private Entity  _e;
 	private Systems _systems;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class collisionController : MonoBehaviour {
+public class OnCollisionController : MonoBehaviour {
 
   void OnCollisionEnter(Collision coll){
     Pools.pool.CreateCollision(coll);

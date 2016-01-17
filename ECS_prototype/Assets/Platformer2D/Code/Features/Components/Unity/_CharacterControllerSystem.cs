@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 using Entitas;
 
 public class _CharacterControllerSystem : IExecuteSystem, ISetPool, IInitializeSystem {
@@ -64,6 +65,21 @@ public class _CharacterControllerSystem : IExecuteSystem, ISetPool, IInitializeS
     }
     else{
       return false;
+    }
+  }
+
+  public virtual bool OnCeilng(_CharacterControllerComponent cc){
+    Vector3 vPos = cc.body.transform.position + cc.center                                 ;
+    return this.OnCeilng(vPos, Vector3.up, new Vector3(0.0f, cc.height * 1.25f, 0.0f)) ;
+  }
+
+  public virtual bool OnCeilng(Vector3 vPos, Vector3 vDir, Vector3 vCol){
+    float ceilingCheck = dirRayCheck(vPos, vDir, vCol.y) ; //check directly overhead
+    if(ceilingCheck > 0.0f){
+      return true  ;
+    }
+    else{
+      return false ;
     }
   }
 

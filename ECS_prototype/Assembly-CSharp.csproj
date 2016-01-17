@@ -124,9 +124,6 @@
      <Compile Include="Assets\Libraries\Entitas\Pool.cs" />
      <Compile Include="Assets\Libraries\Entitas\ReactiveSystem.cs" />
      <Compile Include="Assets\Libraries\Entitas\Systems.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Controllers\collisionController.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Controllers\gameController.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Controllers\inputController.cs" />
      <Compile Include="Assets\Platformer2D\Code\Extensions\PoolExtensions.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\RenderResource\AddViewSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\RenderResource\ViewComponent.cs" />
@@ -136,8 +133,6 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\_CharacterControllerSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\_OnCharacterControllerInitSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\_RigidBodyComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\__gEXTENSIONS.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\__gUtility.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\_GravityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\Player\PlayerComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\Powerup\PowerUpAttributesComponent.cs" />
@@ -165,8 +160,14 @@
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnStartSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnViewSpawnSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\_MTON\_CONSTANTComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\_MTON\__Interfaces\_IForce.cs" />
-     <Compile Include="Assets\Platformer2D\Code\_MTON\__Interfaces\_IRbody.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\___Interfaces\_IForce.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\___Interfaces\_IRbody.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\___controllers\CharUpdateController.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\___controllers\GameUpdateController.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\___controllers\InputGetController.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\___controllers\OnCollisionController.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\__gEXTENSIONS.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_MTON\__gUtility.cs" />
      <Compile Include="Assets\Platformer2D\Code\_MTON\_enum.cs" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black1x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_black2x.xml" />

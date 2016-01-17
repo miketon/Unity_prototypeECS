@@ -9,8 +9,8 @@ public class _OnCharacterControllerInitSystem : IReactiveSystem {
   public void Execute(List<Entity> entities) {
     foreach (var e in entities) {
       Debug.LogFormat("_OnCharacterControllerInitSystem : {0} {1} {2}", e._CharacterController.center, e._CharacterController.height, e._CharacterController.radius);
+      MTON.__gUtility.AddComponent_mton<CharUpdateController>(e._CharacterController.body.gameObject);
     }
-
   }
 
   public TriggerOnEvent trigger {
