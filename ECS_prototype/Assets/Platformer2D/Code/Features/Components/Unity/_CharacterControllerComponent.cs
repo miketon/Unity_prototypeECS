@@ -5,7 +5,6 @@ using MTON.Interface;
 public class _CharacterControllerComponent : IComponent, IRbody, IForce {
 
   public CharacterController body;
-  public Quaternion initRot { get; set;}
 
   public _CharacterControllerComponent() {
     this.vMove = Vector3.zero        ;
@@ -19,14 +18,15 @@ public class _CharacterControllerComponent : IComponent, IRbody, IForce {
       this.center  = body.center;
       this.height  = (body.height * body.transform.localScale.y * 0.5f) + body.skinWidth ; 
       this.radius  = body.radius * body.transform.localScale.x ;
-      this.initRot = body.transform.rotation;
+      this.initRo  = body.transform.rotation;
     }
   }
 
   #region IRbody implementation
-  public Vector3 center { get; set;}
-  public float   height { get; set;}
-  public float   radius { get; set;}
+  public Vector3    center { get; set; }
+  public float      height { get; set; }
+  public float      radius { get; set; }
+  public Quaternion initRo { get; set; } // initRotation
   #endregion
 
   #region IForce implementation

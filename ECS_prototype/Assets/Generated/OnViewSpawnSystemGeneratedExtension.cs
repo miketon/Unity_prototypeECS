@@ -1,6 +1,6 @@
 namespace Entitas {
     public partial class Pool {
-        public ISystem Create_OnViewSpawnSystem() {
+        public ISystem CreateOnViewSpawnSystem() {
             return this.CreateSystem<OnViewSpawnSystem>();
         }
     }

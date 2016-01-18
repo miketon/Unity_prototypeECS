@@ -1,6 +1,6 @@
 namespace Entitas {
     public partial class Pool {
-        public ISystem Create_OnCharacterControllerInitSystem() {
+        public ISystem CreateOnCharacterInitSystem() {
             return this.CreateSystem<OnCharacterInitSystem>();
         }
     }
