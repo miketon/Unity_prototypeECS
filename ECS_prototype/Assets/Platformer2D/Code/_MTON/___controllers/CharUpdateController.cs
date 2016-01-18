@@ -17,12 +17,12 @@ namespace MTON.Controller {
       Neutral  = 0,                // 000000
       MIDL     = 1,                // 000001
       LEFT     = 2,                // 000010
-      RGHT     = 3,                // 000100
+      RGHT     = 4,                // 000100 // Must be power of two for bitwise operator
 
       MLFT     = MIDL|LEFT,        // 000011 // at ledge right
       MLRT     = MIDL|RGHT,        // 000101 // at ledge left
       MNUL     = LEFT|RGHT,        // 000110 // falling down tube?
-//      FULL     = MIDL|LEFT|RGHT,   // 000111 // fully planted
+      FULL     = MIDL|LEFT|RGHT,   // 000111 // fully planted
     }
     
     [SerializeField]
