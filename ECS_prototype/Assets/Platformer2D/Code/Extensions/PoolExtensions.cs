@@ -16,13 +16,13 @@ public static class PoolExtensions {
 			.AddViewResource(_players[0]) //string to prefab for instantiation
 			.AddPosition(pos.x, pos.y, pos.z)
 			.AddVelocity(0.0f, 0.0f, 0.0f)
-			.AddForce(0.1f, 0.0f, 1.0f, 1.0f) //accel, speed, maxspeed, mass
+//			.AddForce(0.1f, 0.0f, 1.0f, 1.0f) //accel, speed, maxspeed, mass
       .Add_OnStart(true);
 	}
 
-	public static Entity CreateCollision(this Pool pool, Collision collision) { 
-		return pool.CreateEntity()
-			.AddOnCollisionEnter(collision);
-	}
+  public static Entity CreateCollision(this Pool pool, Collision collision) { 
+    return pool.CreateEntity()
+    .AddOnCollisionEnter(collision);
+  }
 
 }

@@ -25,7 +25,7 @@ public class IO_OnFirstPressSystem : IReactiveSystem, ISetPool {
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
-		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.Force, Matcher.Position));
+		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl));
 	}
 	#endregion
 

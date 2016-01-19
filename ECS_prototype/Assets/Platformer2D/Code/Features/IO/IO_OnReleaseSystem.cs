@@ -17,13 +17,11 @@ public class IO_OnReleaseSystem : IReactiveSystem, ISetPool {
       }
       else if(ioRelease.GPAD == _enum.GPAD.DPAD){; 
 				Debug.LogFormat("IO_OnReleaseSystem : Neutral : bDIRPAD {0}", ioRelease.GPAD);
-        e.force.speed = 0.0f;
 			}
       else if(ioRelease.GPAD == _enum.GPAD.BTTN){
-        e.force.speed = 0.0f;
 				var pos = e.position;
 				e.ReplacePosition(pos.x, pos.y+0.5f, pos.z);
-				Debug.LogFormat("IO_OnReleaseSystem : Neutral : bBUTTON {0} speed : {1}", ioRelease.GPAD, e.force.speed);
+				Debug.LogFormat("IO_OnReleaseSystem : Neutral : bBUTTON {0}", ioRelease.GPAD);
 			}
 		}
 	}
@@ -37,7 +35,7 @@ public class IO_OnReleaseSystem : IReactiveSystem, ISetPool {
 	
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
-		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.Force, Matcher.Position));
+		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl));
 	}
 	#endregion
 
