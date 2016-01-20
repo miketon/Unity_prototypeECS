@@ -49,12 +49,15 @@ namespace MTON{
 	}
 
   [Flags] // Powers of two
-  public enum VState {       // Vertical State
-    // Decimal               // Binary
-    Neutral   = 0,           // 000000
-    OnRise    = 1,           // 000001
-    OnApex    = 2,           // 000010
-    OnFall    = 4,           // 000100
+  public enum VState {         // Vertical State
+    // Decimal                 // Binary
+    Ground    =   0,           // 000000 //==stand
+    OnRise    =   1,           // 000001
+    OnApex    =   2,           // 000010
+    OnFall    =   4,           // 000100
+    OnDive    =  16,           // 001000
+
+    Crouch    = Ground|OnDive  //
   }
 
   [Flags] // Powers of two

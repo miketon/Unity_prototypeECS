@@ -32,6 +32,7 @@ public class _CharacterControllerComponent : IComponent, IRbody, IForce {
   #region IForce implementation
   public Vector3 vMove { get; set;}
   public Vector3 vGrav { get; set;}
+  public float   fMass { get; set;}
   #endregion
 
 }
