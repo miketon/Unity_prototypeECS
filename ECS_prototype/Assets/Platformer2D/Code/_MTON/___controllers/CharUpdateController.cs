@@ -40,9 +40,14 @@ namespace MTON.Controller {
       }
     }
     
+    [SerializeField]
     private Vector3 pGrav = Vector3.zero ;
+    [SerializeField]
     private float   accel = 0.0f         ;
+    [SerializeField]
     private float   vy    = 0.0f         ;
+    [SerializeField]
+    private float   tVelc = 54.0f        ;
 
     #region IRbody implementation
     public Vector3    center { get; set; }
@@ -53,9 +58,15 @@ namespace MTON.Controller {
 
     #region IForce implementation
     public Vector3 vMove { get; set;}
-    public Vector3 vGrav { get; set;}
+    [SerializeField]
+    private Vector3 vgravm = Vector3.up;
+    public Vector3 vGrav { 
+      get{ return this.vgravm ; }
+      set{ this.vgravm = value; }
+    }
     public float   fMass { get; set;}
     #endregion
+    public Vector3 mGrav = Vector3.up  ;
 
     public virtual void Awake(){ //earlier than Start(); need to get xform and rbody
       this._layerGround = LayerMask.GetMask (MTON._CONSTANTComponent._FLOOR);
@@ -66,18 +77,21 @@ namespace MTON.Controller {
       this.radius  = this.cc.radius * this.transform.localScale.x ;
       this.initRo  = this.transform.rotation;  
 
-      this.pGrav = _GravityComponent.dir * _GravityComponent.magnitude;
-      this.accel = _GravityComponent.accleration                      ;
+      this.pGrav = _GravityComponent.dir * _GravityComponent.magnitude ;
+      this.accel = _GravityComponent.accleration                       ;
+      this.tVelc = _GravityComponent.terminalVelocity                  ;
     }
-
 
     private void FixedUpdate(){
       // Determine state
       if(!OnGround()){ 
-        Fall();
+        this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc) ;
+        this.mGrav += pGrav * this.fMass * -this.vy               ;
+        Debug.LogFormat("FALLING:!!! {0}", this.mGrav*this.vy);
       }
       else{ // onGround
-
+        this.vy    = 0.0f         ;
+        this.mGrav = Vector3.zero ;
       }
       //CHeck for event changes
 
@@ -93,37 +107,39 @@ namespace MTON.Controller {
 //        this.vGrav.x  = vMove.x                       ; //combine with move from Move()=>oMoveH() for final position
 //        this.vGrav.y += vMove.y                       ;
 //        this.vGrav.z  = 0.0f                          ; //forces character to stay in 2D plane
-//        this.contrl.Move(this.vGrav * Time.deltaTime) ; //do gravity
+      this.cc.Move(this.mGrav * Time.deltaTime * -this.vy) ; //do gravity
+//      this.cc.Move(Vector3.down * Time.deltaTime) ; //do gravity
     }
 
 
-    public virtual void Fall(){ //vertical transform (this.vGrav)
-      if(this._gCheck == rayState.NULL){ //in air
-        Debug.Log("FALLING:!!!");
-        var vgrav    = pGrav * Time.deltaTime * this.fMass ;
-            vgrav.y += -vy                                 ; //adding velocity
-        this.vGrav   = vgrav                               ;
-//        bCeilng    = this.OnCeilng()                          ;
-        if((this.cc.velocity.y) < 0.1f){        //apply velocity after apex...changed from 0.0=>0.1 to blend apex transition
-          this.vy += this.accel;
-        }
-//        else if(bCeilng){
-//          this.vGrav.y = -accelY;
-//        }
-      }
-      else{ //on FIRST foot down
-        Debug.Log("FIRST LANDING :!!!");
-        if(Mathf.Abs(this.cc.velocity.y) < 0.1f){ //and not on rise ; else get caught on ledges
-          //reset velocity when on ground
-          this.vGrav = Vector3.zero ;
-          this.vy     = 0.0f         ;                 
-        }
-//        if(dash){
-//          vMove *= this.dashForce ;
-//        }
-      }
-//      this.vGrav.y = Mathf.Clamp(this.vGrav.y, -termVeloc, termVeloc) ; //clamp to terminal velocity
-    }
+//    public virtual Vector3 Fall(){ //vertical transform (this.vGrav)
+//      var vgrav = Vector3.zero;
+//      if(this._gCheck == rayState.NULL){ //in air
+//        vgrav      += pGrav * Time.deltaTime * this.fMass ;
+//        vgrav.y    += -this.vy                                 ; //adding velocity
+////        bCeilng    = this.OnCeilng()                          ;
+////        if((this.cc.velocity.y) < 0.1f){        //apply velocity after apex...changed from 0.0=>0.1 to blend apex transition
+//          this.vy += this.accel;
+////        }
+////        else if(bCeilng){
+////          this.vGrav.y = -accelY;
+////        }
+//      }
+//      else{ //on FIRST foot down
+////        Debug.Log("FIRST LANDING :!!!");
+////        if(Mathf.Abs(this.cc.velocity.y) < 0.1f){ //and not on rise ; else get caught on ledges
+////          //reset velocity when on ground
+////          this.vGrav = Vector3.zero ;
+////          this.vy     = 0.0f         ;                 
+////        }
+////        if(dash){
+////          vMove *= this.dashForce ;
+////        }
+//      }
+//      vgrav.y = Mathf.Clamp(this.vgrav.y, -this.tVelc, this.tVelc) ; //clamp to terminal velocity
+//      Debug.LogFormat("FALLING:!!! {0}", vgrav);
+//      return vgrav                                          ;
+//    }
 
 #region OnGround(){}
 
