@@ -80,18 +80,30 @@ namespace MTON.Controller {
       this.pGrav = _GravityComponent.dir * _GravityComponent.magnitude ;
       this.accel = _GravityComponent.accleration                       ;
       this.tVelc = _GravityComponent.terminalVelocity                  ;
+      this.fMass = 1.0f;
     }
 
     private void FixedUpdate(){
       // Determine state
-      if(!OnGround()){ 
+      if(!OnGround()){ // apply gravity when not on ground
         this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc) ;
-        this.mGrav += pGrav * this.fMass * -this.vy               ;
-        Debug.LogFormat("FALLING:!!! {0}", this.mGrav*this.vy);
+        this.mGrav  = (pGrav * this.fMass * this.vy); // Dang. Forgot to initialize fMass and spent 2 days not having fall work
+//        Debug.LogFormat("OFFGROUND :!!! {0} {1} {2}", this.mGrav, this.vy, this.mGrav * this.vy)    ;
+        //check for rising or falling
+        if(this.cc.velocity.y < 0.1f){
+          Debug.Log("Faliing");
+        }
+        else if(this.cc.velocity.y > 0.1f){
+          Debug.Log("Rising");
+        }
+        else{
+          Debug.Log("Apexing");
+        }
       }
-      else{ // onGround
+      else{            // onGround zero out gravity
         this.vy    = 0.0f         ;
         this.mGrav = Vector3.zero ;
+//        Debug.LogFormat("STANDING");
       }
       //CHeck for event changes
 
@@ -107,7 +119,7 @@ namespace MTON.Controller {
 //        this.vGrav.x  = vMove.x                       ; //combine with move from Move()=>oMoveH() for final position
 //        this.vGrav.y += vMove.y                       ;
 //        this.vGrav.z  = 0.0f                          ; //forces character to stay in 2D plane
-      this.cc.Move(this.mGrav * Time.deltaTime * -this.vy) ; //do gravity
+      this.cc.Move(this.mGrav * Time.deltaTime); // * -this.vy) ; //do gravity
 //      this.cc.Move(Vector3.down * Time.deltaTime) ; //do gravity
     }
 
