@@ -28,7 +28,7 @@ public class InputGetController : MonoBehaviour {
         }
       }
       else{
-          Pools.pool.CreateEntity().AddDpadEvent(this.eaxis, this._mAxis);
+          Pools.pool.CreateEntity().AddDpadEvent(value, this._mAxis);
       }
       this.eaxis = value;
     }
@@ -76,7 +76,7 @@ public class InputGetController : MonoBehaviour {
     // reset all enums
     this.ePAD    = _enum.GPAD.Neutral   ;
     this.eREL    = _enum.GPAD.Neutral   ;
-    this.eAxis   = _enum.Dirn.Neutral   ;
+    var   axis   = _enum.Dirn.Neutral   ;
     this.eButton = _enum.Button.Neutral ;
     this.ebntype = _enum.Type.Neutral   ;
 
@@ -88,24 +88,23 @@ public class InputGetController : MonoBehaviour {
         this.ePAD |= _enum.GPAD.DPAD;
 				// horizontal
 				if(_hAxis > 0.0f){
-					eAxis |= _enum.Dirn.RT;
+					axis |= _enum.Dirn.RT;
 				}
 				else if(_hAxis < 0.0f){       // must do explicit check otherwise left is default
-					eAxis |= _enum.Dirn.LT;
+					axis |= _enum.Dirn.LT;
 				}
 				// vertical
 				if(_vAxis > 0.0f){
-					eAxis |= _enum.Dirn.UP;
+					axis |= _enum.Dirn.UP;
 				}
 				else if(_vAxis < 0.0f){       // must do explicit check otherwise down is default
-					eAxis |= _enum.Dirn.DN;
+					axis |= _enum.Dirn.DN;
 				}
+        eAxis = axis ;
       }
-//      else{
-//        if(this.ePAD != this.epad ){                                   // onFirst Release
-//          Pools.pool.CreateEntity().AddIORelease(this.ePAD |=_enum.GPAD.DPAD);  // Set all Release Events
-//        }
-//      }
+      else{
+        eAxis = _enum.Dirn.Neutral;
+      }
       // process buttons
 			if(_bFire || _bJump) { 
         this.ePAD   |= _enum.GPAD.BTTN;

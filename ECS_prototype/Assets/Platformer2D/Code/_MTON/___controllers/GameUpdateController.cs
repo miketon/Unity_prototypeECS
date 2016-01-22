@@ -51,7 +51,7 @@ public class GameUpdateController : MonoBehaviour {
 //		.Add(pool.CreateSystem<MoveSystem>())
 
 		// Physics
-		.Add(pool.CreateSystem<RigidBodyUpdateSystem>())
+//		.Add(pool.CreateSystem<RigidBodyUpdateSystem>())
 		.Add(pool.CreateSystem<OnCollisionEnterSystem>()) // reacts to collision events
 
 		// Render

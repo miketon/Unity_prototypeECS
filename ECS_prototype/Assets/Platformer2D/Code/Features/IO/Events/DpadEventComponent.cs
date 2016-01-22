@@ -1,6 +1,8 @@
 ﻿using Entitas;
+//using Entitas.CodeGenerator;
 using MTON;
 
+//[SingleEntity]
 public class DpadEventComponent : IComponent {
 
 //  public _enum.Press bStat ; // button press state
