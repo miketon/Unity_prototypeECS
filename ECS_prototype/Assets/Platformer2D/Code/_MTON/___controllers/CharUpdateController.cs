@@ -91,7 +91,7 @@ namespace MTON.Controller {
 //        Debug.LogFormat("OFFGROUND :!!! {0} {1} {2}", this.mGrav, this.vy, this.mGrav * this.vy)    ;
         //check for rising or falling
         if(this.cc.velocity.y < 0.1f){
-          Debug.Log("Faliing");
+//          Debug.Log("Faliing");
         }
         else if(this.cc.velocity.y > 0.1f){
           Debug.Log("Rising");

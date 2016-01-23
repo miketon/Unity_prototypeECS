@@ -74,9 +74,9 @@ public class InputGetController : MonoBehaviour {
 		var _bJump = Input.GetKey(bJump) ;
     
     // reset all enums
+    var   axis   = _enum.Dirn.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
     this.ePAD    = _enum.GPAD.Neutral   ;
     this.eREL    = _enum.GPAD.Neutral   ;
-    var   axis   = _enum.Dirn.Neutral   ;
     this.eButton = _enum.Button.Neutral ;
     this.ebntype = _enum.Type.Neutral   ;
 
@@ -102,9 +102,7 @@ public class InputGetController : MonoBehaviour {
 				}
         eAxis = axis ;
       }
-      else{
-        eAxis = _enum.Dirn.Neutral;
-      }
+
       // process buttons
 			if(_bFire || _bJump) { 
         this.ePAD   |= _enum.GPAD.BTTN;
@@ -133,6 +131,7 @@ public class InputGetController : MonoBehaviour {
       if(this.ePAD != this.epad ){                                   // onFirst Release
         Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
         Pools.pool.CreateEntity().AddIORelease(_enum.GPAD.FULL);  // Set all Release Events
+        eAxis = _enum.Dirn.Neutral;
       }
     }
     this.epad = this.ePAD;
