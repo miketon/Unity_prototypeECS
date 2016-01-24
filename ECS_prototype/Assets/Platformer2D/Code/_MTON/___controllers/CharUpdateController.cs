@@ -18,6 +18,8 @@ namespace MTON.Controller {
     public float flapForce = 4.25f ;
     public float dashForce = 3.0f  ;
 
+    public Vector3 ccVelocity = Vector3.zero;
+
     [SerializeField]
     private _enum.VState vstate = _enum.VState.Ground;
     public  _enum.VState vState{
@@ -78,14 +80,15 @@ namespace MTON.Controller {
     #region IForce implementation
     public Vector3 vMove { get; set;}
     [SerializeField]
-    private Vector3 vgravm = Vector3.up;
+    private Vector3 vgrav = Vector3.up;
     public Vector3 vGrav { 
-      get{ return this.vgravm ; }
-      set{ this.vgravm = value; }
+      get{ return this.vgrav ; }
+      set{ this.vgrav = value; }
     }
     public float   fMass { get; set;}
     #endregion
-    public Vector3 mGrav = Vector3.up  ;
+
+    public Vector3 vGravm = Vector3.zero;
 
     public virtual void Awake(){ //earlier than Start(); need to get xform and rbody
       this._layerGround = LayerMask.GetMask (MTON._CONSTANTComponent._FLOOR);
@@ -103,13 +106,15 @@ namespace MTON.Controller {
     }
 
     private void FixedUpdate(){
+      this.ccVelocity = this.cc.velocity;
       // Determine state
       if(!OnGround()){ // apply gravity when not on ground
-        this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc) ;
-        this.mGrav  = (pGrav * this.fMass * this.vy * Time.deltaTime); // Dang. Forgot to initialize fMass and spent 2 days not having fall work
+        this.vGravm   += (pGrav * this.fMass) * Time.deltaTime ; // Dang. Forgot to initialize fMass and spent 2 days not having fall work
+        this.vGravm.y +=  -this.vy                             ; // multiplying vy as opposed to adding gave shitty jump behaviour
         //check for rising or falling
         if(this.cc.velocity.y < 0.1f){
-          this.vState = _enum.VState.OnFall;
+          this.vState = _enum.VState.OnFall                                      ;
+          this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc) ;
         }
         else if(this.cc.velocity.y > 0.1f){
           this.vState = _enum.VState.OnRise;
@@ -122,11 +127,11 @@ namespace MTON.Controller {
       else{            // onGround zero out gravity
         this.vState = _enum.VState.Ground;
         this.vy    = 0.0f         ;
-        this.mGrav = Vector3.zero ;
+        this.vGravm = Vector3.zero ;
       }
       //check for event changes
       if(this.bJump){ // Jumping?
-        this.mGrav.y   = this.jumpForce ;
+        this.vGravm.y   = this.jumpForce ; //using private storage for vgrav...could be a problem ???
         this.vy        = 0.0f           ;
         this.bJump     = false          ;
       }
@@ -140,10 +145,10 @@ namespace MTON.Controller {
 //        //HACK : doJump() must follow Fall(), order matters! Else vertical twitch and not jump curve
 //        doJump()                                   ; //calculate jump state : NOTE : Can't replace with longform bJump prop handler???
 //
-//        this.vGrav.x  = vMove.x                       ; //combine with move from Move()=>oMoveH() for final position
-//        this.vGrav.y += vMove.y                       ;
-//        this.vGrav.z  = 0.0f                          ; //forces character to stay in 2D plane
-      this.cc.Move(this.mGrav); // * -this.vy) ; //do gravity
+//        this.vGravm.x  = vMove.x                       ; //combine with move from Move()=>oMoveH() for final position
+//        this.vGravm.y += vMove.y                       ;
+//        this.vGravm.z  = 0.0f                          ; //forces character to stay in 2D plane
+      this.cc.Move(this.vGravm *  Time.deltaTime); // * -this.vy) ; //do gravity
 //      this.cc.Move(Vector3.down * Time.deltaTime) ; //do gravity
     }
 
@@ -152,7 +157,7 @@ namespace MTON.Controller {
     }
 
 
-//    public virtual Vector3 Fall(){ //vertical transform (this.vGrav)
+//    public virtual Vector3 Fall(){ //vertical transform (this.vGravm)
 //      var vgrav = Vector3.zero;
 //      if(this._gCheck == rayState.NULL){ //in air
 //        vgrav      += pGrav * Time.deltaTime * this.fMass ;
@@ -162,14 +167,14 @@ namespace MTON.Controller {
 //          this.vy += this.accel;
 ////        }
 ////        else if(bCeilng){
-////          this.vGrav.y = -accelY;
+////          this.vGravm.y = -accelY;
 ////        }
 //      }
 //      else{ //on FIRST foot down
 ////        Debug.Log("FIRST LANDING :!!!");
 ////        if(Mathf.Abs(this.cc.velocity.y) < 0.1f){ //and not on rise ; else get caught on ledges
 ////          //reset velocity when on ground
-////          this.vGrav = Vector3.zero ;
+////          this.vGravm = Vector3.zero ;
 ////          this.vy     = 0.0f         ;                 
 ////        }
 ////        if(dash){
