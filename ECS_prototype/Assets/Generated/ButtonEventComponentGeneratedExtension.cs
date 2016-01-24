@@ -12,17 +12,17 @@ namespace Entitas {
             _buttonEventComponentPool.Clear();
         }
 
-        public Entity AddButtonEvent(MTON._enum.Button newBStat, MTON._enum.Type newBType) {
+        public Entity AddButtonEvent(MTON._enum.Button newBMode, MTON._enum.Type newBType) {
             var component = _buttonEventComponentPool.Count > 0 ? _buttonEventComponentPool.Pop() : new ButtonEventComponent();
-            component.bStat = newBStat;
+            component.bMode = newBMode;
             component.bType = newBType;
             return AddComponent(ComponentIds.ButtonEvent, component);
         }
 
-        public Entity ReplaceButtonEvent(MTON._enum.Button newBStat, MTON._enum.Type newBType) {
+        public Entity ReplaceButtonEvent(MTON._enum.Button newBMode, MTON._enum.Type newBType) {
             var previousComponent = hasButtonEvent ? buttonEvent : null;
             var component = _buttonEventComponentPool.Count > 0 ? _buttonEventComponentPool.Pop() : new ButtonEventComponent();
-            component.bStat = newBStat;
+            component.bMode = newBMode;
             component.bType = newBType;
             ReplaceComponent(ComponentIds.ButtonEvent, component);
             if (previousComponent != null) {

@@ -31,6 +31,10 @@ public class _CharacterControllerComponent : IComponent, IRbody, IForce {
     Debug.LogFormat("OnDPAD : _CharacterControllerComponent : {0} {1}", this.body, this.cControl);
   }
 
+  public void doJump(){
+    this.cControl.doJump();
+  }
+
   #region IRbody implementation
   public Vector3    center { get; set; }
   public float      height { get; set; }

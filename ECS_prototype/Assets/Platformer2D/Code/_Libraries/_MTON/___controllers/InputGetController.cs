@@ -48,7 +48,12 @@ public class InputGetController : MonoBehaviour {
         }
       }
       else{
-        Pools.pool.CreateEntity().AddButtonEvent(value, this.ebntype);
+        if(value == this.ebutton){ // if same as previous mode : holding
+          Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Hold, this.ebntype);
+        }
+        else{                      // else new mode
+          Pools.pool.CreateEntity().AddButtonEvent(value, this.ebntype);
+        }
 //        Debug.LogFormat("BUTTON : PRESSED {0} {1}", value, ebntype);
       }
       this.ebutton = value;
@@ -75,8 +80,8 @@ public class InputGetController : MonoBehaviour {
     
     // reset all enums
     var   axis   = _enum.Dirn.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
-    var   btyp   = _enum.Type.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
-    var   bstt   = _enum.Button.Neutral ; // temp var force release on every frame so that bitwise ops starts from nuetral
+    var   btype  = _enum.Type.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
+    var   bmode  = _enum.Button.Neutral ; // temp var force release on every frame so that bitwise ops starts from nuetral
     this.ePAD    = _enum.GPAD.Neutral   ;
     this.eREL    = _enum.GPAD.Neutral   ;
 
@@ -106,15 +111,15 @@ public class InputGetController : MonoBehaviour {
       // process buttons
 			if(_bFire || _bJump) { 
         this.ePAD   |= _enum.GPAD.BTTN;
-        bstt = _enum.Button.Down;
+        bmode |= _enum.Button.Down;
         if(_bFire){
-          btyp |= _enum.Type.Attack;
+          btype |= _enum.Type.Attack;
         }
         if(_bJump){
-          btyp |= _enum.Type.Jump;
+          btype |= _enum.Type.Jump;
         }
-        this.ebntype = btyp;
-        this.eButton = bstt;
+        this.ebntype = btype;
+        this.eButton = bmode;
       }
 //      else{
 //        if(this.ePAD != this.epad ){                                   // onFirst Release

@@ -10,7 +10,15 @@ public class Event_BUTTONReactSystem : IReactiveSystem, ISetPool {
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      Debug.LogFormat("Event_BUTTONReactSystem : {0}", e.buttonEvent.bType);
+//      Debug.LogFormat("Event_BUTTONReactSystem : {0} {1}", e.buttonEvent.bType, e.buttonEvent.bMode);
+      if(e.buttonEvent.bMode == MTON._enum.Button.Down){
+        if(e.buttonEvent.bType == MTON._enum.Type.Jump){
+          Debug.LogFormat("Event_BUTTONReactSystem : JUMP! {0} {1}", e.buttonEvent.bType, e.buttonEvent.bMode);
+          foreach (var cc in _group.GetEntities()){
+            cc._CharacterController.doJump();
+          }
+        }
+      }
     }
   }
 
