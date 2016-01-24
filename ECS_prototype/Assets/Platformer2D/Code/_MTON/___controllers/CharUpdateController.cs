@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using MTON;
 using MTON.Interface;
 
 namespace MTON.Controller {
@@ -11,8 +12,20 @@ namespace MTON.Controller {
     private LayerMask _layerGround ;
     private CharacterController cc ;
 
-    private _enum.VState vstate;
-    private _enum.VState vState;
+    [SerializeField]
+    private _enum.VState vstate = _enum.VState.Ground;
+    public  _enum.VState vState{
+      get{
+        return this.vstate;
+      }
+      set{
+        if(value != this.vstate){
+          Pools.pool.CreateEntity().AddRbodyEvent(this.cc, value);
+          this.vstate = value;
+        }
+      }
+    }
+    private _enum.Rbody  rState;
 
     [Flags] // Powers of two
     public enum rayState {
@@ -91,16 +104,17 @@ namespace MTON.Controller {
 //        Debug.LogFormat("OFFGROUND :!!! {0} {1} {2}", this.mGrav, this.vy, this.mGrav * this.vy)    ;
         //check for rising or falling
         if(this.cc.velocity.y < 0.1f){
-//          Debug.Log("Faliing");
+          this.vState = _enum.VState.OnFall;
         }
         else if(this.cc.velocity.y > 0.1f){
-          Debug.Log("Rising");
+          this.vState = _enum.VState.OnRise;
         }
         else{
-          Debug.Log("Apexing");
+          this.vState = _enum.VState.OnApex;
         }
       }
       else{            // onGround zero out gravity
+        this.vState = _enum.VState.Ground;
         this.vy    = 0.0f         ;
         this.mGrav = Vector3.zero ;
 //        Debug.LogFormat("STANDING");
