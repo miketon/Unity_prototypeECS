@@ -8,7 +8,7 @@ public class RbodyEventSystem : IReactiveSystem {
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      Debug.LogFormat("RbodyEventSystem : {0} {1} ", e.rbodyEvent.cc, e.rbodyEvent.vState);
+//      Debug.LogFormat("RbodyEventSystem : {0} {1} ", e.rbodyEvent.cc, e.rbodyEvent.vState);
     }
   }
 
