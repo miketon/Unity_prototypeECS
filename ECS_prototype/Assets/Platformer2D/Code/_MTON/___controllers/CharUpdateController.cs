@@ -12,6 +12,12 @@ namespace MTON.Controller {
     private LayerMask _layerGround ;
     private CharacterController cc ;
 
+    public bool  bJump     = false ;
+    public float moveForce = 3.0f  ;
+    public float jumpForce = 4.25f ;
+    public float flapForce = 4.25f ;
+    public float dashForce = 3.0f  ;
+
     [SerializeField]
     private _enum.VState vstate = _enum.VState.Ground;
     public  _enum.VState vState{
@@ -100,14 +106,14 @@ namespace MTON.Controller {
       // Determine state
       if(!OnGround()){ // apply gravity when not on ground
         this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc) ;
-        this.mGrav  = (pGrav * this.fMass * this.vy); // Dang. Forgot to initialize fMass and spent 2 days not having fall work
-//        Debug.LogFormat("OFFGROUND :!!! {0} {1} {2}", this.mGrav, this.vy, this.mGrav * this.vy)    ;
+        this.mGrav  = (pGrav * this.fMass * this.vy * Time.deltaTime); // Dang. Forgot to initialize fMass and spent 2 days not having fall work
         //check for rising or falling
         if(this.cc.velocity.y < 0.1f){
           this.vState = _enum.VState.OnFall;
         }
         else if(this.cc.velocity.y > 0.1f){
           this.vState = _enum.VState.OnRise;
+//          if(OnCeiling){}
         }
         else{
           this.vState = _enum.VState.OnApex;
@@ -117,9 +123,13 @@ namespace MTON.Controller {
         this.vState = _enum.VState.Ground;
         this.vy    = 0.0f         ;
         this.mGrav = Vector3.zero ;
-//        Debug.LogFormat("STANDING");
       }
-      //CHeck for event changes
+      //check for event changes
+      if(this.bJump){ // Jumping?
+        this.mGrav.y   = this.jumpForce ;
+        this.vy        = 0.0f           ;
+        this.bJump     = false          ;
+      }
 
 //      this.bGround = this.OnGround()            ; //calculate ground state
 //      this.cHeight = this.ccHeight(this.contrl) ; //update ccontrol height ??? Why check on every update ???
@@ -133,8 +143,12 @@ namespace MTON.Controller {
 //        this.vGrav.x  = vMove.x                       ; //combine with move from Move()=>oMoveH() for final position
 //        this.vGrav.y += vMove.y                       ;
 //        this.vGrav.z  = 0.0f                          ; //forces character to stay in 2D plane
-      this.cc.Move(this.mGrav * Time.deltaTime); // * -this.vy) ; //do gravity
+      this.cc.Move(this.mGrav); // * -this.vy) ; //do gravity
 //      this.cc.Move(Vector3.down * Time.deltaTime) ; //do gravity
+    }
+
+    public void doJump(){
+      this.bJump = true;
     }
 
 
