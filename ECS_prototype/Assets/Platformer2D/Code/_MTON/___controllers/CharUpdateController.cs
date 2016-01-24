@@ -14,7 +14,7 @@ namespace MTON.Controller {
 
     public bool  bJump     = false ;
     public float moveForce = 3.0f  ;
-    public float jumpForce = 4.25f ;
+    public float jumpForce = 5.25f ;
     public float flapForce = 4.25f ;
     public float dashForce = 3.0f  ;
 
@@ -101,7 +101,7 @@ namespace MTON.Controller {
 
       this.pGrav = _GravityComponent.dir * _GravityComponent.magnitude ;
       this.accel = _GravityComponent.accleration                       ;
-      this.tVelc = _GravityComponent.terminalVelocity                  ;
+      this.tVelc = _GravityComponent.terminalVelocity            * 0.25f;
       this.fMass = 1.0f;
     }
 
@@ -114,7 +114,8 @@ namespace MTON.Controller {
         //check for rising or falling
         if(this.cc.velocity.y < 0.1f){
           this.vState = _enum.VState.OnFall                                      ;
-          this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc) ;
+//          this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc) ;
+          this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc * 2.0f);
         }
         else if(this.cc.velocity.y > 0.1f){
           this.vState = _enum.VState.OnRise;
@@ -131,7 +132,12 @@ namespace MTON.Controller {
       }
       //check for event changes
       if(this.bJump){ // Jumping?
-        this.vGravm.y   = this.jumpForce ; //using private storage for vgrav...could be a problem ???
+        if(this.vState == _enum.VState.Ground){
+          this.vGravm.y   = this.jumpForce ;
+        }
+        else{
+          this.vGravm.y   = this.flapForce ;
+        }
         this.vy        = 0.0f           ;
         this.bJump     = false          ;
       }
