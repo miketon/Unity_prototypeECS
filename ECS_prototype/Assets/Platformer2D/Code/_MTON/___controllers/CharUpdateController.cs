@@ -14,7 +14,7 @@ namespace MTON.Controller {
 
     public bool  bJump     = false ;
     public float moveForce = 3.0f  ;
-    public float jumpForce = 5.25f ;
+    public float jumpForce = 5.75f ;
     public float flapForce = 4.25f ;
     public float dashForce = 3.0f  ;
 
@@ -101,7 +101,7 @@ namespace MTON.Controller {
 
       this.pGrav = _GravityComponent.dir * _GravityComponent.magnitude ;
       this.accel = _GravityComponent.accleration                       ;
-      this.tVelc = _GravityComponent.terminalVelocity            * 0.25f;
+      this.tVelc = _GravityComponent.terminalVelocity * 0.25f          ; // 54.0 * 0.25f = 13.35f
       this.fMass = 1.0f;
     }
 
@@ -114,7 +114,6 @@ namespace MTON.Controller {
         //check for rising or falling
         if(this.cc.velocity.y < 0.1f){
           this.vState = _enum.VState.OnFall                                      ;
-//          this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc) ;
           this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc * 2.0f);
         }
         else if(this.cc.velocity.y > 0.1f){
@@ -131,6 +130,7 @@ namespace MTON.Controller {
         this.vGravm = Vector3.zero ;
       }
       //check for event changes
+      //HACK : doJump() must follow Fall() => order matters! Else vertical twitch and not jump curve
       if(this.bJump){ // Jumping?
         if(this.vState == _enum.VState.Ground){
           this.vGravm.y   = this.jumpForce ;
@@ -142,15 +142,6 @@ namespace MTON.Controller {
         this.bJump     = false          ;
       }
 
-//      this.bGround = this.OnGround()            ; //calculate ground state
-//      this.cHeight = this.ccHeight(this.contrl) ; //update ccontrol height ??? Why check on every update ???
-//        if(bFall){
-//          Fall()                                   ; //calculate vertical state
-//        }
-//        doHit(this.vDirOnHit);
-//        //HACK : doJump() must follow Fall(), order matters! Else vertical twitch and not jump curve
-//        doJump()                                   ; //calculate jump state : NOTE : Can't replace with longform bJump prop handler???
-//
 //        this.vGravm.x  = vMove.x                       ; //combine with move from Move()=>oMoveH() for final position
 //        this.vGravm.y += vMove.y                       ;
 //        this.vGravm.z  = 0.0f                          ; //forces character to stay in 2D plane

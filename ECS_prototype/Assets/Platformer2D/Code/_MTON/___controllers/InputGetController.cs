@@ -48,7 +48,7 @@ public class InputGetController : MonoBehaviour {
         }
       }
       else{
-        Pools.pool.CreateEntity().AddButtonEvent(value, _enum.Type.Jump);
+        Pools.pool.CreateEntity().AddButtonEvent(value, this.ebntype);
 //        Debug.LogFormat("BUTTON : PRESSED {0} {1}", value, ebntype);
       }
       this.ebutton = value;
@@ -75,10 +75,10 @@ public class InputGetController : MonoBehaviour {
     
     // reset all enums
     var   axis   = _enum.Dirn.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
+    var   btyp   = _enum.Type.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
+    var   bstt   = _enum.Button.Neutral ; // temp var force release on every frame so that bitwise ops starts from nuetral
     this.ePAD    = _enum.GPAD.Neutral   ;
     this.eREL    = _enum.GPAD.Neutral   ;
-    this.eButton = _enum.Button.Neutral ;
-    this.ebntype = _enum.Type.Neutral   ;
 
 		// OnPress Logic 
 		if(_bAxis || _bFire || _bJump){                                                       // active : read input
@@ -106,13 +106,15 @@ public class InputGetController : MonoBehaviour {
       // process buttons
 			if(_bFire || _bJump) { 
         this.ePAD   |= _enum.GPAD.BTTN;
-        this.eButton = _enum.Button.Down;
+        bstt = _enum.Button.Down;
         if(_bFire){
-          this.ebntype |= _enum.Type.Attack;
+          btyp |= _enum.Type.Attack;
         }
         if(_bJump){
-          this.ebntype |= _enum.Type.Jump;
+          btyp |= _enum.Type.Jump;
         }
+        this.ebntype = btyp;
+        this.eButton = bstt;
       }
 //      else{
 //        if(this.ePAD != this.epad ){                                   // onFirst Release
@@ -131,7 +133,9 @@ public class InputGetController : MonoBehaviour {
       if(this.ePAD != this.epad ){                                   // onFirst Release
         Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
         Pools.pool.CreateEntity().AddIORelease(_enum.GPAD.FULL);  // Set all Release Events
-        eAxis = _enum.Dirn.Neutral;
+        this.eAxis   = _enum.Dirn.Neutral   ;
+        this.ebntype = _enum.Type.Neutral   ;
+        this.eButton = _enum.Button.Neutral ;
       }
     }
     this.epad = this.ePAD;

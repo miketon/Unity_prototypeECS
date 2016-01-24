@@ -56,6 +56,7 @@ public class GameUpdateController : MonoBehaviour {
     // Events
     .Add(pool.CreateSystem<RbodyEventSystem>())
     .Add(pool.CreateSystem<Event_DPADReactSystem>())
+    .Add(pool.CreateSystem<Event_BUTTONReactSystem>())
 
     // Render
     .Add(pool.CreateSystem<RenderPositionSystem>())   // renders position
