@@ -1,16 +1,16 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
-using MTON;
+﻿using UnityEngine        ;
+using System.Collections ;
+using System             ;
+using MTON               ;
 
 public class InputGetController : MonoBehaviour {
 
-	public string  hAxis  = "Horizontal"      ;
-	public string  vAxis  = "Vertical"        ;
+  public string  hAxis  = "Horizontal"      ;
+  public string  vAxis  = "Vertical"        ;
   public float   _mAxis =  0.0f             ; // make private serialize
 
-	public KeyCode bFire = KeyCode.LeftControl;
-	public KeyCode bJump = KeyCode.Space      ;
+  public KeyCode bFire = KeyCode.LeftControl;
+  public KeyCode bJump = KeyCode.Space      ;
 
   private _enum.GPAD epad = _enum.GPAD.Neutral;
   public  _enum.GPAD ePAD = _enum.GPAD.Neutral;
@@ -60,23 +60,16 @@ public class InputGetController : MonoBehaviour {
     }
   }
 
-	public string myString = "Babies/Are/Deformed/Eggs/BreakfastJingle.mp3";
-	void Start(){
-		var printME = MTON._enum.TokenizeAndReturnPath(this.myString, "/");
-		Debug.LogFormat("PRINTING THE TRUTH : {0}", printME);
-		Debug.Log("ONE LINER: " +System.IO.Path.GetDirectoryName(this.myString));
-	}
-
-	// Update is called once per frame
-	void Update () {
-		// dirPad state
-		var _hAxis = Input.GetAxisRaw(hAxis)               ;
-		var _vAxis = Input.GetAxisRaw(vAxis)               ;
+  // Update is called once per frame
+  void Update () {
+    // dirPad state
+    var _hAxis = Input.GetAxisRaw(hAxis)               ;
+    var _vAxis = Input.GetAxisRaw(vAxis)               ;
     _mAxis = (new Vector2(_hAxis, _vAxis).normalized).magnitude ; // magnitude
-		var _bAxis = (Mathf.Abs(_mAxis) > Mathf.Epsilon)   ; // bool=>if magnitude > 0 == true
-		// button state
-		var _bFire = Input.GetKey(bFire) ;
-		var _bJump = Input.GetKey(bJump) ;
+    var _bAxis = (Mathf.Abs(_mAxis) > Mathf.Epsilon)   ; // bool=>if magnitude > 0 == true
+    // button state
+    var _bFire = Input.GetKey(bFire) ;
+    var _bJump = Input.GetKey(bJump) ;
     
     // reset all enums
     var   axis   = _enum.Dirn.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
@@ -86,7 +79,7 @@ public class InputGetController : MonoBehaviour {
     this.eREL    = _enum.GPAD.Neutral   ;
 
 		// OnPress Logic 
-		if(_bAxis || _bFire || _bJump){                                                       // active : read input
+		if(_bAxis || _bFire || _bJump){   // active : read input
 //			Debug.LogFormat("PRESSED : {0} ", onPress);
       // process dpad
 			if(_bAxis) {                    // axis is active
@@ -105,32 +98,35 @@ public class InputGetController : MonoBehaviour {
 				else if(_vAxis < 0.0f){       // must do explicit check otherwise down is default
 					axis |= _enum.Dirn.DN;
 				}
-        eAxis = axis ;
       }
+      else{
+        axis = _enum.Dirn.Neutral;
+      }
+      this.eAxis = axis ;
 
       // process buttons
-			if(_bFire || _bJump) { 
-        this.ePAD   |= _enum.GPAD.BTTN;
-        bmode |= _enum.Button.Down;
+			if(_bFire || _bJump) {          // pressed
+        this.ePAD   |= _enum.GPAD.BTTN   ; 
+        bmode       |= _enum.Button.Down ;
         if(_bFire){
           btype |= _enum.Type.Attack;
         }
         if(_bJump){
           btype |= _enum.Type.Jump;
         }
-        this.ebntype = btype;
-        this.eButton = bmode;
       }
-//      else{
-//        if(this.ePAD != this.epad ){                                   // onFirst Release
-//          Pools.pool.CreateEntity().AddIORelease(this.ePAD |=_enum.GPAD.BTTN);  // Set all Release Events
-//        }
-//      }
+      else{                           // released
+        bmode = _enum.Button.Release ;
+        btype = _enum.Type.Neutral   ;
+      }
+      this.ebntype = btype;
+      this.eButton = bmode;
 
-      if(this.ePAD != this.epad ){                                   // onFirst Press
-        Debug.LogFormat("FIRST PRESSED : {0} ", this.ePAD);
-        Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f);
-        Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Down , _enum.Type.Attack);
+      // process on FirstPressed Events
+      if(this.ePAD != this.epad ){    // onFirst Press
+        Debug.LogFormat("FIRST PRESSED : {0} ", this.ePAD)                              ;
+        Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f)                            ;
+        Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Down , _enum.Type.Attack) ;
       }
     }
     // OnRelease Logic
@@ -146,3 +142,12 @@ public class InputGetController : MonoBehaviour {
     this.epad = this.ePAD;
   }
 }
+
+/*
+  public string myString = "Babies/Are/Deformed/Eggs/BreakfastJingle.mp3";
+  void Start(){
+    var printME = MTON._enum.TokenizeAndReturnPath(this.myString, "/");
+    Debug.LogFormat("PRINTING THE TRUTH : {0}", printME);
+    Debug.Log("ONE LINER: " +System.IO.Path.GetDirectoryName(this.myString));
+  }
+*/
