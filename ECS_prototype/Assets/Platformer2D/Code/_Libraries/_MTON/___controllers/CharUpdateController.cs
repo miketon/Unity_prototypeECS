@@ -20,8 +20,8 @@ namespace MTON.Controller {
 
     public Vector3 ccVelocity = Vector3.zero;
 
-    public _enum.Dirn dState = _enum.Dirn.Neutral;
-
+    [SerializeField]
+    private _enum.Dirn dState = _enum.Dirn.Neutral;
     [SerializeField]
     private _enum.VState vstate = _enum.VState.Ground;
     public  _enum.VState vState{
@@ -111,7 +111,7 @@ namespace MTON.Controller {
       this.ccVelocity = this.cc.velocity;
       // PHYSICS UPDATE : gravity
       // Determine state
-      if(!OnGround()){ // apply gravity when not on ground
+      if(!this.OnGround()){ // apply gravity when not on ground
         this.vGravm   += (pGrav * this.fMass) * Time.deltaTime ; // Dang. Forgot to initialize fMass and spent 2 days not having fall work
         this.vGravm.y +=  -this.vy                             ; // multiplying vy as opposed to adding gave shitty jump behaviour
         //check for rising or falling
@@ -121,7 +121,11 @@ namespace MTON.Controller {
         }
         else if(this.cc.velocity.y > 0.1f){
           this.vState = _enum.VState.OnRise;
-//          if(OnCeiling){}
+          if(this.OnCeilng()){                //hit ceiling
+            Debug.LogFormat("CEILING HIT : {0}", this.transform);
+            this.vy     = -this.accel  ;
+            this.vGravm = Vector3.zero ;
+          }
         }
         else{
           this.vState = _enum.VState.OnApex;
@@ -129,7 +133,7 @@ namespace MTON.Controller {
       }
       else{            // onGround zero out gravity
         this.vState = _enum.VState.Ground;
-        this.vy    = 0.0f         ;
+        this.vy     = 0.0f         ;
         this.vGravm = Vector3.zero ;
       }
       // EVENT CHANGES : jump, move ...etc
@@ -137,10 +141,10 @@ namespace MTON.Controller {
       // bJump updated here as a side effect of doJump() injection
       if(this.bJump){ 
         if(this.vState == _enum.VState.Ground){
-          this.vGravm.y   = this.jumpForce ;
+          this.vGravm.y = this.jumpForce ;
         }
         else{
-          this.vGravm.y   = this.flapForce ;
+          this.vGravm.y = this.flapForce ;
         }
         this.vy        = 0.0f           ;
         this.bJump     = false          ;
@@ -150,6 +154,14 @@ namespace MTON.Controller {
       this.vGravm.y += this.vMove.y                  ;
       this.vGravm.z  = 0.0f                          ; //forces character to stay in 2D plane
       this.cc.Move(this.vGravm *  Time.deltaTime); // * -this.vy) ; //do gravity
+
+      // Smooth edge drop via collider radius tweaking
+      if(this.vState == _enum.VState.Ground && this._gCheck != rayState.FULL){  //Not all rays hitting ground; reduce radius of collider
+        this.cc.radius = this.radius * 0.05f ; //reduce radius collider
+      }
+      else{
+        this.cc.radius = this.radius         ; //else leave at default
+      }
     }
 
     public void doJump(){
@@ -157,57 +169,28 @@ namespace MTON.Controller {
     }
 
     public Vector3 doMove(_enum.Dirn IN_DPAD){
-        this.vMove = Vector3.zero;
-        if(IN_DPAD == _enum.Dirn.RT){
-//      if(!this.bHit){ //if not hit, can move
-          this.vMove = Vector3.right * this.moveForce  ; //horizontal transform (move) 
-//      }
-        }
-        else if(IN_DPAD == _enum.Dirn.LT){
-          this.vMove = -Vector3.right * this.moveForce ; //horizontal transform (move) 
-        }
-        return this.vMove;
-    }
-
-
-//    public virtual Vector3 Fall(){ //vertical transform (this.vGravm)
-//      var vgrav = Vector3.zero;
-//      if(this._gCheck == rayState.NULL){ //in air
-//        vgrav      += pGrav * Time.deltaTime * this.fMass ;
-//        vgrav.y    += -this.vy                                 ; //adding velocity
-////        bCeilng    = this.OnCeilng()                          ;
-////        if((this.cc.velocity.y) < 0.1f){        //apply velocity after apex...changed from 0.0=>0.1 to blend apex transition
-//          this.vy += this.accel;
-////        }
-////        else if(bCeilng){
-////          this.vGravm.y = -accelY;
-////        }
-//      }
-//      else{ //on FIRST foot down
-////        Debug.Log("FIRST LANDING :!!!");
-////        if(Mathf.Abs(this.cc.velocity.y) < 0.1f){ //and not on rise ; else get caught on ledges
-////          //reset velocity when on ground
-////          this.vGravm = Vector3.zero ;
-////          this.vy     = 0.0f         ;                 
-////        }
-////        if(dash){
-////          vMove *= this.dashForce ;
-////        }
-//      }
-//      vgrav.y = Mathf.Clamp(this.vgrav.y, -this.tVelc, this.tVelc) ; //clamp to terminal velocity
-//      Debug.LogFormat("FALLING:!!! {0}", vgrav);
-//      return vgrav                                          ;
+      this.dState = IN_DPAD     ; //for visual debugging
+      this.vMove = Vector3.zero ;
+      if(IN_DPAD == _enum.Dirn.RT){
+//    if(!this.bHit){ //if not hit, can move
+        this.vMove = Vector3.right * this.moveForce  ; //horizontal transform (move) 
 //    }
+      }
+      else if(IN_DPAD == _enum.Dirn.LT){
+        this.vMove = -Vector3.right * this.moveForce ; //horizontal transform (move) 
+      }
+      return this.vMove;
+    }
 
 #region OnGround(){}
 
     //Utilities -- Not extending xForm so reimplementing ground logic
-    public virtual bool OnGround(){                                          
+    public bool OnGround(){
       Vector3 vPos = this.transform.position + this.center                                         ;
       return this.OnGround(vPos, -Vector3.up, new Vector3(this.radius * 0.85f, this.height, 0.0f)) ;
     }
 
-    public virtual bool OnGround(Vector3 vPos, Vector3 vDir, Vector3 vCol){                 // vCol: x = cRadius, y = cHeight   
+    public bool OnGround(Vector3 vPos, Vector3 vDir, Vector3 vCol){                 // vCol: x = cRadius, y = cHeight   
       float bCentCheck = this.dirRayCheck(vPos                            , vDir, vCol.y) ; // check center
       float bRghtCheck = this.dirRayCheck(vPos + ( Vector3.right * vCol.x), vDir, vCol.y) ; // check right edge
       float bLeftCheck = this.dirRayCheck(vPos + (-Vector3.right * vCol.x), vDir, vCol.y) ; // check left edge
@@ -222,14 +205,8 @@ namespace MTON.Controller {
         this._gCheck|=rayState.RGHT;
       }
 
-      if (this._gCheck > rayState.NULL){  //either edge connects, then character is onGround
-        if(this._gCheck != rayState.FULL){ //Not all rays hitting ground; reduce radius of collider
-          this.cc.radius = vCol.x * 0.05f ; //reduce radius collider
-        }
-        else{
-          this.cc.radius = vCol.x         ; //else leave at default
-        }
-        return true;
+      if (this._gCheck > rayState.NULL){    //either edge connects, then character is onGround
+        return true ;
       }
       else{
         return false;
@@ -240,12 +217,12 @@ namespace MTON.Controller {
 
 #region OnCeilng(){}
 
-    public virtual bool OnCeilng(CharacterController cc){
-      Vector3 vPos = cc.transform.position + cc.center                                 ;
-      return this.OnCeilng(vPos, Vector3.up, new Vector3(0.0f, cc.height * 1.25f, 0.0f)) ;
+    public bool OnCeilng(){
+      Vector3 vPos = this.transform.position + this.center                                 ;
+      return this.OnCeilng(vPos, Vector3.up, new Vector3(0.0f, this.height * 1.05f, 0.0f)) ;
     }
 
-    public virtual bool OnCeilng(Vector3 vPos, Vector3 vDir, Vector3 vCol){
+    public bool OnCeilng(Vector3 vPos, Vector3 vDir, Vector3 vCol){
       float ceilingCheck = dirRayCheck(vPos, vDir, vCol.y) ; //check directly overhead
       if(ceilingCheck > 0.0f){
         return true  ;
