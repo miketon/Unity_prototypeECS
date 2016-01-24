@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Entitas;
+using MTON;
 using MTON.Interface;
 using MTON.Controller;
 
@@ -27,8 +28,9 @@ public class _CharacterControllerComponent : IComponent, IRbody, IForce {
     }
   }
 
-  public void OnDPAD(){
-    Debug.LogFormat("OnDPAD : _CharacterControllerComponent : {0} {1}", this.body, this.cControl);
+  public void doMove(_enum.Dirn IN_DPAD){
+//    Debug.LogFormat("OnDPAD : _CharacterControllerComponent : {0} {1}", this.body, this.cControl);
+    this.cControl.doMove(IN_DPAD);
   }
 
   public void doJump(){

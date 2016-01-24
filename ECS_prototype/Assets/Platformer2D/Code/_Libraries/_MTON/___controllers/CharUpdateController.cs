@@ -20,6 +20,8 @@ namespace MTON.Controller {
 
     public Vector3 ccVelocity = Vector3.zero;
 
+    public _enum.Dirn dState = _enum.Dirn.Neutral;
+
     [SerializeField]
     private _enum.VState vstate = _enum.VState.Ground;
     public  _enum.VState vState{
@@ -90,7 +92,7 @@ namespace MTON.Controller {
 
     public Vector3 vGravm = Vector3.zero;
 
-    public virtual void Awake(){ //earlier than Start(); need to get xform and rbody
+    public void Awake(){ //earlier than Start(); need to get xform and rbody
       this._layerGround = LayerMask.GetMask (MTON._CONSTANTComponent._FLOOR);
       this.cc = this.GetComponent<CharacterController>();
 
@@ -107,6 +109,7 @@ namespace MTON.Controller {
 
     private void FixedUpdate(){
       this.ccVelocity = this.cc.velocity;
+      // PHYSICS UPDATE : gravity
       // Determine state
       if(!OnGround()){ // apply gravity when not on ground
         this.vGravm   += (pGrav * this.fMass) * Time.deltaTime ; // Dang. Forgot to initialize fMass and spent 2 days not having fall work
@@ -129,9 +132,10 @@ namespace MTON.Controller {
         this.vy    = 0.0f         ;
         this.vGravm = Vector3.zero ;
       }
-      //check for event changes
-      //HACK : doJump() must follow Fall() => order matters! Else vertical twitch and not jump curve
-      if(this.bJump){ // Jumping?
+      // EVENT CHANGES : jump, move ...etc
+      // HACK : doJump() must follow Fall() => order matters! Else vertical twitch and not jump curve
+      // bJump updated here as a side effect of doJump() injection
+      if(this.bJump){ 
         if(this.vState == _enum.VState.Ground){
           this.vGravm.y   = this.jumpForce ;
         }
@@ -141,16 +145,28 @@ namespace MTON.Controller {
         this.vy        = 0.0f           ;
         this.bJump     = false          ;
       }
-
-//        this.vGravm.x  = vMove.x                       ; //combine with move from Move()=>oMoveH() for final position
-//        this.vGravm.y += vMove.y                       ;
-//        this.vGravm.z  = 0.0f                          ; //forces character to stay in 2D plane
+      // vMove updated here as a side effect of doMove() injection
+      this.vGravm.x  = this.vMove.x                  ; //combine with move from Move()=>oMoveH() for final position
+      this.vGravm.y += this.vMove.y                  ;
+      this.vGravm.z  = 0.0f                          ; //forces character to stay in 2D plane
       this.cc.Move(this.vGravm *  Time.deltaTime); // * -this.vy) ; //do gravity
-//      this.cc.Move(Vector3.down * Time.deltaTime) ; //do gravity
     }
 
     public void doJump(){
       this.bJump = true;
+    }
+
+    public Vector3 doMove(_enum.Dirn IN_DPAD){
+        this.vMove = Vector3.zero;
+        if(IN_DPAD == _enum.Dirn.RT){
+//      if(!this.bHit){ //if not hit, can move
+          this.vMove = Vector3.right * this.moveForce  ; //horizontal transform (move) 
+//      }
+        }
+        else if(IN_DPAD == _enum.Dirn.LT){
+          this.vMove = -Vector3.right * this.moveForce ; //horizontal transform (move) 
+        }
+        return this.vMove;
     }
 
 

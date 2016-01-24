@@ -11,7 +11,9 @@ public class Event_DPADReactSystem : IReactiveSystem, ISetPool {
   public void Execute(List<Entity> entities) {
     foreach (var e in _group.GetEntities()){
       Debug.LogFormat("Event_DPADReactSystem : {0}", e._CharacterController.body);
-      e._CharacterController.OnDPAD();
+        foreach (var eDPAD in entities){
+          e._CharacterController.doMove(eDPAD.dpadEvent.eDirn);
+        }
     }
   }
 
