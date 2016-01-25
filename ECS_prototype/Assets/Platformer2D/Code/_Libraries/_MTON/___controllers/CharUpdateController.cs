@@ -14,10 +14,10 @@ namespace MTON.Controller {
     public Vector3 doMove(_enum.Dirn IN_DPAD){
       this.dState = IN_DPAD     ; //for visual debugging
       this.vMove = Vector3.zero ;
-      if(IN_DPAD == _enum.Dirn.RT){
+      if     ((_enum.Dirn.RT & IN_DPAD) !=0){ // Unpacking bits : sets all the bits to zero, excepts the one relative to _enum.Dirn.RT
         this.vMove = Vector3.right * this.moveForce  ; //horizontal transform (move) 
       }
-      else if(IN_DPAD == _enum.Dirn.LT){
+      else if((_enum.Dirn.LT & IN_DPAD) !=0){ // Unpacking bits : sets all the bits to zero, excepts the one relative to _enum.Dirn.LT
         this.vMove = -Vector3.right * this.moveForce ; //horizontal transform (move) 
       }
       return this.vMove;
