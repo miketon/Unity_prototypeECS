@@ -169,6 +169,7 @@
      <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\___controllers\CharUpdateController.cs" />
      <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\___controllers\GameUpdateController.cs" />
      <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\___controllers\InputGetController.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\___controllers\LevelPrefabController.cs" />
      <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\___controllers\OnCollisionController.cs" />
      <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\__gEXTENSIONS.cs" />
      <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\__gUtility.cs" />

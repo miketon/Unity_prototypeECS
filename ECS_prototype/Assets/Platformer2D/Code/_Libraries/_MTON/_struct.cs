@@ -10,12 +10,18 @@ namespace MTON{
     [Serializable] //MUST : add so that this custom data type can be displayed in the inspector
     public struct s_GameObjects {
 
-      public Transform[]      e_GroundE ; // ground Entities
-      public Transform[]      e_FlyingE ; // flying Entities
+      public Transform[]      e_Players ; // bullet Entities
       public Transform[]      e_Bullets ; // bullet Entities
-      public Transform[]      e_Pillars ; // pillar Entities : slams : thompers, groundspikes, doors..etc
       public Transform[]      e_Icons   ;
 
+    }
+
+    [Serializable] //MUST : add so that this custom data type can be displayed in the inspector
+    public struct s_GameEntities {
+
+      public Transform[]      e_GroundE ; // ground Entities
+      public Transform[]      e_FlyingE ; // flying Entities
+      public Transform[]      e_Pillars ; // pillar Entities : slams : thompers, groundspikes, doors..etc
 
     }
 
