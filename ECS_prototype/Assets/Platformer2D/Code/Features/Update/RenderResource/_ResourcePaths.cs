@@ -1,6 +1,6 @@
 ﻿public static class _ResourcePaths{
 
-  public const string player0 = "ThumbNail_StickFigure";
+  public const string player0 = "PlayerCharacterMTON";
 
   //handles Paths
   public static string _char = "_Characters/" ;

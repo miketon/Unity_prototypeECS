@@ -2,53 +2,55 @@ using System.Collections.Generic;
 
 namespace Entitas {
     public partial class Entity {
-        public rbodyEventComponent rbodyEvent { get { return (rbodyEventComponent)GetComponent(ComponentIds.rbodyEvent); } }
+        public RbodyEventComponent rbodyEvent { get { return (RbodyEventComponent)GetComponent(ComponentIds.RbodyEvent); } }
 
-        public bool hasrbodyEvent { get { return HasComponent(ComponentIds.rbodyEvent); } }
+        public bool hasRbodyEvent { get { return HasComponent(ComponentIds.RbodyEvent); } }
 
-        static readonly Stack<rbodyEventComponent> _rbodyEventComponentPool = new Stack<rbodyEventComponent>();
+        static readonly Stack<RbodyEventComponent> _rbodyEventComponentPool = new Stack<RbodyEventComponent>();
 
-        public static void ClearrbodyEventComponentPool() {
+        public static void ClearRbodyEventComponentPool() {
             _rbodyEventComponentPool.Clear();
         }
 
-        public Entity AddrbodyEvent(MTON._enum.Rbody newRbState) {
-            var component = _rbodyEventComponentPool.Count > 0 ? _rbodyEventComponentPool.Pop() : new rbodyEventComponent();
-            component.rbState = newRbState;
-            return AddComponent(ComponentIds.rbodyEvent, component);
+        public Entity AddRbodyEvent(UnityEngine.CharacterController newCc, MTON._enum.VState newVState) {
+            var component = _rbodyEventComponentPool.Count > 0 ? _rbodyEventComponentPool.Pop() : new RbodyEventComponent();
+            component.cc = newCc;
+            component.vState = newVState;
+            return AddComponent(ComponentIds.RbodyEvent, component);
         }
 
-        public Entity ReplacerbodyEvent(MTON._enum.Rbody newRbState) {
-            var previousComponent = hasrbodyEvent ? rbodyEvent : null;
-            var component = _rbodyEventComponentPool.Count > 0 ? _rbodyEventComponentPool.Pop() : new rbodyEventComponent();
-            component.rbState = newRbState;
-            ReplaceComponent(ComponentIds.rbodyEvent, component);
+        public Entity ReplaceRbodyEvent(UnityEngine.CharacterController newCc, MTON._enum.VState newVState) {
+            var previousComponent = hasRbodyEvent ? rbodyEvent : null;
+            var component = _rbodyEventComponentPool.Count > 0 ? _rbodyEventComponentPool.Pop() : new RbodyEventComponent();
+            component.cc = newCc;
+            component.vState = newVState;
+            ReplaceComponent(ComponentIds.RbodyEvent, component);
             if (previousComponent != null) {
                 _rbodyEventComponentPool.Push(previousComponent);
             }
             return this;
         }
 
-        public Entity RemoverbodyEvent() {
+        public Entity RemoveRbodyEvent() {
             var component = rbodyEvent;
-            RemoveComponent(ComponentIds.rbodyEvent);
+            RemoveComponent(ComponentIds.RbodyEvent);
             _rbodyEventComponentPool.Push(component);
             return this;
         }
     }
 
     public partial class Matcher {
-        static IMatcher _matcherrbodyEvent;
+        static IMatcher _matcherRbodyEvent;
 
-        public static IMatcher rbodyEvent {
+        public static IMatcher RbodyEvent {
             get {
-                if (_matcherrbodyEvent == null) {
-                    var matcher = (Matcher)Matcher.AllOf(ComponentIds.rbodyEvent);
+                if (_matcherRbodyEvent == null) {
+                    var matcher = (Matcher)Matcher.AllOf(ComponentIds.RbodyEvent);
                     matcher.componentNames = ComponentIds.componentNames;
-                    _matcherrbodyEvent = matcher;
+                    _matcherRbodyEvent = matcher;
                 }
 
-                return _matcherrbodyEvent;
+                return _matcherRbodyEvent;
             }
         }
     }
