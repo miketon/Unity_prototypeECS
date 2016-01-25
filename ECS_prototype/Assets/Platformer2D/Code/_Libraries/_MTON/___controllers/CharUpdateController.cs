@@ -135,7 +135,7 @@ namespace MTON.Controller {
         this.vGravm   += (pGrav * this.fMass) * Time.deltaTime ; // Dang. Forgot to initialize fMass and spent 2 days not having fall work
         this.vGravm.y += -this.vy                              ; // multiplying vy as opposed to adding gave shitty jump behaviour
         //check for rising or falling
-        if(this.cc.velocity.y < 0.1f){
+        if(this.cc.velocity.y < -0.1f){
           this.vState = _enum.VState.OnFall                                      ;
           this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc * 2.0f);
         }

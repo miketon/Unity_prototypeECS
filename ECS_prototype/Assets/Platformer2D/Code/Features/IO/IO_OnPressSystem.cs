@@ -11,10 +11,10 @@ public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
     foreach(var e in entities){
-      Debug.LogFormat("IO_OnPressSystem DPAD {0} {1}", e.dpadEvent.eDirn, e.dpadEvent.magDr);
-      if(e.dpadEvent.eDirn == _enum.Dirn.LT){
-        Debug.Log("Moving LEFT DPAD");
-      }
+//      Debug.LogFormat("IO_OnPressSystem DPAD {0} {1}", e.dpadEvent.eDirn, e.dpadEvent.magDr);
+//      if(e.dpadEvent.eDirn == _enum.Dirn.LT){
+//        Debug.Log("Moving LEFT DPAD");
+//      }
     }
 //		foreach (var e in _group.GetEntities()) {
 //			var pos   = e.position;

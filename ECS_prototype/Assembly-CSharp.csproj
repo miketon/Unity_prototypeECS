@@ -73,7 +73,6 @@
      <Compile Include="Assets\Generated\Pools.cs" />
      <Compile Include="Assets\Generated\PositionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PowerUpAttributesComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\RbodyEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\RbodyEventSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\RenderPositionSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\VelocityComponentGeneratedExtension.cs" />
@@ -85,6 +84,7 @@
      <Compile Include="Assets\Generated\_OnStartComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_RigidBodyComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_StartSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\rbodyEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateHMotionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateVMotionComponentGeneratedExtension.cs" />
@@ -173,6 +173,7 @@
      <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\__gEXTENSIONS.cs" />
      <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\__gUtility.cs" />
      <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\_enum.cs" />
+     <Compile Include="Assets\Platformer2D\Code\_Libraries\_MTON\_struct.cs" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black1x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_black2x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\license.txt" />

@@ -3,8 +3,8 @@ using Entitas;
 
 public class _LevelInitSystem : IInitializeSystem, ISetPool {
 
-  public static Entity player;
-  private Pool _pool;
+  public  static Entity player ;
+  private        Pool   _pool  ;
 
 	#region IInitializeSystem implementation
 	public void Initialize (){
