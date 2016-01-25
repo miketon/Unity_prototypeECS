@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using Entitas;
+﻿using UnityEngine                ;
+using System.Collections         ;
+using System.Collections.Generic ;
+using Entitas                    ;
 
 public class Event_BUTTONReactSystem : IReactiveSystem, ISetPool {
 
@@ -11,9 +11,9 @@ public class Event_BUTTONReactSystem : IReactiveSystem, ISetPool {
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
 //      Debug.LogFormat("Event_BUTTONReactSystem : {0} {1}", e.buttonEvent.bType, e.buttonEvent.bMode);
-      if(e.buttonEvent.bMode == MTON._enum.Button.Down){
-        if(e.buttonEvent.bType == MTON._enum.Type.Jump){
-          Debug.LogFormat("Event_BUTTONReactSystem : JUMP! {0} {1}", e.buttonEvent.bType, e.buttonEvent.bMode);
+      if(e.buttonEvent.bMode == MTON._enum.Button.Down){ // is button down
+        if(e.buttonEvent.bType == MTON._enum.Type.Jump){ // handle jumps
+//          Debug.LogFormat("Event_BUTTONReactSystem : JUMP! {0} {1}", e.buttonEvent.bType, e.buttonEvent.bMode);
           foreach (var cc in _group.GetEntities()){
             cc._CharacterController.doJump();
           }

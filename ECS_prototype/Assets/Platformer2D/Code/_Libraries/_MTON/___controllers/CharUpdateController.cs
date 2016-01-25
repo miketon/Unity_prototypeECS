@@ -1,13 +1,33 @@
-﻿using UnityEngine;
-using System;
-using System.Collections;
-using MTON;
-using MTON.Interface;
+﻿using UnityEngine        ;
+using System             ;
+using System.Collections ;
+using MTON               ;
+using MTON.Interface     ;
 
 namespace MTON.Controller {
 
   [RequireComponent (typeof (CharacterController))]
   public class CharUpdateController : MonoBehaviour, IRbody, IForce {
+
+    #region Public Events
+    // Move
+    public Vector3 doMove(_enum.Dirn IN_DPAD){
+      this.dState = IN_DPAD     ; //for visual debugging
+      this.vMove = Vector3.zero ;
+      if(IN_DPAD == _enum.Dirn.RT){
+        this.vMove = Vector3.right * this.moveForce  ; //horizontal transform (move) 
+      }
+      else if(IN_DPAD == _enum.Dirn.LT){
+        this.vMove = -Vector3.right * this.moveForce ; //horizontal transform (move) 
+      }
+      return this.vMove;
+    }
+
+    // Jump
+    public void doJump(){
+      this.bJump = true;
+    }
+    #endregion
 
     private LayerMask _layerGround ;
     private CharacterController cc ;
@@ -90,7 +110,7 @@ namespace MTON.Controller {
     public float   fMass { get; set;}
     #endregion
 
-    public Vector3 vGravm = Vector3.zero;
+    public Vector3 vGravm = Vector3.zero; // can't use vGrav, because set/get don't allow bGrav.y += vMove.y
 
     public void Awake(){ //earlier than Start(); need to get xform and rbody
       this._layerGround = LayerMask.GetMask (MTON._CONSTANTComponent._FLOOR);
@@ -113,7 +133,7 @@ namespace MTON.Controller {
       // Determine state
       if(!this.OnGround()){ // apply gravity when not on ground
         this.vGravm   += (pGrav * this.fMass) * Time.deltaTime ; // Dang. Forgot to initialize fMass and spent 2 days not having fall work
-        this.vGravm.y +=  -this.vy                             ; // multiplying vy as opposed to adding gave shitty jump behaviour
+        this.vGravm.y += -this.vy                              ; // multiplying vy as opposed to adding gave shitty jump behaviour
         //check for rising or falling
         if(this.cc.velocity.y < 0.1f){
           this.vState = _enum.VState.OnFall                                      ;
@@ -152,8 +172,10 @@ namespace MTON.Controller {
       // vMove updated here as a side effect of doMove() injection
       this.vGravm.x  = this.vMove.x                  ; //combine with move from Move()=>oMoveH() for final position
       this.vGravm.y += this.vMove.y                  ;
+      this.vGravm.y  = Mathf.Clamp(vGravm.y, -this.tVelc, this.tVelc * 2.0f); // prevents crazy fall
       this.vGravm.z  = 0.0f                          ; //forces character to stay in 2D plane
-      this.cc.Move(this.vGravm *  Time.deltaTime); // * -this.vy) ; //do gravity
+      this.vGrav     = this.vGravm                   ;
+      this.cc.Move(this.vGrav *  Time.deltaTime)     ; // * -this.vy) ; //do gravity
 
       // Smooth edge drop via collider radius tweaking
       if(this.vState == _enum.VState.Ground && this._gCheck != rayState.FULL){  //Not all rays hitting ground; reduce radius of collider
@@ -164,23 +186,6 @@ namespace MTON.Controller {
       }
     }
 
-    public void doJump(){
-      this.bJump = true;
-    }
-
-    public Vector3 doMove(_enum.Dirn IN_DPAD){
-      this.dState = IN_DPAD     ; //for visual debugging
-      this.vMove = Vector3.zero ;
-      if(IN_DPAD == _enum.Dirn.RT){
-//    if(!this.bHit){ //if not hit, can move
-        this.vMove = Vector3.right * this.moveForce  ; //horizontal transform (move) 
-//    }
-      }
-      else if(IN_DPAD == _enum.Dirn.LT){
-        this.vMove = -Vector3.right * this.moveForce ; //horizontal transform (move) 
-      }
-      return this.vMove;
-    }
 
 #region OnGround(){}
 

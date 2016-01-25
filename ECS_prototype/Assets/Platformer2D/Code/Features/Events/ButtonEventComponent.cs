@@ -1,6 +1,6 @@
-﻿using Entitas;
-using System;
-using MTON;
+﻿using Entitas ;
+using System  ;
+using MTON    ;
 
 public class ButtonEventComponent : IComponent {
 
