@@ -1,15 +1,33 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using UnityEngine        ;
+using UnityEngine.UI     ;
+using System             ;
+using System.Collections ;
+using Entitas            ;
+using MTON               ;
 
-public class UI_UpdateController : MonoBehaviour {
+namespace MTON.Controller {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+  public class UI_UpdateController : MonoBehaviour {
+
+    public Text txt_DPAD   ;
+    public Text txt_Button ;
+
+    void Start () {
+
+      var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  );
+      var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent);
+//      scoreTxt.text = score.GetSingleEntity().componentNames[0] + " ";
+
+      eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
+        this.txt_DPAD.text = entity.dpadEvent.eDirn.ToString();
+      };
+      
+      eButton.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
+        this.txt_Button.text = entity.buttonEvent.bType.ToString();
+      };
+
+    }
+    
+  }
+
 }
