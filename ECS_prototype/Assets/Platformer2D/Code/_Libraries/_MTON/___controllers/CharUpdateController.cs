@@ -14,10 +14,10 @@ namespace MTON.Controller {
     public Vector3 doMove(_enum.Dirn IN_DPAD){
       this.dState = IN_DPAD     ; //for visual debugging
       this.vMove = Vector3.zero ;
-      if(IN_DPAD == _enum.Dirn.RT){
+      if     ((_enum.Dirn.RT & IN_DPAD) !=0){ // Unpacking bits : sets all the bits to zero, excepts the one relative to _enum.Dirn.RT
         this.vMove = Vector3.right * this.moveForce  ; //horizontal transform (move) 
       }
-      else if(IN_DPAD == _enum.Dirn.LT){
+      else if((_enum.Dirn.LT & IN_DPAD) !=0){ // Unpacking bits : sets all the bits to zero, excepts the one relative to _enum.Dirn.LT
         this.vMove = -Vector3.right * this.moveForce ; //horizontal transform (move) 
       }
       return this.vMove;
@@ -41,7 +41,7 @@ namespace MTON.Controller {
     public Vector3 ccVelocity = Vector3.zero;
 
     [SerializeField]
-    private _enum.Dirn dState = _enum.Dirn.Neutral;
+    private _enum.Dirn dState = _enum.Dirn.Neutral; //for visual debugging
     [SerializeField]
     private _enum.VState vstate = _enum.VState.Ground;
     public  _enum.VState vState{
@@ -135,7 +135,7 @@ namespace MTON.Controller {
         this.vGravm   += (pGrav * this.fMass) * Time.deltaTime ; // Dang. Forgot to initialize fMass and spent 2 days not having fall work
         this.vGravm.y += -this.vy                              ; // multiplying vy as opposed to adding gave shitty jump behaviour
         //check for rising or falling
-        if(this.cc.velocity.y < 0.1f){
+        if(this.cc.velocity.y < -0.1f){
           this.vState = _enum.VState.OnFall                                      ;
           this.vy     = Mathf.Clamp(this.vy+this.accel, -this.tVelc, this.tVelc * 2.0f);
         }

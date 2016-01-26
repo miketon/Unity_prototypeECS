@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-using System;
-using System.Collections;
+﻿using UnityEngine        ;
+using System             ;
+using System.Collections ;
 
 namespace MTON{
 
-  public class _enum : MonoBehaviour {
+  public class _enum {
 
   [Flags] // Powers of two
   public enum GPAD {

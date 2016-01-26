@@ -81,17 +81,50 @@
      <Compile Include="Assets\Libraries\Entitas.Unity\Editor\EntitasCheckForUpdates.cs" />
      <Compile Include="Assets\Libraries\Entitas.Unity\Editor\EntitasPreferences.cs" />
      <Compile Include="Assets\Libraries\Entitas.Unity\Editor\EntitasPreferencesConfig.cs" />
+     <Compile Include="Assets\Libraries\FreeFromGithub\Boids\ProbePolisher\Editor\PolishableProbeEditor.cs" />
+     <Compile Include="Assets\Libraries\FreeFromGithub\Boids\ProbePolisher\Editor\PolishableProbeMixerEditor.cs" />
+     <Compile Include="Assets\Libraries\FreeFromGithub\Boids\ProbePolisher\Editor\ShSkyboxMaterialEditor.cs" />
+     <Compile Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Spray\Editor\SprayEditor.cs" />
+     <Compile Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Streamline\Editor\StreamlineEditor.cs" />
+     <Compile Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Tunnel\Editor\TunnelEditor.cs" />
+     <Compile Include="Assets\Libraries\FreeFromUnityAssetStore\Gamelogic\Plugins\Common\Editor\GLEditor.cs" />
+     <Compile Include="Assets\Libraries\FreeFromUnityAssetStore\Gamelogic\Plugins\Common\Editor\GLEditorGUI.cs" />
+     <Compile Include="Assets\Libraries\FreeFromUnityAssetStore\Gamelogic\Plugins\Common\Editor\GLSerializedProperty.cs" />
+     <Compile Include="Assets\Libraries\FreeFromUnityAssetStore\Gamelogic\Plugins\Common\Editor\PropertyDrawers\MinMaxFloatPropertyDrawer.cs" />
+     <Compile Include="Assets\Libraries\FreeFromUnityAssetStore\Gamelogic\Plugins\Common\Editor\PropertyDrawers\NonNegativeDrawer.cs" />
+     <Compile Include="Assets\Libraries\FreeFromUnityAssetStore\Gamelogic\Plugins\Common\Editor\PropertyDrawers\PositivePropertyDrawer.cs" />
+     <Compile Include="Assets\Libraries\FreeFromUnityAssetStore\Gamelogic\Plugins\Common\Editor\StringExtensions.cs" />
+     <Compile Include="Assets\Libraries\FreeFromUnityAssetStore\usfxr\Scripts\usfxr\Editor\SfxrGenerator.cs" />
+     <None Include="Assets\Libraries\FreeFromUnityAssetStore\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black1x.xml" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Tunnel\Shaders\Surface.shader" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Streamline\Shaders\ClassicNoise3D.cginc" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Common\Shaders\Debug Blit.shader" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Spray\Shaders\Surface.shader" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Tunnel\Shaders\Line.shader" />
+     <None Include="Assets\Libraries\FreeFromGithub\Boids\ProbePolisher\SH Skybox.shader" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_black2x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\license.txt" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_white2x.xml" />
+     <None Include="Assets\Libraries\FreeFromUnityAssetStore\Demigiant\DOTween\DOTween46.xml" />
+     <None Include="Assets\Libraries\FreeFromUnityAssetStore\Demigiant\DOTween\DOTween50.xml" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Streamline\Shaders\Line.shader" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_white1x.xml" />
+     <None Include="Assets\Libraries\FreeFromUnityAssetStore\Demigiant\DOTween\DOTween43.xml" />
+     <None Include="Assets\Libraries\FreeFromUnityAssetStore\Gamelogic\Plugins\Common\Datastructures\BinaryHeap\BinaryHeapLincense.txt" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\license.txt" />
+     <None Include="Assets\Libraries\FreeFromUnityAssetStore\UniRx\ReadMe.txt" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Spray\Shaders\Kernels.shader" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_black2x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_white2x.xml" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_white1x.xml" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Spray\Shaders\ClassicNoise3D.cginc" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_colored1x.xml" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Tunnel\Shaders\ClassicNoise2D.cginc" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Streamline\Shaders\Kernels.shader" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Game icons (base)\Spritesheet\sheet_black1x.xml" />
+     <None Include="Assets\Libraries\FreeFromUnityAssetStore\Gamelogic\Plugins\Common\Datastructures\KDTree\KDTreeLicense.txt" />
+     <None Include="Assets\Libraries\FreeFromGithub\Kvant\Kvant\Tunnel\Shaders\Kernels.shader" />
      <None Include="Assets\Platformer2D\Art\UI\Kenney\gameicons-expansion\Spritesheet\sheet_colored2x.xml" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -131,6 +164,21 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween50.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween43.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
