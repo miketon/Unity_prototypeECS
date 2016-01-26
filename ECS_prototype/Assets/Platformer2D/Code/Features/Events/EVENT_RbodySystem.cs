@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class RbodyEventSystem : IReactiveSystem {
+public class Event_RbodySystem : IReactiveSystem {
 
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {

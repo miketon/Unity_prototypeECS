@@ -41,7 +41,7 @@ namespace MTON.Controller {
     public Vector3 ccVelocity = Vector3.zero;
 
     [SerializeField]
-    private _enum.Dirn dState = _enum.Dirn.Neutral;
+    private _enum.Dirn dState = _enum.Dirn.Neutral; //for visual debugging
     [SerializeField]
     private _enum.VState vstate = _enum.VState.Ground;
     public  _enum.VState vState{

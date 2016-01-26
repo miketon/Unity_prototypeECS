@@ -54,7 +54,7 @@ public class GameUpdateController : MonoBehaviour {
     .Add(pool.CreateSystem<OnCollisionEnterSystem>()) // reacts to collision events
 
     // Events
-    .Add(pool.CreateSystem<RbodyEventSystem>())
+    .Add(pool.CreateSystem<Event_RbodySystem>())
     .Add(pool.CreateSystem<Event_DPADReactSystem>())
     .Add(pool.CreateSystem<Event_BUTTONReactSystem>())
 
