@@ -387,10 +387,10 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\State\stateVMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\ButtonEventComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\DpadEventComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\EVENT_RbodySystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_BUTTONReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_DPADReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_OnDestroySystem.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_RbodySystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollision\OnCollisionEnterComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollision\OnCollisionEnterSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\RbodyEventComponent.cs" />

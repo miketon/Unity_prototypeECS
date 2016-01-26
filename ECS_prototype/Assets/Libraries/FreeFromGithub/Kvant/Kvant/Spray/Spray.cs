@@ -301,7 +301,7 @@ public partial class Spray : MonoBehaviour
         for (var i = 0; i < _positionBuffer2.height; i++)
         {
             uv.y = (0.5f + i) / _positionBuffer2.height;
-            offset.AddVector("_BufferOffset", uv);
+            offset.SetVector("_BufferOffset", uv);
             Graphics.DrawMesh(_bulkMesh.mesh, transform.position, transform.rotation, _surfaceMaterial, 0, null, 0, offset);
         }
     }
