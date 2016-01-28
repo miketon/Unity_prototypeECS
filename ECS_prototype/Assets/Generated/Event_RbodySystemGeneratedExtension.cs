@@ -1,6 +1,6 @@
 namespace Entitas {
     public partial class Pool {
-        public ISystem CreateRbodyEventSystem() {
+        public ISystem CreateEvent_RbodySystem() {
             return this.CreateSystem<Event_RbodySystem>();
         }
     }

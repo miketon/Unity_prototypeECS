@@ -57,6 +57,8 @@
      <Compile Include="Assets\Generated\Event_BUTTONReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_DPADReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_OnDestroySystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\Event_RbodySystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\GpadEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOControlComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOReleaseComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_OnDestroySystemGeneratedExtension.cs" />
@@ -73,7 +75,7 @@
      <Compile Include="Assets\Generated\Pools.cs" />
      <Compile Include="Assets\Generated\PositionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PowerUpAttributesComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\RbodyEventSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\RbodyEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\RenderPositionSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\VelocityComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ViewComponentGeneratedExtension.cs" />
@@ -84,7 +86,6 @@
      <Compile Include="Assets\Generated\_OnStartComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_RigidBodyComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_StartSystemGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\rbodyEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateHMotionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateVMotionComponentGeneratedExtension.cs" />
@@ -391,6 +392,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_DPADReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_OnDestroySystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_RbodySystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\GpadEventComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\IOControlComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\IOReleaseComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\IO_OnDestroySystem.cs" />
@@ -401,6 +403,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollision\OnCollisionEnterComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollision\OnCollisionEnterSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\RbodyEventComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\UI\Event_Audio_uiSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\VelocityComponent.cs" />

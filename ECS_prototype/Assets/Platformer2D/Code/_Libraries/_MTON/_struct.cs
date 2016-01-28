@@ -36,7 +36,6 @@ namespace MTON{
       public Vector3[]        anmEmit_IntScl ; // captures scale of animator objects
 
     }
-
 #endregion
 
   }

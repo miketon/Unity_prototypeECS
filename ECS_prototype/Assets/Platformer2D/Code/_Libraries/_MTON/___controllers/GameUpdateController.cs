@@ -58,6 +58,7 @@ namespace MTON.Controller {
         .Add(pool.CreateSystem<Event_RbodySystem>())
         .Add(pool.CreateSystem<Event_DPADReactSystem>())
         .Add(pool.CreateSystem<Event_BUTTONReactSystem>())
+        .Add(pool.CreateSystem<Event_Audio_uiSystem>())
 
         // Render
         .Add(pool.CreateSystem<RenderPositionSystem>())   // renders position
