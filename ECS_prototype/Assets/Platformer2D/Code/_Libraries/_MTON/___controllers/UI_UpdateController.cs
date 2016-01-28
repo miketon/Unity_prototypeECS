@@ -16,6 +16,7 @@ namespace MTON.Controller {
 
       var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  );
       var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent);
+      var eFullTilt   = Pools.pool.GetGroup(Matcher.AllOf(Matcher.DpadEvent, Matcher.ButtonEvent));
 //      scoreTxt.text = score.GetSingleEntity().componentNames[0] + " ";
 
       eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
@@ -24,6 +25,11 @@ namespace MTON.Controller {
       
       eButton.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
         this.txt_Button.text = entity.buttonEvent.bType.ToString();
+      };
+
+      eFullTilt.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
+        this.txt_Button.text = "FULL";
+        this.txt_DPAD.text   = "TILT";
       };
 
     }
