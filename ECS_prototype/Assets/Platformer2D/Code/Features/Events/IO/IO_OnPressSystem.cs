@@ -33,7 +33,7 @@ public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
-		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl));
+    _group = pool.GetGroup(Matcher.AllOf(Matcher.IO_Controllable));
 	}
 	#endregion
 

@@ -10,16 +10,18 @@ public class _LevelInitSystem : IInitializeSystem, ISetPool {
 	public void Initialize (){
 		Debug.LogFormat("Initializing Level : {0} ", this);
 		player = _pool.spawnPlayer(Vector3.zero);
+
+    _GravityComponent.dir              = Physics.gravity ;
+    _GravityComponent.magnitude        = 1.0f            ;
+    _GravityComponent.terminalVelocity = 54.0f           ; // 54 = a skydiver free-fall to earth according to wikipedia
+    _GravityComponent.accleration      = 0.035f          ;
+
 	}
 	#endregion
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
 		_pool = pool;
-    _GravityComponent.dir              = Physics.gravity ;
-    _GravityComponent.magnitude        = 1.0f            ;
-    _GravityComponent.terminalVelocity = 54.0f           ; // 54 = a skydiver free-fall to earth according to wikipedia
-    _GravityComponent.accleration      = 0.035f          ;
 	}
 	#endregion
 

@@ -18,6 +18,7 @@ public class Event_Audio_uiSystem : IInitializeSystem, IReactiveSystem {
     this.sOnRelease = new SfxrSynth();
     this.sOnPress.parameters.GenerateJump();
     this.sOnRelease.parameters.GenerateBlipSelect();
+    this.sOnRelease.parameters.masterVolume = 0.05f;
   }
   #endregion
 
@@ -26,7 +27,7 @@ public class Event_Audio_uiSystem : IInitializeSystem, IReactiveSystem {
     foreach (var e in entities){
       if(e.buttonEvent.bType == _enum.Type.Jump){
         if(e.buttonEvent.bMode == _enum.Button.Down){
-          this.sOnPress.PlayMutated();
+          this.sOnPress.Play();
         }
       }
       else if(e.buttonEvent.bType == _enum.Type.Neutral && e.buttonEvent.bMode == _enum.Button.Neutral){

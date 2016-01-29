@@ -125,7 +125,7 @@ public class InputGetController : MonoBehaviour {
       // process on FirstPressed Events
       if(this.ePAD != this.epad ){    // onFirst Press
 //        Debug.LogFormat("FIRST PRESSED : {0} ", this.ePAD)                              ;
-        Pools.pool.CreateEntity().AddIO_OnFirstPress(500.0f)                            ;
+        Pools.pool.CreateEntity().AddIO_OnFirstPress(this.transform)                    ;
         Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Down , _enum.Type.Attack) ;
       }
     }
@@ -133,6 +133,8 @@ public class InputGetController : MonoBehaviour {
     else {                                                                       
       if(this.ePAD != this.epad ){                                   // onFirst Release
 //        Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
+//        Pools.pool.CreateEntity().AddIO_OnFirstRelease(this.transform);
+        Pools.pool.CreateEntity().AddIO_OnFirstPress(this.gameObject.transform);
         Pools.pool.CreateEntity().AddIORelease(_enum.GPAD.FULL);  // Set all Release Events
         this.eAxis   = _enum.Dirn.Neutral   ;
         this.ebntype = _enum.Type.Neutral   ;

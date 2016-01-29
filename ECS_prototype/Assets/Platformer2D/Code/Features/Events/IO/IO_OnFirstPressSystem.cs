@@ -9,11 +9,12 @@ public class IO_OnFirstPressSystem : IReactiveSystem, ISetPool {
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
-		var fBonus = entities.SingleEntity().iO_OnFirstPress.fBonus;
-		foreach (var e in _group.GetEntities()) {
-//			Debug.LogFormat("First Press Bonus : {0} on {1} ", fBonus, e);
-			PowerUpAttributesComponent.fSpeed = fBonus;
-		}
+    foreach (var e in entities){
+      Debug.LogFormat("First Press Bonus : {0} ",  e.iO_OnFirstPress.xform);
+    }
+//		foreach (var e in _group.GetEntities()) {
+//			Debug.LogFormat("First Press Bonus : {0} ",  e.iO_OnFirstPress);
+//		}
 	}
 
 	public TriggerOnEvent trigger {
@@ -25,7 +26,7 @@ public class IO_OnFirstPressSystem : IReactiveSystem, ISetPool {
 
 	#region ISetPool implementation
 	public void SetPool (Pool pool){
-		_group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl));
+    _group = pool.GetGroup(Matcher.AllOf(Matcher.IO_Controllable));
 	}
 	#endregion
 
