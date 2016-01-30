@@ -5,23 +5,25 @@ public static class ComponentIds {
     public const int _RigidBody = 3;
     public const int ButtonEvent = 4;
     public const int DpadEvent = 5;
-    public const int IO_OnFirstPress = 6;
-    public const int IOControl = 7;
-    public const int IORelease = 8;
-    public const int _CONSTANT = 9;
-    public const int OnCollisionEnter = 10;
-    public const int Player = 11;
-    public const int Position = 12;
-    public const int PowerUpAttributes = 13;
-    public const int RbodyEvent = 14;
-    public const int stateFacing = 15;
-    public const int stateHMotion = 16;
-    public const int stateVMotion = 17;
-    public const int Velocity = 18;
-    public const int View = 19;
-    public const int ViewResource = 20;
+    public const int GpadEvent = 6;
+    public const int IO_Controllable = 7;
+    public const int IO_OnFirstPress = 8;
+    public const int IO_OnFirstRelease = 9;
+    public const int IORelease = 10;
+    public const int _CONSTANT = 11;
+    public const int OnCollisionEnter = 12;
+    public const int Player = 13;
+    public const int Position = 14;
+    public const int PowerUpAttributes = 15;
+    public const int RbodyEvent = 16;
+    public const int stateFacing = 17;
+    public const int stateHMotion = 18;
+    public const int stateVMotion = 19;
+    public const int Velocity = 20;
+    public const int View = 21;
+    public const int ViewResource = 22;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "_CharacterController",
@@ -30,8 +32,10 @@ public static class ComponentIds {
         "_RigidBody",
         "ButtonEvent",
         "DpadEvent",
+        "GpadEvent",
+        "IO_Controllable",
         "IO_OnFirstPress",
-        "IOControl",
+        "IO_OnFirstRelease",
         "IORelease",
         "_CONSTANT",
         "OnCollisionEnter",
@@ -54,8 +58,10 @@ public static class ComponentIds {
         typeof(_RigidBodyComponent),
         typeof(ButtonEventComponent),
         typeof(DpadEventComponent),
+        typeof(GpadEventComponent),
+        typeof(IO_ControllableComponent),
         typeof(IO_OnFirstPressComponent),
-        typeof(IOControlComponent),
+        typeof(IO_OnFirstReleaseComponent),
         typeof(IOReleaseComponent),
         typeof(MTON._CONSTANTComponent),
         typeof(OnCollisionEnterComponent),

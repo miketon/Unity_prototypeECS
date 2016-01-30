@@ -26,7 +26,8 @@ public class Event_DPADReactSystem : IReactiveSystem, ISetPool {
 
   #region ISetPool implementation
   public void SetPool(Pool pool) { // get all controllable character
-    _group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.View, Matcher._CharacterController));
+//    _group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.View, Matcher._CharacterController));
+    _group = pool.GetGroup(Matcher.AllOf( Matcher.View, Matcher._CharacterController));
   }
   #endregion
 

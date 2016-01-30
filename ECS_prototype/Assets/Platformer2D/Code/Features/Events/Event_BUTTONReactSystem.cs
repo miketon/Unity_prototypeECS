@@ -31,7 +31,7 @@ public class Event_BUTTONReactSystem : IReactiveSystem, ISetPool {
 
   #region ISetPool implementation
   public void SetPool(Pool pool) {
-    _group = pool.GetGroup(Matcher.AllOf(Matcher.IOControl, Matcher.View, Matcher._CharacterController));
+    _group = pool.GetGroup(Matcher.AllOf(Matcher.IO_Controllable, Matcher.View, Matcher._CharacterController));
   }
   #endregion
 

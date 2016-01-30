@@ -12,16 +12,18 @@ namespace Entitas {
             _dpadEventComponentPool.Clear();
         }
 
-        public Entity AddDpadEvent(MTON._enum.Dirn newEDirn, float newMagDr) {
+        public Entity AddDpadEvent(int newID, MTON._enum.Dirn newEDirn, float newMagDr) {
             var component = _dpadEventComponentPool.Count > 0 ? _dpadEventComponentPool.Pop() : new DpadEventComponent();
+            component.ID = newID;
             component.eDirn = newEDirn;
             component.magDr = newMagDr;
             return AddComponent(ComponentIds.DpadEvent, component);
         }
 
-        public Entity ReplaceDpadEvent(MTON._enum.Dirn newEDirn, float newMagDr) {
+        public Entity ReplaceDpadEvent(int newID, MTON._enum.Dirn newEDirn, float newMagDr) {
             var previousComponent = hasDpadEvent ? dpadEvent : null;
             var component = _dpadEventComponentPool.Count > 0 ? _dpadEventComponentPool.Pop() : new DpadEventComponent();
+            component.ID = newID;
             component.eDirn = newEDirn;
             component.magDr = newMagDr;
             ReplaceComponent(ComponentIds.DpadEvent, component);
