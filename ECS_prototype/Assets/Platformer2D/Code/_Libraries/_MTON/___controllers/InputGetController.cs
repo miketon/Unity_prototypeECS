@@ -117,7 +117,8 @@ public class InputGetController : MonoBehaviour {
       }
       else{                           // released
         btype = _enum.Type.Neutral   ;
-        bmode = _enum.Button.Release ;
+        bmode = _enum.Button.Neutral;
+//        bmode = _enum.Button.Release ;
       }
       this.ebntype = btype;
       this.eButton = bmode;
