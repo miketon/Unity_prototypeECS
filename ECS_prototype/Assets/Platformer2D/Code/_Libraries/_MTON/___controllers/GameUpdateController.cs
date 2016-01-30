@@ -36,6 +36,7 @@ namespace MTON.Controller {
         // Init
         .Add(pool.CreateSystem<_LevelInitSystem>())       // Configs gravity based on proj settings
         .Add(pool.CreateSystem<_StartSystem>())
+        .Add(pool.CreateSystem<IOControllableInitSystem>())
 
         // Spawn
         .Add(pool.CreateSystem<OnAddViewSystem>())        // instantiate Unity game objects based on view resource

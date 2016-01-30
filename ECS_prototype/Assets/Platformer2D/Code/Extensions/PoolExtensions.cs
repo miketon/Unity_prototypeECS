@@ -7,10 +7,10 @@ public static class PoolExtensions {
 		_ResourcePaths.player0,
 	};
 
-	public static Entity spawnPlayer(this Pool pool, Vector3 pos){
+	public static Entity spawnPlayer(this Pool pool, int player_ID, Vector3 pos){
 		return pool.CreateEntity()
 			.IsPlayer(true)
-			.IsIO_Controllable(true)
+      .AddIO_Controllable(player_ID)
 //			.AddDpadEvent(MTON._enum.Dirn.Neutral, MTON._enum.Press.Neutral)
 //			.AddButtonEvent(MTON._enum.Press.Down, MTON._enum.Type.Attack) //player can't have this if IO_OnDestroySystem will delete it
 			.AddViewResource(_players[0]) //string to prefab for instantiation
