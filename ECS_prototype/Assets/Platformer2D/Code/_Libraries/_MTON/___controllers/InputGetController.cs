@@ -41,9 +41,9 @@ public class InputGetController : MonoBehaviour {
       return this.ebutton ;
     }
     set{
-      if (value == _enum.Button.Neutral){
+      if (value == _enum.Button.Neutral || value == _enum.Button.Release){
         if(value != this.ebutton){
-          Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Neutral, _enum.Type.Neutral);
+          Pools.pool.CreateEntity().AddButtonEvent(value, _enum.Type.Neutral);
 //          Debug.LogFormat("BUTTON : NEUTRAL {0} {1}", value, ebntype);
         }
       }
@@ -55,7 +55,7 @@ public class InputGetController : MonoBehaviour {
           Pools.pool.CreateEntity().AddButtonEvent(value, this.ebntype);
         }
 //        Debug.LogFormat("BUTTON : PRESSED {0} {1}", value, ebntype);
-      }
+        }
       this.ebutton = value;
     }
   }
@@ -126,7 +126,6 @@ public class InputGetController : MonoBehaviour {
       if(this.ePAD != this.epad ){    // onFirst Press
 //        Debug.LogFormat("FIRST PRESSED : {0} ", this.ePAD)                              ;
         Pools.pool.CreateEntity().AddIO_OnFirstPress(this.transform)                    ;
-        Pools.pool.CreateEntity().AddButtonEvent(_enum.Button.Down , _enum.Type.Attack) ;
       }
     }
     // OnRelease Logic
@@ -134,7 +133,7 @@ public class InputGetController : MonoBehaviour {
       if(this.ePAD != this.epad ){                                   // onFirst Release
 //        Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
 //        Pools.pool.CreateEntity().AddIO_OnFirstRelease(this.transform);
-        Pools.pool.CreateEntity().AddIO_OnFirstPress(this.gameObject.transform);
+        Pools.pool.CreateEntity().AddIO_OnFirstRelease (this.gameObject.transform);
         Pools.pool.CreateEntity().AddIORelease(_enum.GPAD.FULL);  // Set all Release Events
         this.eAxis   = _enum.Dirn.Neutral   ;
         this.ebntype = _enum.Type.Neutral   ;
