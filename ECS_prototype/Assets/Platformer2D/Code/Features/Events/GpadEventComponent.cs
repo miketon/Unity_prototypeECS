@@ -1,8 +1,9 @@
-﻿using Entitas;
-using MTON;
+﻿using Entitas ;
+using MTON    ;
 
 public class GpadEventComponent : IComponent {
 
-  public _enum.GPAD gpad ;
+  public int        ID = -1 ; // -1 == uninit
+  public _enum.GPAD gpad    ;
 
 }

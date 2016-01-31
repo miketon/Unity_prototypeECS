@@ -19,23 +19,23 @@ public class InputGetController : MonoBehaviour {
   public KeyCode bJump = KeyCode.Space      ;
 
   private _enum.GPAD epad = _enum.GPAD.Neutral;
-  public  _enum.GPAD ePAD = _enum.GPAD.Neutral;
-//  public  _enum.GPAD ePAD {
-//    get{
-//      return this.epad;
-//    }
-//    set{
-//      if(value == _enum.GPAD.Neutral){
-//        if(value != this.epad){
-//          Pools.pool.CreateEntity().AddGpadEvent(_enum.GPAD.Neutral);
-//        }
-//      }
-//      else{
-//        Pools.pool.CreateEntity().AddGpadEvent(value);
-//      }
-//      this.epad = value;
-//    }
-//  }
+//  public  _enum.GPAD ePAD = _enum.GPAD.Neutral;
+  public  _enum.GPAD ePAD {
+    get{
+      return this.epad;
+    }
+    set{
+      if(value == _enum.GPAD.Neutral){
+        if(value != this.epad){
+          Pools.pool.CreateEntity().AddGpadEvent(this.io_ID, _enum.GPAD.Neutral);
+        }
+      }
+      else{
+        Pools.pool.CreateEntity().AddGpadEvent(this.io_ID, value);
+      }
+      this.epad = value;
+    }
+  }
 
   public _enum.Dirn eaxis = _enum.Dirn.Neutral;
   public _enum.Dirn eAxis {
@@ -86,7 +86,7 @@ public class InputGetController : MonoBehaviour {
     // dirPad state
     var _hAxis = Input.GetAxisRaw(hAxis)               ;
     var _vAxis = Input.GetAxisRaw(vAxis)               ;
-    _mAxis = (new Vector2(_hAxis, _vAxis).normalized).magnitude ; // magnitude
+    this._mAxis = (new Vector2(_hAxis, _vAxis).normalized).magnitude ; // magnitude
     var _bAxis = (Mathf.Abs(_mAxis) > Mathf.Epsilon)   ; // bool=>if magnitude > 0 == true
     // button state
     var _bFire = Input.GetKey(bFire) ;
@@ -96,14 +96,14 @@ public class InputGetController : MonoBehaviour {
     var   axis   = _enum.Dirn.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
     var   btype  = _enum.Type.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
     var   bmode  = _enum.Button.Neutral ; // temp var force release on every frame so that bitwise ops starts from nuetral
-    this.ePAD    = _enum.GPAD.Neutral   ;
+    var   epadt  = _enum.GPAD.Neutral   ;
 
 		// OnPress Logic 
 		if(_bAxis || _bFire || _bJump){   // active : read input
 //			Debug.LogFormat("PRESSED : {0} ", onPress);
       // process dpad
 			if(_bAxis) {                    // axis is active
-        this.ePAD |= _enum.GPAD.DPAD;
+        epadt |= _enum.GPAD.DPAD;
 				// horizontal
 				if(_hAxis > 0.0f){
 					axis |= _enum.Dirn.RT;
@@ -122,12 +122,11 @@ public class InputGetController : MonoBehaviour {
       else{
         axis = _enum.Dirn.Neutral;
       }
-      this.eAxis = axis ;
 
       // process buttons
 			if(_bFire || _bJump) {          // pressed
-        this.ePAD   |= _enum.GPAD.BTTN   ; 
-        bmode       |= _enum.Button.Down ;
+        epadt   |= _enum.GPAD.BTTN   ; 
+        bmode   |= _enum.Button.Down ;
         if(_bFire){
           btype |= _enum.Type.Attack;
         }
@@ -140,8 +139,11 @@ public class InputGetController : MonoBehaviour {
         bmode = _enum.Button.Neutral;
 //        bmode = _enum.Button.Release ;
       }
+
+      this.eAxis   = axis ;
       this.ebntype = btype;
       this.eButton = bmode;
+      this.ePAD    = epadt;
 
       // process on FirstPressed Events
       if(this.ePAD != this.epad ){    // onFirst Press
@@ -153,24 +155,13 @@ public class InputGetController : MonoBehaviour {
     else {                                                                       
       if(this.ePAD != this.epad ){                                   // onFirst Release
 //        Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
-//        Pools.pool.CreateEntity().AddIO_OnFirstRelease(this.transform);
         Pools.pool.CreateEntity().AddIO_OnFirstRelease (this.io_ID) ;
         Pools.pool.CreateEntity().AddIORelease(_enum.GPAD.FULL)     ;  // Set all Release Events
-        this.eAxis   = _enum.Dirn.Neutral   ;
-        this.ebntype = _enum.Type.Neutral   ;
-        this.eButton = _enum.Button.Neutral ;
-        this.ePAD = _enum.GPAD.Neutral;
       }
+      this.eAxis   = _enum.Dirn.Neutral   ;
+      this.ebntype = _enum.Type.Neutral   ;
+      this.eButton = _enum.Button.Neutral ;
+      this.ePAD    = _enum.GPAD.Neutral   ;
     }
-    this.epad = this.ePAD;
   }
 }
-
-/*
-  public string myString = "Babies/Are/Deformed/Eggs/BreakfastJingle.mp3";
-  void Start(){
-    var printME = MTON._enum.TokenizeAndReturnPath(this.myString, "/");
-    Debug.LogFormat("PRINTING THE TRUTH : {0}", printME);
-    Debug.Log("ONE LINER: " +System.IO.Path.GetDirectoryName(this.myString));
-  }
-*/
