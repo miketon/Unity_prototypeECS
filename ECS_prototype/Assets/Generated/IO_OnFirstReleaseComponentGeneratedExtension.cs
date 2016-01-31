@@ -12,16 +12,16 @@ namespace Entitas {
             _iO_OnFirstReleaseComponentPool.Clear();
         }
 
-        public Entity AddIO_OnFirstRelease(UnityEngine.Transform newXform) {
+        public Entity AddIO_OnFirstRelease(int newID) {
             var component = _iO_OnFirstReleaseComponentPool.Count > 0 ? _iO_OnFirstReleaseComponentPool.Pop() : new IO_OnFirstReleaseComponent();
-            component.xform = newXform;
+            component.ID = newID;
             return AddComponent(ComponentIds.IO_OnFirstRelease, component);
         }
 
-        public Entity ReplaceIO_OnFirstRelease(UnityEngine.Transform newXform) {
+        public Entity ReplaceIO_OnFirstRelease(int newID) {
             var previousComponent = hasIO_OnFirstRelease ? iO_OnFirstRelease : null;
             var component = _iO_OnFirstReleaseComponentPool.Count > 0 ? _iO_OnFirstReleaseComponentPool.Pop() : new IO_OnFirstReleaseComponent();
-            component.xform = newXform;
+            component.ID = newID;
             ReplaceComponent(ComponentIds.IO_OnFirstRelease, component);
             if (previousComponent != null) {
                 _iO_OnFirstReleaseComponentPool.Push(previousComponent);

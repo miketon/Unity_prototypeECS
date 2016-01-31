@@ -20,7 +20,22 @@ public class InputGetController : MonoBehaviour {
 
   private _enum.GPAD epad = _enum.GPAD.Neutral;
   public  _enum.GPAD ePAD = _enum.GPAD.Neutral;
-  public  _enum.GPAD eREL = _enum.GPAD.Neutral;
+//  public  _enum.GPAD ePAD {
+//    get{
+//      return this.epad;
+//    }
+//    set{
+//      if(value == _enum.GPAD.Neutral){
+//        if(value != this.epad){
+//          Pools.pool.CreateEntity().AddGpadEvent(_enum.GPAD.Neutral);
+//        }
+//      }
+//      else{
+//        Pools.pool.CreateEntity().AddGpadEvent(value);
+//      }
+//      this.epad = value;
+//    }
+//  }
 
   public _enum.Dirn eaxis = _enum.Dirn.Neutral;
   public _enum.Dirn eAxis {
@@ -82,7 +97,6 @@ public class InputGetController : MonoBehaviour {
     var   btype  = _enum.Type.Neutral   ; // temp var force release on every frame so that bitwise ops starts from nuetral
     var   bmode  = _enum.Button.Neutral ; // temp var force release on every frame so that bitwise ops starts from nuetral
     this.ePAD    = _enum.GPAD.Neutral   ;
-    this.eREL    = _enum.GPAD.Neutral   ;
 
 		// OnPress Logic 
 		if(_bAxis || _bFire || _bJump){   // active : read input
@@ -132,7 +146,7 @@ public class InputGetController : MonoBehaviour {
       // process on FirstPressed Events
       if(this.ePAD != this.epad ){    // onFirst Press
 //        Debug.LogFormat("FIRST PRESSED : {0} ", this.ePAD)                              ;
-        Pools.pool.CreateEntity().AddIO_OnFirstPress(this.transform)                    ;
+        Pools.pool.CreateEntity().AddIO_OnFirstPress(this.io_ID) ;
       }
     }
     // OnRelease Logic
@@ -140,11 +154,12 @@ public class InputGetController : MonoBehaviour {
       if(this.ePAD != this.epad ){                                   // onFirst Release
 //        Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
 //        Pools.pool.CreateEntity().AddIO_OnFirstRelease(this.transform);
-        Pools.pool.CreateEntity().AddIO_OnFirstRelease (this.gameObject.transform);
-        Pools.pool.CreateEntity().AddIORelease(_enum.GPAD.FULL);  // Set all Release Events
+        Pools.pool.CreateEntity().AddIO_OnFirstRelease (this.io_ID) ;
+        Pools.pool.CreateEntity().AddIORelease(_enum.GPAD.FULL)     ;  // Set all Release Events
         this.eAxis   = _enum.Dirn.Neutral   ;
         this.ebntype = _enum.Type.Neutral   ;
         this.eButton = _enum.Button.Neutral ;
+        this.ePAD = _enum.GPAD.Neutral;
       }
     }
     this.epad = this.ePAD;

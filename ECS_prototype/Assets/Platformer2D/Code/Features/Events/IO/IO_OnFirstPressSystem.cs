@@ -10,7 +10,7 @@ public class IO_OnFirstPressSystem : IReactiveSystem, ISetPool {
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
     foreach (var e in entities){
-      Debug.LogFormat("First Press Bonus : {0} ",  e.iO_OnFirstPress.xform);
+      Debug.LogFormat("First Press Bonus : {0} ",  e.iO_OnFirstPress.ID);
     }
 //		foreach (var e in _group.GetEntities()) {
 //			Debug.LogFormat("First Press Bonus : {0} ",  e.iO_OnFirstPress);

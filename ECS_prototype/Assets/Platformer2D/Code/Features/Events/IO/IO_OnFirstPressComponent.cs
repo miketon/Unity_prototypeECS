@@ -2,5 +2,5 @@
 using Entitas     ;
 
 public class IO_OnFirstPressComponent : IComponent {
-  public Transform xform ;
+  public int ID = -1 ; // -1 == uninit
 }
