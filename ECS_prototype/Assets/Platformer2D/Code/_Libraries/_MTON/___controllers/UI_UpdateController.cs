@@ -14,9 +14,9 @@ namespace MTON.Controller {
 
     void Start () {
 
-      var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  );
-      var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent);
-      var eFullTilt   = Pools.pool.GetGroup(Matcher.GpadEvent);
+      var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  ) ;
+      var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent) ;
+      var eFullTilt   = Pools.pool.GetGroup(Matcher.GpadEvent)   ;
       //      scoreTxt.text = score.GetSingleEntity().componentNames[0] + " ";
 
       eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
