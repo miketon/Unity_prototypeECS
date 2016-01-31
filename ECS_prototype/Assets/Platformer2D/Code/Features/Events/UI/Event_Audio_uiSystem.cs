@@ -21,9 +21,13 @@ public class Event_Audio_uiSystem : IInitializeSystem, IReactiveSystem {
     this.sOnNeutral = new SfxrSynth();
     this.sOnCombo   = new SfxrSynth();
     this.sOnPress.parameters.GenerateJump();
+    this.sOnPress.CacheSound();
     this.sOnNeutral.parameters.GenerateBlipSelect();
     this.sOnNeutral.parameters.masterVolume = 0.05f;
-    this.sOnCombo.parameters.GeneratePickupCoin();
+    this.sOnNeutral.CacheSound();
+//    this.sOnCombo.parameters.GeneratePickupCoin();
+    this.sOnCombo.parameters.SetSettingsString("0,,0.032,0.4138,0.4365,0.834,,,,,,0.3117,0.6925,,,,,,1,,,,,0.5");
+    this.sOnCombo.CacheSound();
   }
 #endregion
 

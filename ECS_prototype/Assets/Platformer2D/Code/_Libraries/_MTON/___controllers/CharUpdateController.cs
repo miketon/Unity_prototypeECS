@@ -50,7 +50,8 @@ namespace MTON.Controller {
       }
       set{
 //        if(value != this.vstate){
-          Pools.pool.CreateEntity().AddRbodyEvent(this.cc, value);
+//          Pools.pool.CreateEntity().AddstateCBody(this.cc);
+          Pools.pool.CreateEntity().AddstateVMotion(value);
           this.vstate = value;
 //        }
       }

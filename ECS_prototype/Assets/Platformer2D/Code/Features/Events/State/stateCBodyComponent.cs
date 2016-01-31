@@ -2,7 +2,7 @@
 using Entitas;
 using MTON;
 
-public class RbodyEventComponent : IComponent{
+public class stateCBodyComponent : IComponent{
   public CharacterController cc ;
-  public _enum.VState vState    ;
+//  public _enum.VState vState    ;
 }

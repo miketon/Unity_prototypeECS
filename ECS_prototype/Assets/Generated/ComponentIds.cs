@@ -15,7 +15,7 @@ public static class ComponentIds {
     public const int Player = 13;
     public const int Position = 14;
     public const int PowerUpAttributes = 15;
-    public const int RbodyEvent = 16;
+    public const int stateCBody = 16;
     public const int stateFacing = 17;
     public const int stateHMotion = 18;
     public const int stateVMotion = 19;
@@ -42,7 +42,7 @@ public static class ComponentIds {
         "Player",
         "Position",
         "PowerUpAttributes",
-        "RbodyEvent",
+        "stateCBody",
         "stateFacing",
         "stateHMotion",
         "stateVMotion",
@@ -68,7 +68,7 @@ public static class ComponentIds {
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(PowerUpAttributesComponent),
-        typeof(RbodyEventComponent),
+        typeof(stateCBodyComponent),
         typeof(stateFacingComponent),
         typeof(stateHMotionComponent),
         typeof(stateVMotionComponent),
