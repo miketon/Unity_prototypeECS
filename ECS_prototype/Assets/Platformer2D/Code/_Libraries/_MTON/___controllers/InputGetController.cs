@@ -5,14 +5,15 @@ using MTON               ;
 
 public class InputGetController : MonoBehaviour {
 
-  public string  hAxis  = "Horizontal"      ;
-  public string  vAxis  = "Vertical"        ;
-  public float   _mAxis =  0.0f             ; // make private serialize
-
+  [SerializeField]
   private int io_ID = 0 ;
   public void setID(int ID){
     this.io_ID = ID;
   }
+
+  public string  hAxis  = "Horizontal"      ;
+  public string  vAxis  = "Vertical"        ;
+  public float   _mAxis =  0.0f             ; // make private serialize
 
   public KeyCode bFire = KeyCode.LeftControl;
   public KeyCode bJump = KeyCode.Space      ;
