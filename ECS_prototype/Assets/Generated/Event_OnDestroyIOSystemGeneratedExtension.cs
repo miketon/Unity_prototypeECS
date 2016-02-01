@@ -1,6 +1,6 @@
 namespace Entitas {
     public partial class Pool {
-        public ISystem CreateIO_OnDestroySystem() {
+        public ISystem CreateEvent_OnDestroyIOSystem() {
             return this.CreateSystem<Event_OnDestroyIOSystem>();
         }
     }

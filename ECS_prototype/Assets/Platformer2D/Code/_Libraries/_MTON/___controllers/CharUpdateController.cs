@@ -9,6 +9,12 @@ namespace MTON.Controller {
   [RequireComponent (typeof (CharacterController))]
   public class CharUpdateController : MonoBehaviour, IRbody, IForce {
 
+    [SerializeField]
+    private int player_ID = -1 ;
+    public void setID(int ID){
+      this.player_ID = ID;
+    }
+
     #region Public Events
     // Move
     public Vector3 doMove(_enum.Dirn IN_DPAD){

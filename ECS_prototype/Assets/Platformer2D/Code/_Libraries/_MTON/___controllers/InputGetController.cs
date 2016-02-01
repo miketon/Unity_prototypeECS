@@ -6,7 +6,7 @@ using MTON               ;
 public class InputGetController : MonoBehaviour {
 
   [SerializeField]
-  private int io_ID = 0 ;
+  private int io_ID = -1 ;
   public void setID(int ID){
     this.io_ID = ID;
   }

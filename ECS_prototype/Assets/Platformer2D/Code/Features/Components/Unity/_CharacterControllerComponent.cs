@@ -7,7 +7,7 @@ using MTON.Controller;
 public class _CharacterControllerComponent : IComponent, IRbody, IForce {
 
   public  CharacterController   body     ;
-  private CharUpdateController  cControl ;
+  public  CharUpdateController  cControl ;
   private OnCollisionController onColl   ;
 
   public _CharacterControllerComponent() {

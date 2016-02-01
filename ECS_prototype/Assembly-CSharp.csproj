@@ -57,12 +57,13 @@
      <Compile Include="Assets\Generated\Event_Audio_uiSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_BUTTONReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_DPADReactSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\Event_OnDestroyIOSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_OnDestroySystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\Event_VSTATEReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\GpadEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOControllableInitSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOReleaseComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_ControllableComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\IO_OnDestroySystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_OnFirstPressComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_OnFirstPressSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IO_OnFirstReleaseComponentGeneratedExtension.cs" />
@@ -167,6 +168,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\_ResourcePaths.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\IOControllableInitSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\OnViewSpawnSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\_Init\PlayerInitSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_LevelInitSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_OnStartComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\_StartSystem.cs" />

@@ -11,11 +11,6 @@ public class OnViewSpawnSystem : IReactiveSystem {
 			if(rbody!=null){
 				e.Add_RigidBody(rbody);
 			}
-			var cbody = e.view.gameobject.GetComponent<CharacterController>();
-			if(cbody!=null){
-        e.Add_CharacterController(cbody)   ;
-        e._CharacterController.Init(cbody) ; // TODO: manual injection => auto injection
-			}
 		}
 	}
 

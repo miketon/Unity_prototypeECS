@@ -1,22 +1,38 @@
+using System.Collections.Generic;
+
 namespace Entitas {
     public partial class Entity {
-        static readonly PlayerComponent playerComponent = new PlayerComponent();
+        public PlayerComponent player { get { return (PlayerComponent)GetComponent(ComponentIds.Player); } }
 
-        public bool isPlayer {
-            get { return HasComponent(ComponentIds.Player); }
-            set {
-                if (value != isPlayer) {
-                    if (value) {
-                        AddComponent(ComponentIds.Player, playerComponent);
-                    } else {
-                        RemoveComponent(ComponentIds.Player);
-                    }
-                }
-            }
+        public bool hasPlayer { get { return HasComponent(ComponentIds.Player); } }
+
+        static readonly Stack<PlayerComponent> _playerComponentPool = new Stack<PlayerComponent>();
+
+        public static void ClearPlayerComponentPool() {
+            _playerComponentPool.Clear();
         }
 
-        public Entity IsPlayer(bool value) {
-            isPlayer = value;
+        public Entity AddPlayer(int newID) {
+            var component = _playerComponentPool.Count > 0 ? _playerComponentPool.Pop() : new PlayerComponent();
+            component.ID = newID;
+            return AddComponent(ComponentIds.Player, component);
+        }
+
+        public Entity ReplacePlayer(int newID) {
+            var previousComponent = hasPlayer ? player : null;
+            var component = _playerComponentPool.Count > 0 ? _playerComponentPool.Pop() : new PlayerComponent();
+            component.ID = newID;
+            ReplaceComponent(ComponentIds.Player, component);
+            if (previousComponent != null) {
+                _playerComponentPool.Push(previousComponent);
+            }
+            return this;
+        }
+
+        public Entity RemovePlayer() {
+            var component = player;
+            RemoveComponent(ComponentIds.Player);
+            _playerComponentPool.Push(component);
             return this;
         }
     }

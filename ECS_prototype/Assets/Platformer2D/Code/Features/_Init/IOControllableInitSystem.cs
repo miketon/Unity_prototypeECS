@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using Entitas;
-using MTON;
+﻿using UnityEngine                ;
+using System.Collections         ;
+using System.Collections.Generic ;
+using Entitas                    ;
+using MTON                       ;
 
 public class IOControllableInitSystem : IReactiveSystem, ISetPool {
 
