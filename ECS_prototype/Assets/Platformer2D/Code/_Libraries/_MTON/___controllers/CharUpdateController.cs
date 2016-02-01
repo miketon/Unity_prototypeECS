@@ -49,11 +49,11 @@ namespace MTON.Controller {
         return this.vstate;
       }
       set{
-//        if(value != this.vstate){
+        if(value != this.vstate){
 //          Pools.pool.CreateEntity().AddstateCBody(this.cc);
-          Pools.pool.CreateEntity().AddstateVMotion(value);
+          Pools.pool.CreateEntity().AddVstateEvent(value);
           this.vstate = value;
-//        }
+        }
       }
     }
     private _enum.Rbody  rState;

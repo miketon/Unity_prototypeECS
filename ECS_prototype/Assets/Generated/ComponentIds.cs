@@ -18,10 +18,10 @@ public static class ComponentIds {
     public const int stateCBody = 16;
     public const int stateFacing = 17;
     public const int stateHMotion = 18;
-    public const int stateVMotion = 19;
-    public const int Velocity = 20;
-    public const int View = 21;
-    public const int ViewResource = 22;
+    public const int Velocity = 19;
+    public const int View = 20;
+    public const int ViewResource = 21;
+    public const int VstateEvent = 22;
 
     public const int TotalComponents = 23;
 
@@ -45,10 +45,10 @@ public static class ComponentIds {
         "stateCBody",
         "stateFacing",
         "stateHMotion",
-        "stateVMotion",
         "Velocity",
         "View",
-        "ViewResource"
+        "ViewResource",
+        "VstateEvent"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -71,9 +71,9 @@ public static class ComponentIds {
         typeof(stateCBodyComponent),
         typeof(stateFacingComponent),
         typeof(stateHMotionComponent),
-        typeof(stateVMotionComponent),
         typeof(VelocityComponent),
         typeof(ViewComponent),
-        typeof(ViewResourceComponent)
+        typeof(ViewResourceComponent),
+        typeof(VstateEventComponent)
     };
 }
