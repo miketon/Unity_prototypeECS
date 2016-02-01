@@ -7,7 +7,7 @@ using MTON.Controller;
 public class _CharacterControllerComponent : IComponent, IRbody, IForce {
 
   public  CharacterController   body     ;
-  public  CharUpdateController  cControl ;
+  private CharUpdateController  cControl ;
   private OnCollisionController onColl   ;
 
   public _CharacterControllerComponent() {
@@ -17,7 +17,7 @@ public class _CharacterControllerComponent : IComponent, IRbody, IForce {
 //    Init(body); // Can't do body because this is triggered while body is null
   }
 
-  public void Init(CharacterController body){
+  public void Init(CharacterController body, int ID){
     if(body){
       this.center   = body.center;
       this.height   = (body.height * body.transform.localScale.y * 0.5f) + body.skinWidth ; 
@@ -25,6 +25,7 @@ public class _CharacterControllerComponent : IComponent, IRbody, IForce {
       this.initRo   = body.transform.rotation;
       this.cControl = MTON.__gUtility.AddComponent_mton<CharUpdateController>(this.body.gameObject)  ;
       this.onColl   = MTON.__gUtility.AddComponent_mton<OnCollisionController>(this.body.gameObject) ;
+      this.cControl.setID(ID);
     }
   }
 

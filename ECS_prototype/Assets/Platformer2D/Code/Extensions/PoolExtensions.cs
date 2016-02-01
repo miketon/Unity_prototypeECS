@@ -15,7 +15,7 @@ public static class PoolExtensions {
 			.AddPosition(pos.x, pos.y, pos.z)
 			.AddVelocity(0.0f, 0.0f, 0.0f)
 //			.AddForce(0.1f, 0.0f, 1.0f, 1.0f) //accel, speed, maxspeed, mass
-      .Add_OnStart(true);
+      .Add_OnStart(true); // indicates already initiated
 	}
 
   public static Entity CreateCollision(this Pool pool, Collision collision) { 

@@ -56,8 +56,7 @@ namespace MTON.Controller {
       }
       set{
         if(value != this.vstate){
-//          Pools.pool.CreateEntity().AddstateCBody(this.cc);
-          Pools.pool.CreateEntity().AddVstateEvent(value);
+          Pools.pool.CreateEntity().AddVstateEvent(this.player_ID, value);
           this.vstate = value;
         }
       }

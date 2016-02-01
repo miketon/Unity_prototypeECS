@@ -12,15 +12,17 @@ namespace Entitas {
             _vstateEventComponentPool.Clear();
         }
 
-        public Entity AddVstateEvent(MTON._enum.VState newVstate) {
+        public Entity AddVstateEvent(int newID, MTON._enum.VState newVstate) {
             var component = _vstateEventComponentPool.Count > 0 ? _vstateEventComponentPool.Pop() : new VstateEventComponent();
+            component.ID = newID;
             component.vstate = newVstate;
             return AddComponent(ComponentIds.VstateEvent, component);
         }
 
-        public Entity ReplaceVstateEvent(MTON._enum.VState newVstate) {
+        public Entity ReplaceVstateEvent(int newID, MTON._enum.VState newVstate) {
             var previousComponent = hasVstateEvent ? vstateEvent : null;
             var component = _vstateEventComponentPool.Count > 0 ? _vstateEventComponentPool.Pop() : new VstateEventComponent();
+            component.ID = newID;
             component.vstate = newVstate;
             ReplaceComponent(ComponentIds.VstateEvent, component);
             if (previousComponent != null) {
