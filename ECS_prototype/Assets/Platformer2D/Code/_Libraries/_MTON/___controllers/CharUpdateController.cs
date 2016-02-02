@@ -3,11 +3,32 @@ using System             ;
 using System.Collections ;
 using MTON               ;
 using MTON.Interface     ;
+using Entitas            ;
 
 namespace MTON.Controller {
 
   [RequireComponent (typeof (CharacterController))]
   public class CharUpdateController : MonoBehaviour, IRbody, IForce {
+
+    [SerializeField]
+    private int player_ID = -1 ;
+    public void setID(int ID){
+      this.player_ID = ID;
+    }
+
+    private void Start(){ // HELL YEAH : Inject events from entitas
+
+      var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  ) ;
+      var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent) ;
+
+      eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
+        var eDIR = entity.dpadEvent;
+        if(eDIR.ID == this.player_ID){
+           this.doMove(eDIR.eDirn);
+        }
+      };
+
+    }
 
     #region Public Events
     // Move
@@ -49,10 +70,10 @@ namespace MTON.Controller {
         return this.vstate;
       }
       set{
-//        if(value != this.vstate){
-          Pools.pool.CreateEntity().AddRbodyEvent(this.cc, value);
+        if(value != this.vstate){
+          Pools.pool.CreateEntity().AddVstateEvent(this.player_ID, value);
           this.vstate = value;
-//        }
+        }
       }
     }
     private _enum.Rbody  rState;

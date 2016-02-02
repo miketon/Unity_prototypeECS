@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class IO_OnDestroySystem : IReactiveSystem, ISetPool {
+public class Event_OnDestroyIOSystem : IReactiveSystem, ISetPool {
 
 	private Pool _pool;
 
@@ -21,8 +21,8 @@ public class IO_OnDestroySystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger { // triggered by on add of any input entity
 		get {
-      return Matcher.AnyOf(Matcher.DpadEvent, Matcher.ButtonEvent, Matcher.IORelease, Matcher.IO_OnFirstPress, 
-      Matcher.IO_OnFirstRelease).OnEntityAdded(); //AnyOf == either matches will trigger
+      return Matcher.AnyOf(Matcher.GpadEvent, Matcher.DpadEvent, Matcher.ButtonEvent, Matcher.IORelease, 
+      Matcher.IO_OnFirstPress, Matcher.IO_OnFirstRelease).OnEntityAdded(); //AnyOf == either matches will trigger
 		}
 	}
 	#endregion

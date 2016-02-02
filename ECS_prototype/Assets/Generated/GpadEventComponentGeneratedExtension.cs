@@ -12,15 +12,17 @@ namespace Entitas {
             _gpadEventComponentPool.Clear();
         }
 
-        public Entity AddGpadEvent(MTON._enum.GPAD newGpad) {
+        public Entity AddGpadEvent(int newID, MTON._enum.GPAD newGpad) {
             var component = _gpadEventComponentPool.Count > 0 ? _gpadEventComponentPool.Pop() : new GpadEventComponent();
+            component.ID = newID;
             component.gpad = newGpad;
             return AddComponent(ComponentIds.GpadEvent, component);
         }
 
-        public Entity ReplaceGpadEvent(MTON._enum.GPAD newGpad) {
+        public Entity ReplaceGpadEvent(int newID, MTON._enum.GPAD newGpad) {
             var previousComponent = hasGpadEvent ? gpadEvent : null;
             var component = _gpadEventComponentPool.Count > 0 ? _gpadEventComponentPool.Pop() : new GpadEventComponent();
+            component.ID = newID;
             component.gpad = newGpad;
             ReplaceComponent(ComponentIds.GpadEvent, component);
             if (previousComponent != null) {

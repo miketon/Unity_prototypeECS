@@ -14,9 +14,9 @@ namespace MTON.Controller {
 
     void Start () {
 
-      var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  );
-      var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent);
-      var eFullTilt   = Pools.pool.GetGroup(Matcher.AnyOf(Matcher.DpadEvent, Matcher.ButtonEvent));
+      var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  ) ;
+      var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent) ;
+      var eFullTilt   = Pools.pool.GetGroup(Matcher.GpadEvent)   ;
       //      scoreTxt.text = score.GetSingleEntity().componentNames[0] + " ";
 
       eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
@@ -28,24 +28,10 @@ namespace MTON.Controller {
       };
 
       eFullTilt.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
-        //        if(group.ContainsEntity(Matcher.DpadEvent)){
-        var ioCount = 0;
-        foreach (var e in eFullTilt.GetEntities()) {
-          if(e.hasDpadEvent){
-            ioCount++;
-          }
-          if(e.hasButtonEvent){
-            ioCount++;
-          }
-//          if(e.hasDpadEvent && e.hasButtonEvent){ // doesn't work
-          if(ioCount == 2){
-            Debug.LogFormat("FULLTILT {0} {1} ", ioCount, e);
-            this.txt_Button.text = "FULL";
-            this.txt_DPAD.text   = "FULL";
-          }
+        if(entity.gpadEvent.gpad == _enum.GPAD.FULL){
+          this.txt_DPAD.text   = "DPAD"   ;
+          this.txt_Button.text = "BUTTON" ;
         }
-        //        }
-
       };
 
     }
