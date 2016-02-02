@@ -12,15 +12,17 @@ namespace Entitas {
             __CharacterControllerComponentPool.Clear();
         }
 
-        public Entity Add_CharacterController(UnityEngine.CharacterController newBody) {
+        public Entity Add_CharacterController(int newID, UnityEngine.CharacterController newBody) {
             var component = __CharacterControllerComponentPool.Count > 0 ? __CharacterControllerComponentPool.Pop() : new _CharacterControllerComponent();
+            component.ID = newID;
             component.body = newBody;
             return AddComponent(ComponentIds._CharacterController, component);
         }
 
-        public Entity Replace_CharacterController(UnityEngine.CharacterController newBody) {
+        public Entity Replace_CharacterController(int newID, UnityEngine.CharacterController newBody) {
             var previousComponent = has_CharacterController ? _CharacterController : null;
             var component = __CharacterControllerComponentPool.Count > 0 ? __CharacterControllerComponentPool.Pop() : new _CharacterControllerComponent();
+            component.ID = newID;
             component.body = newBody;
             ReplaceComponent(ComponentIds._CharacterController, component);
             if (previousComponent != null) {

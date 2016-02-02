@@ -11,7 +11,6 @@ public class Event_DPADReactSystem : IReactiveSystem, ISetPool {
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
       foreach (var player in _players.GetEntities()){
-        player._CharacterController.doMove(e.dpadEvent.eDirn);
 //        Debug.LogFormat("DPAD STATE : {0}", e.dpadEvent.eDirn);
         if(e.dpadEvent.eDirn == MTON._enum.Dirn.DN && player.stateVMotion.vstate == MTON._enum.VState.Ground){
           Debug.LogFormat("I AM CROUCHING {0} ", player.player.ID);

@@ -3,6 +3,7 @@ using System             ;
 using System.Collections ;
 using MTON               ;
 using MTON.Interface     ;
+using Entitas            ;
 
 namespace MTON.Controller {
 
@@ -13,6 +14,20 @@ namespace MTON.Controller {
     private int player_ID = -1 ;
     public void setID(int ID){
       this.player_ID = ID;
+    }
+
+    private void Start(){ // HELL YEAH : Inject events from entitas
+
+      var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  ) ;
+      var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent) ;
+
+      eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
+        var eDIR = entity.dpadEvent;
+        if(eDIR.ID == this.player_ID){
+           this.doMove(eDIR.eDirn);
+        }
+      };
+
     }
 
     #region Public Events

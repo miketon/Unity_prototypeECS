@@ -15,8 +15,8 @@ public class PlayerInitSystem : IReactiveSystem, ISetPool {
       foreach (var player in entities){
         var cbody = e.view.gameobject.GetComponent<CharacterController>();
         if(cbody){
-          e.Add_CharacterController(cbody)   ; 
-          e._CharacterController.Init(cbody, e.player.ID) ; // TODO: manual injection to auto injection
+          e.Add_CharacterController(e.player.ID, cbody) ; 
+          e._CharacterController.Init(cbody)            ; // TODO: manual injection to auto injection
         }
       }
     }
