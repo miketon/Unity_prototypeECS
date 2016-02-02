@@ -92,7 +92,9 @@
      <Compile Include="Assets\Generated\_StartSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateCBodyComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\stateGroundComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateHMotionComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\stateVMotionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\DontGenerateAttribute.cs" />
      <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\PoolAttribute.cs" />
      <Compile Include="Assets\Libraries\Entitas.CodeGenerator\Attributes\SingleEntityAttribute.cs" />
@@ -158,7 +160,9 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\VstateEventComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateCBodyComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateFacingComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateGroundComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateHMotionComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateVMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\UI\Event_Audio_uiSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />
