@@ -134,7 +134,7 @@
      <Compile Include="Assets\Libraries\Entitas\ReactiveSystem.cs" />
      <Compile Include="Assets\Libraries\Entitas\Systems.cs" />
      <Compile Include="Assets\Platformer2D\Code\Extensions\PoolExtensions.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\CharacterControllerUpdateSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\CharacterControllerInitSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\_CharacterControllerComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\Unity\_RigidBodyComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Components\_GravityComponent.cs" />

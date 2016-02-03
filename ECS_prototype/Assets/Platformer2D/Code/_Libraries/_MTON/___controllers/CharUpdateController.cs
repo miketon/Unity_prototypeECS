@@ -28,6 +28,17 @@ namespace MTON.Controller {
         }
       };
 
+      eButton.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
+        var eBTN = entity.buttonEvent;
+        if(eBTN.ID == this.player_ID){
+          if(eBTN.bMode == _enum.Button.Down){ // is button down
+            if(eBTN.bType == _enum.Type.Jump){ // handle jumps   
+              this.doJump();
+            }
+          }
+        }
+      };
+
     }
 
     #region Public Events
