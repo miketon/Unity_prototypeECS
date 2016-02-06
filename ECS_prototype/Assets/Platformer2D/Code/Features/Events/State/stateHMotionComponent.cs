@@ -2,9 +2,6 @@
 
 public class stateHMotionComponent : IComponent{
 
-	public bool bNeutral;
-	public bool bWalk;
-	public bool bRun;
-	public bool bDash;
+  public MTON._enum.HState hstate = MTON._enum.HState.Neutral;
 
 }

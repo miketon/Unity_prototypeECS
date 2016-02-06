@@ -6,19 +6,12 @@ using MTON                       ;
 
 public class PlayerInitSystem : IReactiveSystem, ISetPool {
 
-  private Group _group;
+  private Group _players;
 
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      Debug.LogFormat("ADDING Player : {0} {1}", e.player.ID, _group.GetEntities());
-      foreach (var player in entities){
-        var cbody = e.view.gameobject.GetComponent<CharacterController>();
-        if(cbody){
-          e.Add_CharacterController(e.player.ID, cbody) ; 
-          e._CharacterController.Init(cbody)            ; // TODO: manual injection to auto injection
-        }
-      }
+
     }
   }
 
@@ -31,7 +24,7 @@ public class PlayerInitSystem : IReactiveSystem, ISetPool {
 
   #region ISetPool implementation
   public void SetPool(Pool pool) {
-    _group = pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.View));
+    _players = pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.View));
   }
   #endregion
 

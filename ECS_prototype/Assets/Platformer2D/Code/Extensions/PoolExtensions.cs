@@ -10,9 +10,11 @@ public static class PoolExtensions {
 
 	public static Entity spawnPlayer(this Pool pool, int player_ID, Vector3 pos){
 		return pool.CreateEntity()
-      .AddIO_Controllable(player_ID)
-      .AddstateVMotion(_enum.VState.Ground)
       .AddPlayer(player_ID)
+      .AddIO_Controllable(player_ID)
+      .Add_CharacterController(player_ID)
+      .AddstateVMotion(_enum.VState.Ground)
+      .AddstateHMotion(_enum.HState.Neutral)
 			.AddViewResource(_players[0]) //string to prefab for instantiation
 			.AddPosition(pos.x, pos.y, pos.z)
 			.AddVelocity(0.0f, 0.0f, 0.0f)

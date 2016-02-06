@@ -5,15 +5,15 @@ using Entitas;
 
 public class Event_VSTATEReactSystem : IReactiveSystem, ISetPool {
 
-  private Group _players;
+  private Group _ccUnits;
 
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      Debug.LogFormat(" VSTATE : {0} {1}",e.vstateEvent.ID, e.vstateEvent.vstate);
-      foreach (var player in _players.GetEntities()){
-        if(player.player.ID == e.vstateEvent.ID){
-          player.stateVMotion.vstate = e.vstateEvent.vstate; //update player vmotion state
+//      Debug.LogFormat(" VSTATE : {0} {1}",e.eventVMotion.ID, e.eventVMotion.vstate);
+      foreach (var vstate in _ccUnits.GetEntities()){
+        if(vstate._CharacterController.ID == e.eventVMotion.ID){  // if event ID matches...
+          vstate.stateVMotion.vstate = e.eventVMotion.vstate;     // update player vmotion state
         }
       }
     }
@@ -21,14 +21,14 @@ public class Event_VSTATEReactSystem : IReactiveSystem, ISetPool {
 
   public TriggerOnEvent trigger {
     get {
-      return Matcher.VstateEvent.OnEntityAdded();
+      return Matcher.eventVMotion.OnEntityAdded();
     }
   }
   #endregion
 
   #region ISetPool implementation
   public void SetPool(Pool pool) {
-    _players = pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.View, Matcher.stateVMotion));
+    _ccUnits = pool.GetGroup(Matcher.AllOf(Matcher._CharacterController, Matcher.stateVMotion));
   }
   #endregion
   

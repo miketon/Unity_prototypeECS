@@ -2,18 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using Entitas;
+using MTON;
 
 public class Event_DPADReactSystem : IReactiveSystem, ISetPool {
 
-  private Group _players;
+  private Group _ioControllables;
 
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      foreach (var player in _players.GetEntities()){
+      foreach (var control in _ioControllables.GetEntities()){
 //        Debug.LogFormat("DPAD STATE : {0}", e.dpadEvent.eDirn);
-        if(e.dpadEvent.eDirn == MTON._enum.Dirn.DN && player.stateVMotion.vstate == MTON._enum.VState.Ground){
-          Debug.LogFormat("I AM CROUCHING {0} ", player.player.ID);
+        if(e.dpadEvent.eDirn == _enum.Dirn.DN && control.stateVMotion.vstate == _enum.VState.Ground){
+          Debug.LogFormat("I AM CROUCHING {0} ", control.player.ID);
         }
       }
     }
@@ -28,7 +29,7 @@ public class Event_DPADReactSystem : IReactiveSystem, ISetPool {
 
   #region ISetPool implementation
   public void SetPool(Pool pool) { // get all controllable character
-    _players = pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.View, Matcher.stateVMotion, Matcher._CharacterController));
+    _ioControllables = pool.GetGroup(Matcher.AllOf(Matcher.IO_Controllable, Matcher._CharacterController, Matcher.stateVMotion));
   }
   #endregion
 
