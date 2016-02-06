@@ -50,16 +50,15 @@
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\Entity\EntityBehaviour.cs" />
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserver.cs" />
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserverBehaviour.cs" />
-     <Compile Include="Assets\Generated\ButtonEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\CharacterControllerInitSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ComponentIds.cs" />
-     <Compile Include="Assets\Generated\DpadEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_Audio_uiSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_BUTTONReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_DPADReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_OnDestroyIOSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_OnDestroySystemGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\Event_VSTATEReactSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\Event_StateHReactSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\Event_StateVReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\GpadEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOControllableInitSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\IOReleaseComponentGeneratedExtension.cs" />
@@ -89,6 +88,8 @@
      <Compile Include="Assets\Generated\_OnStartComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_RigidBodyComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_StartSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\eventButtonComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\eventDpadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventHMotionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventVMotionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
@@ -144,9 +145,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_OnDestroyIOSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_OnDestroySystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_StateHReactSystem.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_VSTATEReactSystem.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\ButtonEventComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\DpadEventComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_stateVReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\GpadEventComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\IOReleaseComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\IO_ControllableComponent.cs" />
@@ -155,6 +154,8 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\IO_OnFirstReleaseComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\IO_OnPressSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\IO_OnReleaseSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\eventButtonComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\eventDpadComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollision\OnCollisionEnterComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollision\OnCollisionEnterSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\eventHMotionComponent.cs" />

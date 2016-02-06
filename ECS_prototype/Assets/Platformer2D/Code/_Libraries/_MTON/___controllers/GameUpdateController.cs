@@ -58,8 +58,8 @@ namespace MTON.Controller {
         .Add(pool.CreateSystem<OnCollisionEnterSystem>())  // reacts to collision events
 
         // Events
-        .Add(pool.CreateSystem<Event_VSTATEReactSystem>())
-        .Add(pool.CreateSystem<Event_STATEHReactSystem>())
+        .Add(pool.CreateSystem<Event_StateVReactSystem>())
+        .Add(pool.CreateSystem<Event_StateHReactSystem>())
         .Add(pool.CreateSystem<Event_Audio_uiSystem>())
 
         // Render

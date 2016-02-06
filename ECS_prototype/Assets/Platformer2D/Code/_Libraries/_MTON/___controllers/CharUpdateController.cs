@@ -18,18 +18,18 @@ namespace MTON.Controller {
 
     private void Start(){ // HELL YEAH : Inject events from entitas
 
-      var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  ) ;
-      var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent) ;
+      var eDPAD       = Pools.pool.GetGroup(Matcher.eventDpad  ) ;
+      var eButton     = Pools.pool.GetGroup(Matcher.eventButton) ;
 
       eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
-        var eDIR = entity.dpadEvent;
+        var eDIR = entity.eventDpad;
         if(eDIR.ID == this.player_ID){
            this.doMove(eDIR.eDirn);
         }
       };
 
       eButton.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
-        var eBTN = entity.buttonEvent;
+        var eBTN = entity.eventButton;
         if(eBTN.ID == this.player_ID){
           if(eBTN.bMode == _enum.Button.Down){ // is button down
             if(eBTN.bType == _enum.Type.Jump){ // handle jumps   

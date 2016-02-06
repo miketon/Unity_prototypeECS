@@ -21,7 +21,7 @@ public class Event_OnDestroyIOSystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger { // triggered by on add of any input entity
 		get {
-      return Matcher.AnyOf(Matcher.GpadEvent, Matcher.DpadEvent, Matcher.ButtonEvent, Matcher.IORelease, 
+      return Matcher.AnyOf(Matcher.GpadEvent, Matcher.eventDpad, Matcher.eventButton, Matcher.IORelease, 
       Matcher.IO_OnFirstPress, Matcher.IO_OnFirstRelease).OnEntityAdded(); //AnyOf == either matches will trigger
 		}
 	}

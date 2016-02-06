@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Entitas;
 
-public class Event_VSTATEReactSystem : IReactiveSystem, ISetPool {
+public class Event_StateVReactSystem : IReactiveSystem, ISetPool {
 
   private Group _ccUnits;
 

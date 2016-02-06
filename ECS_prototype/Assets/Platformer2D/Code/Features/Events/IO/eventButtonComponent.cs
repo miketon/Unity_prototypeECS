@@ -2,7 +2,7 @@
 using System  ;
 using MTON    ;
 
-public class ButtonEventComponent : IComponent {
+public class eventButtonComponent : IComponent {
 
   public int          ID = -1 ; // -1 == uninit
   public _enum.Button bMode   ; // button press state

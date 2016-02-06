@@ -14,17 +14,17 @@ namespace MTON.Controller {
 
     void Start () {
 
-      var eDPAD       = Pools.pool.GetGroup(Matcher.DpadEvent  ) ;
-      var eButton     = Pools.pool.GetGroup(Matcher.ButtonEvent) ;
+      var eDPAD       = Pools.pool.GetGroup(Matcher.eventDpad  ) ;
+      var eButton     = Pools.pool.GetGroup(Matcher.eventButton) ;
       var eFullTilt   = Pools.pool.GetGroup(Matcher.GpadEvent)   ;
       //      scoreTxt.text = score.GetSingleEntity().componentNames[0] + " ";
 
       eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
-        this.txt_DPAD.text = entity.dpadEvent.eDirn.ToString();
+        this.txt_DPAD.text = entity.eventDpad.eDirn.ToString();
       };
 
       eButton.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
-        this.txt_Button.text = entity.buttonEvent.bType.ToString();
+        this.txt_Button.text = entity.eventButton.bType.ToString();
       };
 
       eFullTilt.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {

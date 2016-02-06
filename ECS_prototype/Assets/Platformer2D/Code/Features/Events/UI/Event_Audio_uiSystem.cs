@@ -34,18 +34,18 @@ public class Event_Audio_uiSystem : IInitializeSystem, IReactiveSystem {
 #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      if(e.hasButtonEvent){
-        if(e.buttonEvent.bMode == _enum.Button.Down){
-          if(e.buttonEvent.bType == _enum.Type.Jump){
+      if(e.haseventButton){
+        if(e.eventButton.bMode == _enum.Button.Down){
+          if(e.eventButton.bType == _enum.Type.Jump){
             this.sOnPress.Play();
           }
         }
-        else if(e.buttonEvent.bMode == _enum.Button.Neutral){
+        else if(e.eventButton.bMode == _enum.Button.Neutral){
           this.sOnNeutral.Play();
         }
       }
-      if(e.hasDpadEvent){
-        if(e.dpadEvent.eDirn == _enum.Dirn.Neutral){
+      if(e.haseventDpad){
+        if(e.eventDpad.eDirn == _enum.Dirn.Neutral){
           this.sOnNeutral.Play();
         }
       }
@@ -62,8 +62,7 @@ public class Event_Audio_uiSystem : IInitializeSystem, IReactiveSystem {
 
   public TriggerOnEvent trigger {
     get {
-//      return Matcher.ButtonEvent.OnEntityAdded();
-        return Matcher.AnyOf(Matcher.DpadEvent, Matcher.ButtonEvent, Matcher.GpadEvent).OnEntityAdded();
+      return Matcher.AnyOf(Matcher.eventDpad, Matcher.eventButton, Matcher.GpadEvent).OnEntityAdded();
     }
   }
 #endregion

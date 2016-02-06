@@ -3,8 +3,8 @@ public static class ComponentIds {
     public const int _Gravity = 1;
     public const int _OnStart = 2;
     public const int _RigidBody = 3;
-    public const int ButtonEvent = 4;
-    public const int DpadEvent = 5;
+    public const int eventButton = 4;
+    public const int eventDpad = 5;
     public const int eventHMotion = 6;
     public const int eventVMotion = 7;
     public const int GpadEvent = 8;
@@ -31,8 +31,8 @@ public static class ComponentIds {
         "_Gravity",
         "_OnStart",
         "_RigidBody",
-        "ButtonEvent",
-        "DpadEvent",
+        "eventButton",
+        "eventDpad",
         "eventHMotion",
         "eventVMotion",
         "GpadEvent",
@@ -58,8 +58,8 @@ public static class ComponentIds {
         typeof(_GravityComponent),
         typeof(_OnStartComponent),
         typeof(_RigidBodyComponent),
-        typeof(ButtonEventComponent),
-        typeof(DpadEventComponent),
+        typeof(eventButtonComponent),
+        typeof(eventDpadComponent),
         typeof(eventHMotionComponent),
         typeof(eventVMotionComponent),
         typeof(GpadEventComponent),

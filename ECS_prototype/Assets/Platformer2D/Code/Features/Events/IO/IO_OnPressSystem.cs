@@ -26,7 +26,7 @@ public class IO_OnPressSystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger {
 		get {
-      return Matcher.DpadEvent.OnEntityAdded();
+      return Matcher.eventDpad.OnEntityAdded();
 		}
 	}
 	#endregion
