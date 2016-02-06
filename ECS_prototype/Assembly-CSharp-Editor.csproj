@@ -150,6 +150,21 @@
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween50.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -164,21 +179,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="DOTween50">
- <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween50.dll</HintPath>
- </Reference>
- <Reference Include="DOTween46">
- <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween46.dll</HintPath>
- </Reference>
- <Reference Include="DOTween">
- <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween.dll</HintPath>
- </Reference>
- <Reference Include="DOTween43">
- <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween43.dll</HintPath>
- </Reference>
- <Reference Include="DOTweenEditor">
- <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

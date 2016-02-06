@@ -51,7 +51,7 @@
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserver.cs" />
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserverBehaviour.cs" />
      <Compile Include="Assets\Generated\ButtonEventComponentGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\CharacterUpdateSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\CharacterControllerInitSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ComponentIds.cs" />
      <Compile Include="Assets\Generated\DpadEventComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_Audio_uiSystemGeneratedExtension.cs" />
@@ -476,17 +476,17 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="DOTween50">
- <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween50.dll</HintPath>
- </Reference>
- <Reference Include="DOTween46">
- <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween46.dll</HintPath>
- </Reference>
  <Reference Include="DOTween">
  <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTween43">
  <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>/Users/mton/GoogleDrive_mt/UnitySource/Unity_prototypeECS/ECS_prototype/Assets/Platformer2D/Code/_Libraries/FreeFromUnityAssetStore/Demigiant/DOTween/DOTween50.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

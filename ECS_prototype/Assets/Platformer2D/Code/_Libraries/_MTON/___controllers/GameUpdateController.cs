@@ -38,9 +38,9 @@ namespace MTON.Controller {
         .Add(pool.CreateSystem<OnViewSpawnSystem>())      // reacts to new view : inits rbody vs. cbody
 
         // Init
-        .Add(pool.CreateSystem<_LevelInitSystem>())       // Configs gravity based on proj settings
+        .Add(pool.CreateSystem<_LevelInitSystem>())               // Configs gravity based on proj settings
         .Add(pool.CreateSystem<_StartSystem>())
-        .Add(pool.CreateSystem<IOControllableInitSystem>()) // NOTE : SetPool filters for view, so must sequence after view is spawned
+        .Add(pool.CreateSystem<IOControllableInitSystem>())       // NOTE : SetPool filters for view, so must sequence after view is spawned
         .Add(pool.CreateSystem<PlayerInitSystem>())
         .Add(pool.CreateSystem<CharacterControllerInitSystem>())  // Initialialze all characterControllers
 
@@ -55,11 +55,9 @@ namespace MTON.Controller {
         //    .Add(pool.CreateSystem<MoveSystem>())
 
         // Physics
-        //		.Add(pool.CreateSystem<RigidBodyUpdateSystem>())
-        .Add(pool.CreateSystem<OnCollisionEnterSystem>()) // reacts to collision events
+        .Add(pool.CreateSystem<OnCollisionEnterSystem>())  // reacts to collision events
 
         // Events
-//        .Add(pool.CreateSystem<Event_RbodySystem>())
         .Add(pool.CreateSystem<Event_VSTATEReactSystem>())
         .Add(pool.CreateSystem<Event_Audio_uiSystem>())
 
