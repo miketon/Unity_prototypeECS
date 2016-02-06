@@ -12,22 +12,16 @@ namespace Entitas {
             _stateHMotionComponentPool.Clear();
         }
 
-        public Entity AddstateHMotion(bool newBNeutral, bool newBWalk, bool newBRun, bool newBDash) {
+        public Entity AddstateHMotion(MTON._enum.HState newHstate) {
             var component = _stateHMotionComponentPool.Count > 0 ? _stateHMotionComponentPool.Pop() : new stateHMotionComponent();
-            component.bNeutral = newBNeutral;
-            component.bWalk = newBWalk;
-            component.bRun = newBRun;
-            component.bDash = newBDash;
+            component.hstate = newHstate;
             return AddComponent(ComponentIds.stateHMotion, component);
         }
 
-        public Entity ReplacestateHMotion(bool newBNeutral, bool newBWalk, bool newBRun, bool newBDash) {
+        public Entity ReplacestateHMotion(MTON._enum.HState newHstate) {
             var previousComponent = hasstateHMotion ? stateHMotion : null;
             var component = _stateHMotionComponentPool.Count > 0 ? _stateHMotionComponentPool.Pop() : new stateHMotionComponent();
-            component.bNeutral = newBNeutral;
-            component.bWalk = newBWalk;
-            component.bRun = newBRun;
-            component.bDash = newBDash;
+            component.hstate = newHstate;
             ReplaceComponent(ComponentIds.stateHMotion, component);
             if (previousComponent != null) {
                 _stateHMotionComponentPool.Push(previousComponent);
