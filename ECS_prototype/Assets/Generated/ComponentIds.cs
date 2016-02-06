@@ -3,15 +3,15 @@ public static class ComponentIds {
     public const int _Gravity = 1;
     public const int _OnStart = 2;
     public const int _RigidBody = 3;
-    public const int eventButton = 4;
-    public const int eventDpad = 5;
-    public const int eventHMotion = 6;
-    public const int eventVMotion = 7;
-    public const int GpadEvent = 8;
-    public const int IO_Controllable = 9;
-    public const int IO_OnFirstPress = 10;
-    public const int IO_OnFirstRelease = 11;
-    public const int IORelease = 12;
+    public const int event_IO_OnFirstPress = 4;
+    public const int event_IO_OnRelease = 5;
+    public const int eventButton = 6;
+    public const int eventDpad = 7;
+    public const int eventGamePad = 8;
+    public const int eventHMotion = 9;
+    public const int eventVMotion = 10;
+    public const int IO_Controllable = 11;
+    public const int IO_OnFirstRelease = 12;
     public const int _CONSTANT = 13;
     public const int OnCollisionEnter = 14;
     public const int Player = 15;
@@ -31,15 +31,15 @@ public static class ComponentIds {
         "_Gravity",
         "_OnStart",
         "_RigidBody",
+        "event_IO_OnFirstPress",
+        "event_IO_OnRelease",
         "eventButton",
         "eventDpad",
+        "eventGamePad",
         "eventHMotion",
         "eventVMotion",
-        "GpadEvent",
         "IO_Controllable",
-        "IO_OnFirstPress",
         "IO_OnFirstRelease",
-        "IORelease",
         "_CONSTANT",
         "OnCollisionEnter",
         "Player",
@@ -58,15 +58,15 @@ public static class ComponentIds {
         typeof(_GravityComponent),
         typeof(_OnStartComponent),
         typeof(_RigidBodyComponent),
+        typeof(event_IO_OnFirstPressComponent),
+        typeof(event_IO_OnReleaseComponent),
         typeof(eventButtonComponent),
         typeof(eventDpadComponent),
+        typeof(eventGamePadComponent),
         typeof(eventHMotionComponent),
         typeof(eventVMotionComponent),
-        typeof(GpadEventComponent),
         typeof(IO_ControllableComponent),
-        typeof(IO_OnFirstPressComponent),
         typeof(IO_OnFirstReleaseComponent),
-        typeof(IOReleaseComponent),
         typeof(MTON._CONSTANTComponent),
         typeof(OnCollisionEnterComponent),
         typeof(PlayerComponent),

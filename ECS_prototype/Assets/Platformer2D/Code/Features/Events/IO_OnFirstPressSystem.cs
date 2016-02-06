@@ -16,7 +16,7 @@ public class IO_OnFirstPressSystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.AnyOf(Matcher.IO_OnFirstPress).OnEntityAdded();
+      return Matcher.AnyOf(Matcher.event_IO_OnFirstPress).OnEntityAdded();
 		}
 	}
 	#endregion

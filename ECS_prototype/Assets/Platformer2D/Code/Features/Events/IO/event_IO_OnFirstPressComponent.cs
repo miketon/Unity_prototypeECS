@@ -1,6 +1,6 @@
 ﻿using UnityEngine ;
 using Entitas     ;
 
-public class IO_OnFirstPressComponent : IComponent {
+public class event_IO_OnFirstPressComponent : IComponent {
   public int ID = -1 ; // -1 == uninit
 }

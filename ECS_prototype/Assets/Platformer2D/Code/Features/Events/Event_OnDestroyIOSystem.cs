@@ -11,7 +11,7 @@ public class Event_OnDestroyIOSystem : IReactiveSystem, ISetPool {
 	public void Execute (List<Entity> entities){
 //		Debug.LogFormat("IO_OnDestroy :  {0} ", entities);
 		foreach (var e in entities) {
-			if(e.hasIO_OnFirstPress){
+			if(e.hasevent_IO_OnFirstPress){
 //				Debug.LogFormat("IO_OnFirstPress :  {0} ", e);
 				PowerUpAttributesComponent.fSpeed = 1.0f; // reset PowerUp
 			}
@@ -21,8 +21,8 @@ public class Event_OnDestroyIOSystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger { // triggered by on add of any input entity
 		get {
-      return Matcher.AnyOf(Matcher.GpadEvent, Matcher.eventDpad, Matcher.eventButton, Matcher.IORelease, 
-      Matcher.IO_OnFirstPress, Matcher.IO_OnFirstRelease).OnEntityAdded(); //AnyOf == either matches will trigger
+      return Matcher.AnyOf(Matcher.eventGamePad, Matcher.eventDpad, Matcher.eventButton, Matcher.event_IO_OnRelease, 
+      Matcher.event_IO_OnFirstPress, Matcher.IO_OnFirstRelease).OnEntityAdded(); //AnyOf == either matches will trigger
 		}
 	}
 	#endregion

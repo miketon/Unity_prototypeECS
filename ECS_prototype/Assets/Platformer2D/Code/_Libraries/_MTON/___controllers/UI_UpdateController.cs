@@ -14,9 +14,9 @@ namespace MTON.Controller {
 
     void Start () {
 
-      var eDPAD       = Pools.pool.GetGroup(Matcher.eventDpad  ) ;
-      var eButton     = Pools.pool.GetGroup(Matcher.eventButton) ;
-      var eFullTilt   = Pools.pool.GetGroup(Matcher.GpadEvent)   ;
+      var eDPAD       = Pools.pool.GetGroup(Matcher.eventDpad  )  ;
+      var eButton     = Pools.pool.GetGroup(Matcher.eventButton)  ;
+      var eFullTilt   = Pools.pool.GetGroup(Matcher.eventGamePad) ;
       //      scoreTxt.text = score.GetSingleEntity().componentNames[0] + " ";
 
       eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
@@ -28,7 +28,7 @@ namespace MTON.Controller {
       };
 
       eFullTilt.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
-        if(entity.gpadEvent.gpad == _enum.GPAD.FULL){
+        if(entity.eventGamePad.gpad == _enum.GPAD.FULL){
           this.txt_DPAD.text   = "DPAD"   ;
           this.txt_Button.text = "BUTTON" ;
         }

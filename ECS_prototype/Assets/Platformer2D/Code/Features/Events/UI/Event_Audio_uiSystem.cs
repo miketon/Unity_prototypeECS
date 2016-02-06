@@ -49,20 +49,20 @@ public class Event_Audio_uiSystem : IInitializeSystem, IReactiveSystem {
           this.sOnNeutral.Play();
         }
       }
-      if(e.hasGpadEvent){
-        if(e.gpadEvent.gpad == _enum.GPAD.FULL){
-          if(e.gpadEvent.gpad != this.prevGPAD){
+      if(e.haseventGamePad){
+        if(e.eventGamePad.gpad == _enum.GPAD.FULL){
+          if(e.eventGamePad.gpad != this.prevGPAD){
             this.sOnCombo.Play();
           }
         }
-        this.prevGPAD = e.gpadEvent.gpad;
+        this.prevGPAD = e.eventGamePad.gpad;
       }
     }
   }
 
   public TriggerOnEvent trigger {
     get {
-      return Matcher.AnyOf(Matcher.eventDpad, Matcher.eventButton, Matcher.GpadEvent).OnEntityAdded();
+      return Matcher.AnyOf(Matcher.eventDpad, Matcher.eventButton, Matcher.eventGamePad).OnEntityAdded();
     }
   }
 #endregion

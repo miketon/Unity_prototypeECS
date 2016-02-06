@@ -10,7 +10,7 @@ public class IO_OnReleaseSystem : IReactiveSystem, ISetPool {
 
 	#region IReactiveExecuteSystem implementation
 	public void Execute (List<Entity> entities){
-		var ioRelease = entities.SingleEntity().iORelease;
+		var ioRelease = entities.SingleEntity().event_IO_OnRelease;
 		foreach (var e in _group.GetEntities()) {
       if(ioRelease.GPAD == _enum.GPAD.FULL){
 //        Debug.LogFormat("IO_OnReleaseSystem : ALL : {0}", ioRelease.GPAD);
@@ -28,7 +28,7 @@ public class IO_OnReleaseSystem : IReactiveSystem, ISetPool {
 
 	public TriggerOnEvent trigger {
 		get {
-			return Matcher.IORelease.OnEntityAdded();
+      return Matcher.event_IO_OnRelease.OnEntityAdded();
 		}
 	}
 	#endregion

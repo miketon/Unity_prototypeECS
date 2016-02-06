@@ -27,11 +27,11 @@ public class InputGetController : MonoBehaviour {
     set{
       if(value == _enum.GPAD.Neutral){
         if(value != this.epad){
-          Pools.pool.CreateEntity().AddGpadEvent(this.io_ID, _enum.GPAD.Neutral);
+          Pools.pool.CreateEntity().AddeventGamePad(this.io_ID, _enum.GPAD.Neutral);
         }
       }
       else{
-        Pools.pool.CreateEntity().AddGpadEvent(this.io_ID, value);
+        Pools.pool.CreateEntity().AddeventGamePad(this.io_ID, value);
       }
       this.epad = value;
     }
@@ -148,7 +148,7 @@ public class InputGetController : MonoBehaviour {
       // process on FirstPressed Events
       if(this.ePAD != this.epad ){    // onFirst Press
 //        Debug.LogFormat("FIRST PRESSED : {0} ", this.ePAD)                              ;
-        Pools.pool.CreateEntity().AddIO_OnFirstPress(this.io_ID) ;
+        Pools.pool.CreateEntity().Addevent_IO_OnFirstPress(this.io_ID) ;
       }
     }
     // OnRelease Logic
@@ -156,7 +156,7 @@ public class InputGetController : MonoBehaviour {
       if(this.ePAD != this.epad ){                                   // onFirst Release
 //        Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
         Pools.pool.CreateEntity().AddIO_OnFirstRelease (this.io_ID) ;
-        Pools.pool.CreateEntity().AddIORelease(_enum.GPAD.FULL)     ;  // Set all Release Events
+        Pools.pool.CreateEntity().Addevent_IO_OnRelease(_enum.GPAD.FULL)     ;  // Set all Release Events
       }
       this.eAxis   = _enum.Dirn.Neutral   ;
       this.ebntype = _enum.Type.Neutral   ;
