@@ -82,11 +82,26 @@ namespace MTON.Controller {
       }
       set{
         if(value != this.vstate){
-          Pools.pool.CreateEntity().AddVstateEvent(this.player_ID, value);
+          Pools.pool.CreateEntity().AddeventVMotion(this.player_ID, value);
           this.vstate = value;
         }
       }
     }
+
+    [SerializeField]
+    private _enum.HState hstate = _enum.HState.Neutral;
+    public  _enum.HState hState{
+      get{
+        return this.hstate;
+      }
+      set{
+        if(value != this.hstate){
+          Pools.pool.CreateEntity().AddeventHMotion(this.player_ID, value);
+          this.hstate = value;
+        }
+      }
+    }
+
     private _enum.Rbody  rState;
 
     [Flags] // Powers of two
