@@ -22,7 +22,7 @@ public class Event_OnDestroyIOSystem : IReactiveSystem, ISetPool {
 	public TriggerOnEvent trigger { // triggered by on add of any input entity
 		get {
       return Matcher.AnyOf(Matcher.eventGamePad, Matcher.eventDpad, Matcher.eventButton, Matcher.event_IO_OnRelease, 
-      Matcher.event_IO_OnFirstPress, Matcher.IO_OnFirstRelease).OnEntityAdded(); //AnyOf == either matches will trigger
+      Matcher.event_IO_OnFirstPress, Matcher.event_IO_OnFirstRelease).OnEntityAdded(); //AnyOf == either matches will trigger
 		}
 	}
 	#endregion

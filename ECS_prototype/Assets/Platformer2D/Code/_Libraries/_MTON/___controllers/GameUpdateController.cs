@@ -55,7 +55,7 @@ namespace MTON.Controller {
         //    .Add(pool.CreateSystem<MoveSystem>())
 
         // Physics
-        .Add(pool.CreateSystem<OnCollisionEnterSystem>())  // reacts to collision events
+        .Add(pool.CreateSystem<OnCollisionSystem>())  // reacts to collision events
 
         // Events
         .Add(pool.CreateSystem<Event_StateVReactSystem>())

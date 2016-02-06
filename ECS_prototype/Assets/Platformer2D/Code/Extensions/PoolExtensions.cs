@@ -24,7 +24,7 @@ public static class PoolExtensions {
 
   public static Entity CreateCollision(this Pool pool, Collision collision) { 
     return pool.CreateEntity()
-    .AddOnCollisionEnter(collision);
+    .AddeventOnCollision(0, collision); // HACK : Adding dummy 0 to follow convention that events must have an ID
   }
 
 }

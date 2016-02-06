@@ -155,8 +155,8 @@ public class InputGetController : MonoBehaviour {
     else {                                                                       
       if(this.ePAD != this.epad ){                                   // onFirst Release
 //        Debug.LogFormat("RELEASE ALL {0} ", MTON._CONSTANTComponent._CAMERA);
-        Pools.pool.CreateEntity().AddIO_OnFirstRelease (this.io_ID) ;
-        Pools.pool.CreateEntity().Addevent_IO_OnRelease(_enum.GPAD.FULL)     ;  // Set all Release Events
+        Pools.pool.CreateEntity().Addevent_IO_OnFirstRelease(this.io_ID) ;
+        Pools.pool.CreateEntity().Addevent_IO_OnRelease(_enum.GPAD.FULL) ;  // Set all Release Events
       }
       this.eAxis   = _enum.Dirn.Neutral   ;
       this.ebntype = _enum.Type.Neutral   ;
