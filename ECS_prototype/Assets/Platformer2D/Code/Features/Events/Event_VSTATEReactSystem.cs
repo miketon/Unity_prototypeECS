@@ -10,10 +10,10 @@ public class Event_VSTATEReactSystem : IReactiveSystem, ISetPool {
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      Debug.LogFormat(" VSTATE : {0} {1}",e.eventVMotion.ID, e.eventVMotion.vstate);
+//      Debug.LogFormat(" VSTATE : {0} {1}",e.eventVMotion.ID, e.eventVMotion.vstate);
       foreach (var vstate in _ccUnits.GetEntities()){
-        if(vstate._CharacterController.ID == e.eventVMotion.ID){
-          vstate.stateVMotion.vstate = e.eventVMotion.vstate; //update player vmotion state
+        if(vstate._CharacterController.ID == e.eventVMotion.ID){  // if event ID matches...
+          vstate.stateVMotion.vstate = e.eventVMotion.vstate;     // update player vmotion state
         }
       }
     }

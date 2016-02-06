@@ -143,6 +143,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_DPADReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_OnDestroyIOSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_OnDestroySystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_StateHReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_VSTATEReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\ButtonEventComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\DpadEventComponent.cs" />

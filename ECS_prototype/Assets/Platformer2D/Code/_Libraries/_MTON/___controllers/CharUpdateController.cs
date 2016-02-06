@@ -177,7 +177,7 @@ namespace MTON.Controller {
     private void FixedUpdate(){
       this.ccVelocity = this.cc.velocity;
       // PHYSICS UPDATE : gravity
-      // Determine state
+      // Determine vState
       if(!this.OnGround()){ // apply gravity when not on ground
         this.vGravm   += (pGrav * this.fMass) * Time.deltaTime ; // Dang. Forgot to initialize fMass and spent 2 days not having fall work
         this.vGravm.y += -this.vy                              ; // multiplying vy as opposed to adding gave shitty jump behaviour
@@ -231,6 +231,15 @@ namespace MTON.Controller {
       else{
         this.cc.radius = this.radius         ; //else leave at default
       }
+      
+      // Determine hState
+      if(Mathf.Abs(this.vMove.x) > Mathf.Epsilon){ // moving
+        this.hState = _enum.HState.OnWalk;
+      }
+      else { // idle
+        this.hState = _enum.HState.Neutral;
+      }
+
     }
 
 

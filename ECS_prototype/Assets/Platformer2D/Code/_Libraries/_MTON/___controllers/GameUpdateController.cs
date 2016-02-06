@@ -59,6 +59,7 @@ namespace MTON.Controller {
 
         // Events
         .Add(pool.CreateSystem<Event_VSTATEReactSystem>())
+        .Add(pool.CreateSystem<Event_STATEHReactSystem>())
         .Add(pool.CreateSystem<Event_Audio_uiSystem>())
 
         // Render
