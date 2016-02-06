@@ -73,10 +73,10 @@ namespace MTON{
   public enum FState {       // Facing State
     // Decimal               // Binary
     Neutral   = 0,           // 000000
-    Frnt      = 1,           // 000001
-    Back      = 2,           // 000010
+    Fwrd      = 1,           // 000001 // 2d = right
+    Back      = 2,           // 000010 // 2d = left
     Rght      = 4,           // 000100
-    Left      = 8,           // 000100
+    Left      = 8,           // 001000
   }
 
 	[Flags] // Powers of two

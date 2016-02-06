@@ -24,7 +24,7 @@ namespace MTON.Controller {
       eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
         var eDIR = entity.eventDpad;
         if(eDIR.ID == this.player_ID){
-           this.doMove(eDIR.eDirn);
+           this.doMove(eDIR.dpad);
         }
       };
 

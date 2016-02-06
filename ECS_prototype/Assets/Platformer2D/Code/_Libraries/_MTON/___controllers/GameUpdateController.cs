@@ -60,7 +60,7 @@ namespace MTON.Controller {
         // Events
         .Add(pool.CreateSystem<Event_StateVReactSystem>())
         .Add(pool.CreateSystem<Event_StateHReactSystem>())
-        .Add(pool.CreateSystem<Event_Audio_uiSystem>())
+        .Add(pool.CreateSystem<eventAudioSystem>())
 
         // Render
 //        .Add(pool.CreateSystem<RenderPositionSystem>())   // renders position

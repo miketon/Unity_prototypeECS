@@ -52,7 +52,6 @@
      <Compile Include="Assets\Entitas.Unity.VisualDebugging\PoolObserver\PoolObserverBehaviour.cs" />
      <Compile Include="Assets\Generated\CharacterControllerInitSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ComponentIds.cs" />
-     <Compile Include="Assets\Generated\Event_Audio_uiSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_BUTTONReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_DPADReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\Event_OnDestroyIOSystemGeneratedExtension.cs" />
@@ -66,7 +65,7 @@
      <Compile Include="Assets\Generated\IO_OnReleaseSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\MTON._CONSTANTComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\OnAddViewSystemGeneratedExtension.cs" />
-     <Compile Include="Assets\Generated\OnCollisionEnterSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\OnCollisionSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\OnViewSpawnSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PlayerComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PlayerInitSystemGeneratedExtension.cs" />
@@ -83,6 +82,7 @@
      <Compile Include="Assets\Generated\_OnStartComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_RigidBodyComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\_StartSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\eventAudioSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventButtonComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventDpadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventGamePadComponentGeneratedExtension.cs" />
@@ -92,6 +92,7 @@
      <Compile Include="Assets\Generated\event_IO_OnFirstPressComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\event_IO_OnFirstReleaseComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\event_IO_OnReleaseComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\stateDpadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateHMotionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateVMotionComponentGeneratedExtension.cs" />
@@ -140,12 +141,13 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Components\_GravityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\Player\PlayerComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Entity\Powerup\PowerUpAttributesComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\Audio\eventAudioSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_BUTTONReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_DPADReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_OnDestroyIOSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_OnDestroySystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_StateHReactSystem.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_stateVReactSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\Event_StateVReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\IO_ControllableComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\eventButtonComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\eventDpadComponent.cs" />
@@ -153,6 +155,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\event_IO_OnFirstPressComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\event_IO_OnFirstReleaseComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\event_IO_OnReleaseComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\stateDpadComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO_OnFirstPressSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO_OnPressSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO_OnReleaseSystem.cs" />
@@ -163,7 +166,6 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateFacingComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateHMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateVMotionComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Events\UI\Event_Audio_uiSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\VelocityComponent.cs" />

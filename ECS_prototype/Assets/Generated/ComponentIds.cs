@@ -17,14 +17,15 @@ public static class ComponentIds {
     public const int Player = 15;
     public const int Position = 16;
     public const int PowerUpAttributes = 17;
-    public const int stateFacing = 18;
-    public const int stateHMotion = 19;
-    public const int stateVMotion = 20;
-    public const int Velocity = 21;
-    public const int View = 22;
-    public const int ViewResource = 23;
+    public const int stateDpad = 18;
+    public const int stateFacing = 19;
+    public const int stateHMotion = 20;
+    public const int stateVMotion = 21;
+    public const int Velocity = 22;
+    public const int View = 23;
+    public const int ViewResource = 24;
 
-    public const int TotalComponents = 24;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "_CharacterController",
@@ -45,6 +46,7 @@ public static class ComponentIds {
         "Player",
         "Position",
         "PowerUpAttributes",
+        "stateDpad",
         "stateFacing",
         "stateHMotion",
         "stateVMotion",
@@ -72,6 +74,7 @@ public static class ComponentIds {
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(PowerUpAttributesComponent),
+        typeof(stateDpadComponent),
         typeof(stateFacingComponent),
         typeof(stateHMotionComponent),
         typeof(stateVMotionComponent),

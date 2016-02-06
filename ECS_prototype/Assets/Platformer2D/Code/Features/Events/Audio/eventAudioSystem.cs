@@ -4,7 +4,7 @@ using System.Collections.Generic ;
 using MTON                       ;
 using Entitas                    ;
 
-public class Event_Audio_uiSystem : IInitializeSystem, IReactiveSystem {
+public class eventAudioSystem : IInitializeSystem, IReactiveSystem {
 
   private SfxrSynth sOnPress   ;
   private SfxrSynth sOnHold    ;
@@ -45,7 +45,7 @@ public class Event_Audio_uiSystem : IInitializeSystem, IReactiveSystem {
         }
       }
       if(e.haseventDpad){
-        if(e.eventDpad.eDirn == _enum.Dirn.Neutral){
+        if(e.eventDpad.dpad== _enum.Dirn.Neutral){
           this.sOnNeutral.Play();
         }
       }

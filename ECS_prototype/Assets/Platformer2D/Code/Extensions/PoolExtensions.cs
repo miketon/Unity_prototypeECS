@@ -15,6 +15,8 @@ public static class PoolExtensions {
       .Add_CharacterController(player_ID)
       .AddstateVMotion(_enum.VState.Ground)
       .AddstateHMotion(_enum.HState.Neutral)
+      .AddstateFacing(_enum.FState.Fwrd)
+      .AddstateDpad(_enum.Dirn.Neutral)
 			.AddViewResource(_players[0]) //string to prefab for instantiation
 			.AddPosition(pos.x, pos.y, pos.z)
 			.AddVelocity(0.0f, 0.0f, 0.0f)

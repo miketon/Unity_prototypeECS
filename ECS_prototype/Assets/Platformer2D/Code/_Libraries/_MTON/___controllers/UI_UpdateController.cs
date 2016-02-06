@@ -20,7 +20,7 @@ namespace MTON.Controller {
       //      scoreTxt.text = score.GetSingleEntity().componentNames[0] + " ";
 
       eDPAD.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {
-        this.txt_DPAD.text = entity.eventDpad.eDirn.ToString();
+        this.txt_DPAD.text = entity.eventDpad.dpad.ToString();
       };
 
       eButton.OnEntityAdded += (Group group, Entity entity, int index, IComponent component) => {

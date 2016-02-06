@@ -13,7 +13,7 @@ public class Event_DPADReactSystem : IReactiveSystem, ISetPool {
     foreach (var e in entities){
       foreach (var control in _ioControllables.GetEntities()){
 //        Debug.LogFormat("DPAD STATE : {0}", e.dpadEvent.eDirn);
-        if(e.eventDpad.eDirn == _enum.Dirn.DN && control.stateVMotion.vstate == _enum.VState.Ground){
+        if(e.eventDpad.dpad == _enum.Dirn.DN && control.stateVMotion.vstate == _enum.VState.Ground){
           Debug.LogFormat("I AM CROUCHING {0} ", control.player.ID);
         }
       }

@@ -1,6 +1,6 @@
 namespace Entitas {
     public partial class Pool {
-        public ISystem CreateOnCollisionEnterSystem() {
+        public ISystem CreateOnCollisionSystem() {
             return this.CreateSystem<OnCollisionSystem>();
         }
     }
