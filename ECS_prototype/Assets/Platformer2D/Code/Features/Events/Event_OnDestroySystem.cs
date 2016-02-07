@@ -10,14 +10,13 @@ public class Event_OnDestroySystem : IReactiveSystem, ISetPool {
   #region IReactiveExecuteSystem implementation
   public void Execute (List<Entity> entities){
     foreach (var e in entities) {
-      _pool.DestroyEntity(e); // destroy input entity
-//      e.destroy();
+      _pool.DestroyEntity(e); // destroy event entity
     }
   }
 
-  public TriggerOnEvent trigger { // triggered by on add of any input entity
+  public TriggerOnEvent trigger { // triggered by on add of any matched event entity
     get {
-       return Matcher.AnyOf(Matcher.eventVMotion).OnEntityAdded(); //AnyOf == either matches will trigger
+       return Matcher.AnyOf(Matcher.eventVMotion, Matcher.eventHMotion, Matcher.eventCrouch).OnEntityAdded(); //AnyOf == either matches will trigger
     }
   }
   #endregion

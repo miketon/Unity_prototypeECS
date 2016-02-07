@@ -1,20 +1,31 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using Entitas;
-using MTON;
+﻿using UnityEngine                ;
+using System.Collections         ;
+using System.Collections.Generic ;
+using Entitas                    ;
+using MTON                       ;
 
 public class Event_DPADReactSystem : IReactiveSystem, ISetPool {
 
-  private Group _ioControllables;
+  private Group _ioControllables ;
 
-  #region IReactiveExecuteSystem implementation
+#region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      foreach (var control in _ioControllables.GetEntities()){
-//        Debug.LogFormat("DPAD STATE : {0}", e.dpadEvent.eDirn);
-        if(e.dpadEvent.eDirn == _enum.Dirn.DN && control.stateVMotion.vstate == _enum.VState.Ground){
-          Debug.LogFormat("I AM CROUCHING {0} ", control.player.ID);
+      foreach (var _io in _ioControllables .GetEntities()){
+        if(_io.iO_Controllable.ID == e.eventDpad.ID){
+          _io.stateDpad.dpad = e.eventDpad.dpad;
+          if(e.eventDpad.dpad == _enum.Dirn.DN && _io.stateVMotion.vstate == _enum.VState.Ground){
+            if(_io.stateCrouch.bCrouch != true){ // doCrouch
+              _io.stateCrouch.bCrouch = true ;
+              Pools.pool.CreateEntity().AddeventCrouch(_io.player.ID, true);
+            }
+          }
+          else{
+            if(_io.stateCrouch.bCrouch != false){ // doStand
+              _io.stateCrouch.bCrouch = false ;
+              Pools.pool.CreateEntity().AddeventCrouch(_io.player.ID, false);
+            }
+          }
         }
       }
     }
@@ -22,15 +33,16 @@ public class Event_DPADReactSystem : IReactiveSystem, ISetPool {
 
   public TriggerOnEvent trigger {
     get {
-      return Matcher.DpadEvent.OnEntityAdded();
+      return Matcher.eventDpad.OnEntityAdded();
     }
   }
-  #endregion
+#endregion
 
-  #region ISetPool implementation
+#region ISetPool implementation
   public void SetPool(Pool pool) { // get all controllable character
-    _ioControllables = pool.GetGroup(Matcher.AllOf(Matcher.IO_Controllable, Matcher._CharacterController, Matcher.stateVMotion));
+    _ioControllables  = pool.GetGroup(Matcher.AllOf( Matcher.IO_Controllable, Matcher.stateVMotion, 
+          Matcher.stateHMotion, Matcher.stateCrouch));
   }
-  #endregion
+#endregion
 
 }

@@ -12,20 +12,16 @@ namespace Entitas {
             _stateFacingComponentPool.Clear();
         }
 
-        public Entity AddstateFacing(bool newBNeutral, bool newBForward, bool newBBackwrd) {
+        public Entity AddstateFacing(MTON._enum.FState newFstate) {
             var component = _stateFacingComponentPool.Count > 0 ? _stateFacingComponentPool.Pop() : new stateFacingComponent();
-            component.bNeutral = newBNeutral;
-            component.bForward = newBForward;
-            component.bBackwrd = newBBackwrd;
+            component.fstate = newFstate;
             return AddComponent(ComponentIds.stateFacing, component);
         }
 
-        public Entity ReplacestateFacing(bool newBNeutral, bool newBForward, bool newBBackwrd) {
+        public Entity ReplacestateFacing(MTON._enum.FState newFstate) {
             var previousComponent = hasstateFacing ? stateFacing : null;
             var component = _stateFacingComponentPool.Count > 0 ? _stateFacingComponentPool.Pop() : new stateFacingComponent();
-            component.bNeutral = newBNeutral;
-            component.bForward = newBForward;
-            component.bBackwrd = newBBackwrd;
+            component.fstate = newFstate;
             ReplaceComponent(ComponentIds.stateFacing, component);
             if (previousComponent != null) {
                 _stateFacingComponentPool.Push(previousComponent);

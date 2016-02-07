@@ -1,7 +1,7 @@
 ﻿using Entitas;
 
 public class stateFacingComponent : IComponent {
-	public bool bNeutral;
-	public bool bForward;
-	public bool bBackwrd;
+
+  public MTON._enum.FState fstate = MTON._enum.FState.Fwrd;
+
 }
