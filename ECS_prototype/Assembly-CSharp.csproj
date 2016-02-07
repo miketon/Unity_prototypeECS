@@ -73,6 +73,7 @@
      <Compile Include="Assets\Generated\PositionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PowerUpAttributesComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\RenderPositionSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\ScaleComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\VelocityComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ViewComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ViewResourceComponentGeneratedExtension.cs" />
@@ -170,13 +171,15 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateFacingComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateHMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateVMotionComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\PositionComponent.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\RenderPositionSystem.cs" />
-     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderPosition\VelocityComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\StateCrouchReactSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\OnAddViewSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\ViewComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\ViewResourceComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\_ResourcePaths.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderTransform\PositionComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderTransform\RenderPositionSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderTransform\ScaleComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderTransform\VelocityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\IOControllableInitSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\OnViewSpawnSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\PlayerInitSystem.cs" />

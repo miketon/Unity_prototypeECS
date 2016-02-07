@@ -9,7 +9,7 @@ public class _LevelInitSystem : IInitializeSystem, ISetPool {
   #region IInitializeSystem implementation
   public void Initialize (){
     Debug.LogFormat("Initializing Level : {0} ", this);
-    player = _pool.spawnPlayer(1, Vector3.zero); //spawn Player One
+    player = _pool.spawnPlayer(1, Vector3.up * 2.0f); //spawn Player One
 
     _GravityComponent.dir              = Physics.gravity ;
     _GravityComponent.magnitude        = 1.0f            ;

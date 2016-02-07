@@ -11,7 +11,14 @@ public class PlayerInitSystem : IReactiveSystem, ISetPool {
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-
+      // store init position
+      e.position.x = e.view.gameobject.transform.position.x;
+      e.position.y = e.view.gameobject.transform.position.y;
+      e.position.z = e.view.gameobject.transform.position.z;
+      // store init scale
+      e.scale.x = e.view.gameobject.transform.localScale.x;
+      e.scale.y = e.view.gameobject.transform.localScale.y;
+      e.scale.z = e.view.gameobject.transform.localScale.z;
     }
   }
 
@@ -24,7 +31,7 @@ public class PlayerInitSystem : IReactiveSystem, ISetPool {
 
   #region ISetPool implementation
   public void SetPool(Pool pool) {
-    _players = pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.View));
+    _players = pool.GetGroup(Matcher.AllOf(Matcher.Player, Matcher.View, Matcher.Position, Matcher.Scale));
   }
   #endregion
 

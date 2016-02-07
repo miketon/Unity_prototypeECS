@@ -42,7 +42,7 @@ namespace MTON.Controller {
         .Add(pool.CreateSystem<_StartSystem>())
         .Add(pool.CreateSystem<IOControllableInitSystem>())       // NOTE : SetPool filters for view, so must sequence after view is spawned
         .Add(pool.CreateSystem<CharacterControllerInitSystem>())  // Initialialze all characterControllers
-//        .Add(pool.CreateSystem<PlayerInitSystem>())
+        .Add(pool.CreateSystem<PlayerInitSystem>())
 
         // Input
         .Add(pool.CreateSystem<Event_DPADReactSystem>())
@@ -60,6 +60,7 @@ namespace MTON.Controller {
         // Events
         .Add(pool.CreateSystem<Event_StateVReactSystem>())
         .Add(pool.CreateSystem<Event_StateHReactSystem>())
+        .Add(pool.CreateSystem<StateCrouchReactSystem>())
         .Add(pool.CreateSystem<eventAudioSystem>())
 
         // Render
