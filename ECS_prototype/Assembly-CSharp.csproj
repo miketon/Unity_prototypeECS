@@ -73,7 +73,9 @@
      <Compile Include="Assets\Generated\PositionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\PowerUpAttributesComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\RenderPositionSystemGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\RotationComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ScaleComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\StateCrouchReactSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\VelocityComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ViewComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\ViewResourceComponentGeneratedExtension.cs" />
@@ -87,6 +89,7 @@
      <Compile Include="Assets\Generated\eventButtonComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventCrouchComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventDpadComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\eventFacingComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventGamePadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventHMotionComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventOnCollisionComponentGeneratedExtension.cs" />
@@ -94,6 +97,7 @@
      <Compile Include="Assets\Generated\event_IO_OnFirstPressComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\event_IO_OnFirstReleaseComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\event_IO_OnReleaseComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\stateButtonComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateCrouchComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateDpadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
@@ -158,6 +162,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\event_IO_OnFirstPressComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\event_IO_OnFirstReleaseComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\event_IO_OnReleaseComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\stateButtonComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO\stateDpadComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO_OnFirstPressSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO_OnPressSystem.cs" />
@@ -165,6 +170,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollision\eventOnCollisionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollisionSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\eventCrouchComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\State\eventFacingComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\eventHMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\eventVMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateCrouchComponent.cs" />
@@ -178,6 +184,7 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderResource\_ResourcePaths.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderTransform\PositionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderTransform\RenderPositionSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderTransform\RotationComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderTransform\ScaleComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Update\RenderTransform\VelocityComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\_Init\IOControllableInitSystem.cs" />

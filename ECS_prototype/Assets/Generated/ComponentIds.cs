@@ -9,26 +9,29 @@ public static class ComponentIds {
     public const int eventButton = 7;
     public const int eventCrouch = 8;
     public const int eventDpad = 9;
-    public const int eventGamePad = 10;
-    public const int eventHMotion = 11;
-    public const int eventOnCollision = 12;
-    public const int eventVMotion = 13;
-    public const int IO_Controllable = 14;
-    public const int _CONSTANT = 15;
-    public const int Player = 16;
-    public const int Position = 17;
-    public const int PowerUpAttributes = 18;
-    public const int Scale = 19;
-    public const int stateCrouch = 20;
-    public const int stateDpad = 21;
-    public const int stateFacing = 22;
-    public const int stateHMotion = 23;
-    public const int stateVMotion = 24;
-    public const int Velocity = 25;
-    public const int View = 26;
-    public const int ViewResource = 27;
+    public const int eventFacing = 10;
+    public const int eventGamePad = 11;
+    public const int eventHMotion = 12;
+    public const int eventOnCollision = 13;
+    public const int eventVMotion = 14;
+    public const int IO_Controllable = 15;
+    public const int _CONSTANT = 16;
+    public const int Player = 17;
+    public const int Position = 18;
+    public const int PowerUpAttributes = 19;
+    public const int Rotation = 20;
+    public const int Scale = 21;
+    public const int stateButton = 22;
+    public const int stateCrouch = 23;
+    public const int stateDpad = 24;
+    public const int stateFacing = 25;
+    public const int stateHMotion = 26;
+    public const int stateVMotion = 27;
+    public const int Velocity = 28;
+    public const int View = 29;
+    public const int ViewResource = 30;
 
-    public const int TotalComponents = 28;
+    public const int TotalComponents = 31;
 
     public static readonly string[] componentNames = {
         "_CharacterController",
@@ -41,6 +44,7 @@ public static class ComponentIds {
         "eventButton",
         "eventCrouch",
         "eventDpad",
+        "eventFacing",
         "eventGamePad",
         "eventHMotion",
         "eventOnCollision",
@@ -50,7 +54,9 @@ public static class ComponentIds {
         "Player",
         "Position",
         "PowerUpAttributes",
+        "Rotation",
         "Scale",
+        "stateButton",
         "stateCrouch",
         "stateDpad",
         "stateFacing",
@@ -72,6 +78,7 @@ public static class ComponentIds {
         typeof(eventButtonComponent),
         typeof(eventCrouchComponent),
         typeof(eventDpadComponent),
+        typeof(eventFacingComponent),
         typeof(eventGamePadComponent),
         typeof(eventHMotionComponent),
         typeof(eventOnCollisionComponent),
@@ -81,7 +88,9 @@ public static class ComponentIds {
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(PowerUpAttributesComponent),
+        typeof(RotationComponent),
         typeof(ScaleComponent),
+        typeof(stateButtonComponent),
         typeof(stateCrouchComponent),
         typeof(stateDpadComponent),
         typeof(stateFacingComponent),

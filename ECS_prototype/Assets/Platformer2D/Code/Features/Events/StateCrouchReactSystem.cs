@@ -13,10 +13,10 @@ public class StateCrouchReactSystem : IReactiveSystem, ISetPool{
       foreach (var player in _players.GetEntities()){
         if(e.eventCrouch.ID == player.player.ID){
           if(e.eventCrouch.bCrouch==true){
-            player.view.gameobject.transform.localScale = new Vector3(player.scale.x, player.scale.y, player.scale.z) * 0.5f;
+            player.view.gameobject.transform.localScale = player.scale.scale * 0.5f;
           }
           else{
-            player.view.gameobject.transform.localScale = new Vector3(player.scale.x, player.scale.y, player.scale.z);
+            player.view.gameobject.transform.localScale = player.scale.scale ;
           }
         }
       }

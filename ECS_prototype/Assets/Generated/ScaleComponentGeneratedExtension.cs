@@ -12,20 +12,16 @@ namespace Entitas {
             _scaleComponentPool.Clear();
         }
 
-        public Entity AddScale(float newX, float newY, float newZ) {
+        public Entity AddScale(UnityEngine.Vector3 newScale) {
             var component = _scaleComponentPool.Count > 0 ? _scaleComponentPool.Pop() : new ScaleComponent();
-            component.x = newX;
-            component.y = newY;
-            component.z = newZ;
+            component.scale = newScale;
             return AddComponent(ComponentIds.Scale, component);
         }
 
-        public Entity ReplaceScale(float newX, float newY, float newZ) {
+        public Entity ReplaceScale(UnityEngine.Vector3 newScale) {
             var previousComponent = hasScale ? scale : null;
             var component = _scaleComponentPool.Count > 0 ? _scaleComponentPool.Pop() : new ScaleComponent();
-            component.x = newX;
-            component.y = newY;
-            component.z = newZ;
+            component.scale = newScale;
             ReplaceComponent(ComponentIds.Scale, component);
             if (previousComponent != null) {
                 _scaleComponentPool.Push(previousComponent);

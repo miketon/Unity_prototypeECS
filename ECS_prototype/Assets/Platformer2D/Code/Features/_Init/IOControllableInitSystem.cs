@@ -14,9 +14,11 @@ public class IOControllableInitSystem : IReactiveSystem, ISetPool {
       Debug.LogFormat("ADDING IO_Controllable : {0} {1}", e.iO_Controllable.ID, _group.GetEntities());
       foreach (var player in _group.GetEntities()){ // init controller
         Debug.LogFormat("PlayerIO: {0} ", player.view.gameobject);
-        var ioController = __gUtility.AddComponent_mton<InputGetController>(player.view.gameobject);
+        var ioController = __gUtility.AddComponent_mton<InputGetController>(player.view.gameobject); // TODO : need to populate input based on ID
         if(ioController){
           ioController.setID(e.iO_Controllable.ID);
+          e.AddstateDpad(_enum.Dirn.Neutral);
+          e.AddstateButton(_enum.Button.Neutral, _enum.Type.Neutral);
         }
       }
     }

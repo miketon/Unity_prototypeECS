@@ -16,9 +16,8 @@ public class PlayerInitSystem : IReactiveSystem, ISetPool {
       e.position.y = e.view.gameobject.transform.position.y;
       e.position.z = e.view.gameobject.transform.position.z;
       // store init scale
-      e.scale.x = e.view.gameobject.transform.localScale.x;
-      e.scale.y = e.view.gameobject.transform.localScale.y;
-      e.scale.z = e.view.gameobject.transform.localScale.z;
+      e.scale.scale = e.view.gameobject.transform.localScale;
+
     }
   }
 

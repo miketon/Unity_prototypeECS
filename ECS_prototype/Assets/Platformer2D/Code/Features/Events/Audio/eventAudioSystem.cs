@@ -10,6 +10,7 @@ public class eventAudioSystem : IInitializeSystem, IReactiveSystem {
   private SfxrSynth sOnHold    ;
   private SfxrSynth sOnCombo   ;
   private SfxrSynth sOnNeutral ;
+  private SfxrSynth sOnCrouch  ;
 
   private _enum.GPAD prevGPAD = _enum.GPAD.Neutral;
 
@@ -28,6 +29,10 @@ public class eventAudioSystem : IInitializeSystem, IReactiveSystem {
 //    this.sOnCombo.parameters.GeneratePickupCoin();
     this.sOnCombo.parameters.SetSettingsString("0,,0.032,0.4138,0.4365,0.834,,,,,,0.3117,0.6925,,,,,,1,,,,,0.5");
     this.sOnCombo.CacheSound();
+
+    this.sOnCrouch = new SfxrSynth();
+    this.sOnCrouch.parameters.GenerateHitHurt();
+    this.sOnCrouch.CacheSound();
   }
 #endregion
 
@@ -57,12 +62,17 @@ public class eventAudioSystem : IInitializeSystem, IReactiveSystem {
         }
         this.prevGPAD = e.eventGamePad.gpad;
       }
+      if(e.haseventCrouch){
+        if(e.eventCrouch.bCrouch == true){
+          this.sOnCrouch.Play();
+        }
+      }
     }
   }
 
   public TriggerOnEvent trigger {
     get {
-      return Matcher.AnyOf(Matcher.eventDpad, Matcher.eventButton, Matcher.eventGamePad).OnEntityAdded();
+      return Matcher.AnyOf(Matcher.eventDpad, Matcher.eventButton, Matcher.eventGamePad, Matcher.eventCrouch).OnEntityAdded();
     }
   }
 #endregion

@@ -1,9 +1,8 @@
 ﻿using Entitas ;
+using UnityEngine;
 
 public class ScaleComponent : IComponent {
 
-  public float x = 0.0f;
-  public float y = 0.0f;
-  public float z = 0.0f;
+  public Vector3 scale = new Vector3(1.0f, 1.0f, 1.0f);
 
 }
