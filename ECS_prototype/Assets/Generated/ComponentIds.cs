@@ -7,25 +7,27 @@ public static class ComponentIds {
     public const int event_IO_OnFirstRelease = 5;
     public const int event_IO_OnRelease = 6;
     public const int eventButton = 7;
-    public const int eventDpad = 8;
-    public const int eventGamePad = 9;
-    public const int eventHMotion = 10;
-    public const int eventOnCollision = 11;
-    public const int eventVMotion = 12;
-    public const int IO_Controllable = 13;
-    public const int _CONSTANT = 14;
-    public const int Player = 15;
-    public const int Position = 16;
-    public const int PowerUpAttributes = 17;
-    public const int stateDpad = 18;
-    public const int stateFacing = 19;
-    public const int stateHMotion = 20;
-    public const int stateVMotion = 21;
-    public const int Velocity = 22;
-    public const int View = 23;
-    public const int ViewResource = 24;
+    public const int eventCrouch = 8;
+    public const int eventDpad = 9;
+    public const int eventGamePad = 10;
+    public const int eventHMotion = 11;
+    public const int eventOnCollision = 12;
+    public const int eventVMotion = 13;
+    public const int IO_Controllable = 14;
+    public const int _CONSTANT = 15;
+    public const int Player = 16;
+    public const int Position = 17;
+    public const int PowerUpAttributes = 18;
+    public const int stateCrouch = 19;
+    public const int stateDpad = 20;
+    public const int stateFacing = 21;
+    public const int stateHMotion = 22;
+    public const int stateVMotion = 23;
+    public const int Velocity = 24;
+    public const int View = 25;
+    public const int ViewResource = 26;
 
-    public const int TotalComponents = 25;
+    public const int TotalComponents = 27;
 
     public static readonly string[] componentNames = {
         "_CharacterController",
@@ -36,6 +38,7 @@ public static class ComponentIds {
         "event_IO_OnFirstRelease",
         "event_IO_OnRelease",
         "eventButton",
+        "eventCrouch",
         "eventDpad",
         "eventGamePad",
         "eventHMotion",
@@ -46,6 +49,7 @@ public static class ComponentIds {
         "Player",
         "Position",
         "PowerUpAttributes",
+        "stateCrouch",
         "stateDpad",
         "stateFacing",
         "stateHMotion",
@@ -64,6 +68,7 @@ public static class ComponentIds {
         typeof(event_IO_OnFirstReleaseComponent),
         typeof(event_IO_OnReleaseComponent),
         typeof(eventButtonComponent),
+        typeof(eventCrouchComponent),
         typeof(eventDpadComponent),
         typeof(eventGamePadComponent),
         typeof(eventHMotionComponent),
@@ -74,6 +79,7 @@ public static class ComponentIds {
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(PowerUpAttributesComponent),
+        typeof(stateCrouchComponent),
         typeof(stateDpadComponent),
         typeof(stateFacingComponent),
         typeof(stateHMotionComponent),

@@ -16,6 +16,7 @@ public static class PoolExtensions {
       .AddstateVMotion(_enum.VState.Ground)
       .AddstateHMotion(_enum.HState.Neutral)
       .AddstateFacing(_enum.FState.Fwrd)
+      .AddstateCrouch(false)
       .AddstateDpad(_enum.Dirn.Neutral)
 			.AddViewResource(_players[0]) //string to prefab for instantiation
 			.AddPosition(pos.x, pos.y, pos.z)

@@ -84,6 +84,7 @@
      <Compile Include="Assets\Generated\_StartSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventAudioSystemGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventButtonComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\eventCrouchComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventDpadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventGamePadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\eventHMotionComponentGeneratedExtension.cs" />
@@ -92,6 +93,7 @@
      <Compile Include="Assets\Generated\event_IO_OnFirstPressComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\event_IO_OnFirstReleaseComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\event_IO_OnReleaseComponentGeneratedExtension.cs" />
+     <Compile Include="Assets\Generated\stateCrouchComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateDpadComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateFacingComponentGeneratedExtension.cs" />
      <Compile Include="Assets\Generated\stateHMotionComponentGeneratedExtension.cs" />
@@ -161,8 +163,10 @@
      <Compile Include="Assets\Platformer2D\Code\Features\Events\IO_OnReleaseSystem.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollision\eventOnCollisionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\OnCollisionSystem.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\State\eventCrouchComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\eventHMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\eventVMotionComponent.cs" />
+     <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateCrouchComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateFacingComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateHMotionComponent.cs" />
      <Compile Include="Assets\Platformer2D\Code\Features\Events\State\stateVMotionComponent.cs" />
