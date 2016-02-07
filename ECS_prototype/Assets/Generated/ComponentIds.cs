@@ -70,7 +70,7 @@ public static class ComponentIds {
     public static readonly System.Type[] componentTypes = {
         typeof(_CharacterControllerComponent),
         typeof(_GravityComponent),
-        typeof(_OnStartComponent),
+//        typeof(_OnStartComponent),
         typeof(_RigidBodyComponent),
         typeof(event_IO_OnFirstPressComponent),
         typeof(event_IO_OnFirstReleaseComponent),

@@ -39,7 +39,6 @@ namespace MTON.Controller {
 
         // Init
         .Add(pool.CreateSystem<_LevelInitSystem>())               // Configs gravity based on proj settings
-        .Add(pool.CreateSystem<_StartSystem>())
         .Add(pool.CreateSystem<IOControllableInitSystem>())       // NOTE : SetPool filters for view, so must sequence after view is spawned
         .Add(pool.CreateSystem<CharacterControllerInitSystem>())  // Initialialze all characterControllers
         .Add(pool.CreateSystem<PlayerInitSystem>())
