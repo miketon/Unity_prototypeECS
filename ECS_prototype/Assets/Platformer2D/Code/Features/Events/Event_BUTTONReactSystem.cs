@@ -5,17 +5,17 @@ using Entitas                    ;
 
 public class Event_BUTTONReactSystem : IReactiveSystem, ISetPool {
 
-  private Group _group;
+  private Group _ioControllables ;
 
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-//      Debug.LogFormat("Event_BUTTONReactSystem : {0} {1}", e.eventButton.bType, e.eventButton.bMode);
-//      if(e.eventButton.bMode == MTON._enum.Button.Down){ // is button down
-//        if(e.eventButton.bType == MTON._enum.Type.Jump){ // handle jumps
-//          Debug.LogFormat("Event_BUTTONReactSystem : JUMP! {0} {1}", e.eventButton.bType, e.eventButton.bMode);
-//        }
-//      }
+      foreach (var _io in _ioControllables .GetEntities()){
+        if(e.eventButton.ID == _io.iO_Controllable.ID){
+          _io.stateButton.bMode = e.eventButton.bMode;
+          _io.stateButton.bType = e.eventButton.bType;
+        }  
+      }
     }
   }
 
@@ -28,9 +28,8 @@ public class Event_BUTTONReactSystem : IReactiveSystem, ISetPool {
 
   #region ISetPool implementation
   public void SetPool(Pool pool) {
-    _group = pool.GetGroup(Matcher.AllOf(Matcher.IO_Controllable, Matcher.View, Matcher._CharacterController));
+    _ioControllables  = pool.GetGroup(Matcher.AllOf(Matcher.IO_Controllable, Matcher.View, Matcher._CharacterController));
   }
   #endregion
-
 
 }
