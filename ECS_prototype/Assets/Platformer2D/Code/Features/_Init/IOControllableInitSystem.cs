@@ -4,21 +4,18 @@ using System.Collections.Generic ;
 using Entitas                    ;
 using MTON                       ;
 
-public class IOControllableInitSystem : IReactiveSystem, ISetPool {
-
-  private Group _group;
+public class IOControllableInitSystem : IReactiveSystem {
 
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      Debug.LogFormat("ADDING IO_Controllable : {0} {1}", e.iO_Controllable.ID, _group.GetEntities());
-      foreach (var player in _group.GetEntities()){ // init controller
-        Debug.LogFormat("PlayerIO: {0} ", player.view.gameobject);
-        var ioController = __gUtility.AddComponent_mton<InputGetController>(player.view.gameobject); // TODO : need to populate input based on ID
+      Debug.LogFormat("ADDING IO_Controllable : {0} {1}", e.iO_Controllable.ID, e);
+      e.AddstateDpad(_enum.Dirn.Neutral);
+      e.AddstateButton(_enum.Button.Neutral, _enum.Type.Neutral);
+      if(e.hasView){
+        var ioController = __gUtility.AddComponent_mton<InputGetController>(e.view.gameobject); // TODO : need to populate input based on ID
         if(ioController){
           ioController.setID(e.iO_Controllable.ID);
-          e.AddstateDpad(_enum.Dirn.Neutral);
-          e.AddstateButton(_enum.Button.Neutral, _enum.Type.Neutral);
         }
       }
     }
@@ -28,12 +25,6 @@ public class IOControllableInitSystem : IReactiveSystem, ISetPool {
     get {
       return Matcher.IO_Controllable.OnEntityAdded();
     }
-  }
-  #endregion
-
-  #region ISetPool implementation
-  public void SetPool(Pool pool) {
-    _group = pool.GetGroup(Matcher.AllOf(Matcher.IO_Controllable, Matcher.View));
   }
   #endregion
 

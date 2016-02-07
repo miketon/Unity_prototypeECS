@@ -11,19 +11,23 @@ public class Event_StateHReactSystem : IReactiveSystem, ISetPool {
   #region IReactiveExecuteSystem implementation
   public void Execute(List<Entity> entities) {
     foreach (var e in entities){
-      foreach (var hstate in _ccUnits.GetEntities()){
-        if(hstate._CharacterController.ID == e.eventHMotion.ID){  // if event ID matches...
-          hstate.stateHMotion.hstate = e.eventHMotion.hstate;     // update player vmotion state
-          if(hstate.stateHMotion.hstate != _enum.HState.Neutral){ // are moving left/right
-            if((hstate.stateDpad.dpad & _enum.Dirn.RT) != 0){ // facing right
-              Debug.LogFormat("FACING RIGHT : {0}", hstate.stateDpad.dpad);
+      foreach (var unit in _ccUnits.GetEntities()){
+        if(unit._CharacterController.ID == e.eventHMotion.ID){  // if event ID matches...
+          unit.stateHMotion.hstate = e.eventHMotion.hstate;     // update player vmotion state
+          var xform = unit.view.gameobject.transform;
+          if(unit.stateHMotion.hstate != _enum.HState.Neutral){ // are moving left/right
+            if((unit.stateDpad.dpad & _enum.Dirn.RT) != 0){ // facing right
+              Debug.LogFormat("FACING RIGHT : {0}", unit.stateDpad.dpad);
+              xform.rotation = Quaternion.Euler(0.0f, -45.0f, 0.0f);
             }
             else{                                       // facing left
-              Debug.LogFormat("FACING LEFT  : {0}", hstate.stateDpad.dpad);
+              Debug.LogFormat("FACING LEFT  : {0}", unit.stateDpad.dpad);
+              xform.rotation = Quaternion.Euler(0.0f, 45.0f, 0.0f);
             }
           }
           else{                                         // facing neutral
-
+            Debug.LogFormat("FACING NEUTRAL  : {0}", unit.stateDpad.dpad);
+            xform.rotation = unit.rotation.rot;
           }
         }
       }
